@@ -7,7 +7,8 @@ import type { QuestionAnswer } from './answer.ts'
 import { DIAGNOSIS_LABELS, FIT_LABELS, QUALITY_LABELS, RECOGNITION_LABELS, diagnose, evaluateReasons, findOption } from './evaluate.ts'
 
 // 解説：教材データの内容だけを、決まった順で表示する（データにない条件・理由は作らない）
-export function Explanation({ question: q, answer, linkTo }: { question: Question; answer: QuestionAnswer; linkTo: (id: string) => string }) {
+// answer が null の時（先生の教材レビュー）は「あなたの回答」を出さない。生徒の画面では常に回答を渡す
+export function Explanation({ question: q, answer, linkTo }: { question: Question; answer: QuestionAnswer | null; linkTo: (id: string) => string }) {
   const c = useContent()
   const see = q.stages.find((s): s is RecognitionStage => s.kind === 'RECOGNITION')
   const dec = q.stages.find((s) => s.kind === 'DECISION')
@@ -17,11 +18,11 @@ export function Explanation({ question: q, answer, linkTo }: { question: Questio
   const decOptions: DecisionOption[] = dec.options
   const priority = decOptions.find((o) => o.fit === 'priority')
   const others = decOptions.filter((o) => o.fit !== 'priority')
-  const myLook = findOption(see.options, answer.look)
-  const myDec = findOption(decOptions, answer.decision)
-  const myReasons = myDec ? evaluateReasons(why, myDec.id, answer.reasons) : []
+  const myLook = answer ? findOption(see.options, answer.look) : null
+  const myDec = answer ? findOption(decOptions, answer.decision) : null
+  const myReasons = answer && myDec ? evaluateReasons(why, myDec.id, answer.reasons) : []
   const diagnosis = myDec ? DIAGNOSIS_LABELS[diagnose(myDec.fit, myReasons)] : null
-  const myReact = react ? findOption<DecisionOption>(react.options, answer.reaction) : null
+  const myReact = react && answer ? findOption<DecisionOption>(react.options, answer.reaction) : null
   const keyLooks = see.options.filter((o) => o.value === 'key')
   const keyReasons = priority ? why.options.filter((r) => r.quality === 'key' && r.supports.includes(priority.id)) : []
 
@@ -45,6 +46,7 @@ export function Explanation({ question: q, answer, linkTo }: { question: Questio
         </h2>
       </div>
 
+      {answer && (
       <Block title="あなたの回答">
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-2">
           <dt className="font-bold">見る</dt>
@@ -86,6 +88,7 @@ export function Explanation({ question: q, answer, linkTo }: { question: Questio
           </p>
         )}
       </Block>
+      )}
 
       <Block title="① この状況で、何を見るべきだったか">
         {keyLooks.map((o) => {

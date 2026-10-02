@@ -42,6 +42,10 @@ export function CoachPage() {
       <PageTitle en="COACH" ja="先生用">
         問題かセットを1つ選んで、生徒に配る課題URLを作ります。
       </PageTitle>
+      <a href="#/coach/review" className="btn-secondary mb-3 w-full justify-between">
+        <span>教材レビュー（問題・カリキュラムを確認して記録）</span>
+        <span aria-hidden="true">›</span>
+      </a>
       <p className="mb-3 rounded-xl bg-[var(--hover)] px-3 py-2 text-sm">
         URLには教材のIDだけが入ります（名前などの個人情報は入りません）。生徒の回答は先生には送られず、それぞれの端末の中だけに記録されます。
       </p>

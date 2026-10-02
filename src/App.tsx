@@ -7,6 +7,7 @@ import { HomePage } from './pages/HomePage.tsx'
 import { MapPage } from './pages/MapPage.tsx'
 import { MyIqPage } from './pages/MyIqPage.tsx'
 import { PlayPage } from './pages/PlayPage.tsx'
+import { ReviewPage } from './pages/ReviewPage.tsx'
 import { type Route, useHashRoute } from './utils/router.ts'
 
 const PAGES: Record<string, { tab: TabKey; title: string; render: (r: Route) => JSX.Element }> = {
@@ -15,7 +16,8 @@ const PAGES: Record<string, { tab: TabKey; title: string; render: (r: Route) => 
   map: { tab: 'map', title: 'MAP', render: (r) => <MapPage route={r} /> },
   'my-iq': { tab: 'myiq', title: 'MY IQ', render: () => <MyIqPage /> },
   myiq: { tab: 'myiq', title: 'MY IQ', render: () => <MyIqPage /> }, // 旧URL（STEP 3）も開けるように
-  coach: { tab: 'coach', title: 'COACH', render: () => <CoachPage /> },
+  // #/coach/review…は先生の教材レビュー（生徒の下部タブには出さない）
+  coach: { tab: 'coach', title: 'COACH', render: (r) => (r.segments[1] === 'review' ? <ReviewPage route={r} /> : <CoachPage />) },
 }
 
 export default function App() {

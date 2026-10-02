@@ -176,7 +176,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function RelatedDrills({ item }: { item: CurriculumItem }) {
+export function RelatedDrills({ item }: { item: CurriculumItem }) {
   const c = useContent()
   return (
     <Section title="関連する練習（練習メニュー倉庫）">
@@ -205,7 +205,7 @@ function RelatedDrills({ item }: { item: CurriculumItem }) {
   )
 }
 
-function RelatedTactics({ item }: { item: CurriculumItem }) {
+export function RelatedTactics({ item }: { item: CurriculumItem }) {
   if (item.related_tactics.length === 0) return null
   return (
     <Section title="関連する戦術（作戦盤）">
@@ -220,7 +220,7 @@ function RelatedTactics({ item }: { item: CurriculumItem }) {
 }
 
 // 根拠：教材内容の根拠だけを、種類ごとに分けて表示する（研究は「教え方」の根拠なので、ここには出さない）
-function Basis({ item }: { item: CurriculumItem }) {
+export function Basis({ item }: { item: CurriculumItem }) {
   const c = useContent()
   return (
     <BasisBoxes

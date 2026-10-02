@@ -321,7 +321,7 @@ export function Feedback({ title, tone, children }: { title: string; tone: 'good
   )
 }
 
-function HudBar({ hud }: { hud: NonNullable<NonNullable<Question['court']>['hud']> }) {
+export function HudBar({ hud }: { hud: NonNullable<NonNullable<Question['court']>['hud']> }) {
   const items = [
     hud.quarter !== undefined && `第${hud.quarter}クォーター`,
     hud.game_clock && `残り ${hud.game_clock}`,
