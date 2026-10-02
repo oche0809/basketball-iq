@@ -1,0 +1,183 @@
+{
+  "schema_version": 2,
+  "note": "出典の登録簿。verified_content = 実際に確認できた内容。not_verified = 未確認の点。教材の各部分（evidence）は source_id でここを参照する。ルール上の制約そのものは rules.json に分けて登録。",
+  "sources": [
+    {
+      "id": "SRC-CP-GENERAL",
+      "source_type": "COACHING_PRACTICE",
+      "title": "一般的なコーチング原則（設計者が作成・先生確認前）",
+      "url": null,
+      "verified_content": null,
+      "not_verified": "個々の判断の正しさは研究で確認されていない。先生の確認と、公式指導資料の該当箇所の確認が必要。"
+    },
+    {
+      "id": "SRC-TEAM",
+      "source_type": "TEAM_RULE",
+      "title": "自チームの約束（先生が登録）",
+      "url": null,
+      "verified_content": null,
+      "not_verified": "未登録。チームによって答えが変わる項目は、先生が答えを決めるまで公開しない。"
+    },
+    {
+      "id": "SRC-JBA-RULES-2025",
+      "source_type": "OFFICIAL_RULE",
+      "title": "バスケットボール競技規則 2025",
+      "publisher": "公益財団法人日本バスケットボール協会（FIBA OFFICIAL BASKETBALL RULES 2024 の和訳＋国内大会の補足）",
+      "year": 2025,
+      "url": "https://www.japanbasketball.jp/files/referee/rule/2025rule.pdf",
+      "accessed": "2026-10-01",
+      "verified_content": "PDF本文（269ページ）で確認：第8条補足（U15は8分×4Q・OT3分）、17-2-4（残り2:00のスローイン位置）、18-1・18-2-5（タイムアウトはヘッドコーチ等が請求、前半2・後半3・残り2:00は2回まで）、28-1-1（8秒）、29-1-1（24秒）、29-2（14秒リセット）、40-1（5ファウル）、41-1-1・41-2-1・41-2-2（チームファウル）。",
+      "not_verified": "大会ごとの独自規定（中体連の大会要項など）。"
+    },
+    {
+      "id": "SRC-JBA-U15-TIME",
+      "source_type": "OFFICIAL_RULE",
+      "title": "U15 の試合時間（8分×4クォーター）",
+      "url": null,
+      "accessed": "2026-10-01",
+      "verified_content": "複数の解説サイトで「中学生は8分×4クォーター、延長3分」と記載されていることを確認。",
+      "not_verified": "競技規則2025の第8条補足で確認できたため、この出典は使わない（SRC-JBA-RULES-2025 を使う）。",
+      "superseded_by": "SRC-JBA-RULES-2025"
+    },
+    {
+      "id": "SRC-JBA-M2M-PAGE",
+      "source_type": "OFFICIAL_COACHING",
+      "title": "マンツーマンの推進",
+      "publisher": "日本バスケットボール協会",
+      "url": "https://www.japanbasketball.jp/players_development",
+      "accessed": "2026-10-01",
+      "verified_content": "2015年から U15 以下でマンツーマンディフェンスを推進（ゾーンディフェンス禁止）。1対1の力・状況判断力・ディフェンス能力などの育成を目的に挙げている。"
+    },
+    {
+      "id": "SRC-JBA-M2M-REG",
+      "source_type": "OFFICIAL_RULE",
+      "title": "マンツーマンディフェンスの基準規則（2026年6月24日改訂版）",
+      "publisher": "日本バスケットボール協会",
+      "url": "https://www.japanbasketball.jp/wp-content/uploads/mandf_Regulation_20260624.pdf",
+      "accessed": "2026-10-01",
+      "verified_content": "PDF本文（20ページ、2026年6月24日修正版）で確認：ゾーンの定義、マッチアップ（1条）、オンボール1.5m（2条）、オフボール・ヘルプサイド・スイッチ（3条）、ヘルプ・ローテーション（4条）、トラップ（5条）、スイッチ（6条）、プレス（7条）、予測に基づくプレー（8条）、罰則（9〜13条）、補足解説Ⅲ〜Ⅸ。",
+      "not_verified": "ピック＆ロールの守り方は本文に名前がない（rules.json の M2M-PNR-NOT-NAMED を参照）。"
+    },
+    {
+      "id": "SRC-WABC-MANUAL",
+      "source_type": "OFFICIAL_COACHING",
+      "title": "FIBA / WABC Coaches Manual",
+      "publisher": "World Association of Basketball Coaches / FIBA",
+      "url": "https://assets.fiba.basketball/image/upload/documents-corporate-wabc-coaches-manual-eng.pdf",
+      "accessed": "2026-10-01",
+      "verified_content": "WABC と FIBA が無料で公開している指導者マニュアルであること（FIBA のニュースで確認）。",
+      "not_verified": "本文の該当箇所。今回は本文を確認できていないため、どの教材の根拠にもまだ使っていない。"
+    },
+    {
+      "id": "SRC-JRNBA",
+      "source_type": "OFFICIAL_COACHING",
+      "title": "Jr. NBA / Jr. WNBA Instructional Curriculum",
+      "publisher": "NBA",
+      "url": "https://jr.nba.com/jr-nba-instructional-curriculum/",
+      "accessed": "2026-10-01",
+      "verified_content": "4レベル×12回の練習計画。改訂で判断力（decision-making）、1v1〜3v3の少人数ゲーム、ゲームアプローチ、ランダムな開始位置を取り入れたと記載。",
+      "not_verified": "個々の判断の内容。"
+    },
+    {
+      "id": "SRC-R-FRENCH1987",
+      "source_type": "RESEARCH",
+      "title": "The relation of knowledge development to children's basketball performance",
+      "author": "French, K. E., & Thomas, J. R.",
+      "year": 1987,
+      "publisher": "Journal of Sport Psychology, 9(1), 15-32",
+      "url": "https://journals.humankinetics.com/view/journals/jsep/9/1/article-p15.xml",
+      "accessed": "2026-10-01",
+      "verified_content": "8〜12歳の選手で、バスケの知識は判断と関係し、ドリブル・シュート技術は実行と関係。シーズン終了時の判断を予測したのは知識のみ（抄録で確認）。"
+    },
+    {
+      "id": "SRC-R-GILARIAS2019",
+      "source_type": "RESEARCH",
+      "title": "Developing sport expertise in youth sport: a decision training program in basketball",
+      "author": "Gil-Arias, A., et al.",
+      "year": 2019,
+      "publisher": "PeerJ, 7, e7392",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6697037/",
+      "accessed": "2026-10-01",
+      "verified_content": "12〜13歳男子11名、11週間、映像フィードバック＋問いかけ（なぜその判断か・代わりの案）。介入群で適切な判断が増え、保持テストでも維持。",
+      "limitations": "1チーム・小人数。一般化には注意。"
+    },
+    {
+      "id": "SRC-R-GPAI1998",
+      "source_type": "RESEARCH",
+      "title": "The Game Performance Assessment Instrument (GPAI): development and preliminary validation",
+      "author": "Oslin, J. L., Mitchell, S. A., & Griffin, L. L.",
+      "year": 1998,
+      "publisher": "Journal of Teaching in Physical Education, 17(2), 231-243",
+      "url": "https://journals.humankinetics.com/view/journals/jtpe/17/2/article-p231.xml",
+      "accessed": "2026-10-01",
+      "verified_content": "判断・実行・サポートなど、ボールを持っている時と持っていない時の両方を評価する7要素の評価法。バスケを含む種目で検証。"
+    },
+    {
+      "id": "SRC-R-RYU2013",
+      "source_type": "RESEARCH",
+      "title": "The role of central and peripheral vision in expert decision making",
+      "author": "Ryu, D., Abernethy, B., Mann, D. L., Poolton, J. M., & Gorman, A. D.",
+      "year": 2013,
+      "publisher": "Perception, 42(6)",
+      "url": "https://doi.org/10.1068/p7487",
+      "accessed": "2026-10-01",
+      "verified_content": "書誌情報（検索結果で確認）。",
+      "not_verified": "本文の詳細（今回は本文を読んでいない）。"
+    },
+    {
+      "id": "SRC-R-FRONTIERS2026",
+      "source_type": "RESEARCH",
+      "title": "Perceptual-cognitive training in basketball: effects on cognitive-motor performance, decision-making, and sport-specific transfer across youth players",
+      "year": 2026,
+      "publisher": "Frontiers in Pediatrics",
+      "url": "https://www.frontiersin.org/journals/pediatrics/articles/10.3389/fped.2026.1972276/full",
+      "accessed": "2026-10-01",
+      "verified_content": "系統的レビュー。検索結果の要約で、判断トレーニングの効果は一致せず、コートへの転移は一貫しないと記載。",
+      "not_verified": "本文の詳細（要約のみ確認）。"
+    },
+    {
+      "id": "SRC-R-IMMERSIVE2018",
+      "source_type": "RESEARCH",
+      "title": "Exploring the Effectiveness of Immersive Video for Training Decision-Making Capability in Elite, Youth Basketball Players",
+      "year": 2018,
+      "publisher": "Frontiers in Psychology",
+      "url": "https://doi.org/10.3389/fpsyg.2018.02315",
+      "accessed": "2026-10-01",
+      "verified_content": "映像を使ったオフラインの判断トレーニングを検討した研究であること（要約で確認）。",
+      "not_verified": "結果の詳細。"
+    },
+    {
+      "id": "SRC-R-VIDEOASSESS2021",
+      "source_type": "RESEARCH",
+      "title": "Decision-Making Skills in Youth Basketball Players: Diagnostic and External Validation of a Video-Based Assessment",
+      "year": 2021,
+      "publisher": "IJERPH, 18(5), 2331",
+      "url": "https://doi.org/10.3390/ijerph18052331",
+      "accessed": "2026-10-01",
+      "verified_content": "映像を使った若年選手の判断力の評価法の研究であること（題名で確認）。",
+      "not_verified": "本文。将来の MY IQ の評価設計の参考候補。"
+    },
+    {
+      "id": "SRC-R-CEPEDA2006",
+      "source_type": "RESEARCH",
+      "title": "Distributed practice in verbal recall tasks: A review and quantitative synthesis",
+      "author": "Cepeda, N. J., Pashler, H., Vul, E., Wixted, J. T., & Rohrer, D.",
+      "year": 2006,
+      "publisher": "Psychological Bulletin, 132(3)",
+      "url": null,
+      "verified_content": null,
+      "not_verified": "今回は検索・本文確認をしていない（設計者の既知情報）。復習機能の根拠に使う前に確認。"
+    },
+    {
+      "id": "SRC-R-ROEDIGER2006",
+      "source_type": "RESEARCH",
+      "title": "Test-enhanced learning: Taking memory tests improves long-term retention",
+      "author": "Roediger, H. L., & Karpicke, J. D.",
+      "year": 2006,
+      "publisher": "Psychological Science, 17(3)",
+      "url": null,
+      "verified_content": null,
+      "not_verified": "今回は検索・本文確認をしていない（設計者の既知情報）。復習機能の根拠に使う前に確認。"
+    }
+  ]
+}

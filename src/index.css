@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* 色はここでまとめて定義する（画面ごとに色を直接書かない） */
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --ink: #1c2430;
+  --muted: #5b6573;
+  --line: #e2ded6;
+  --hover: #efece6;
+  --accent: #c2410c;
+  --accent-ink: #9a3412;
+  --accent-soft: #fff1e8;
+  --accent-line: #7c2d12;
+  --court: #f3dfc1;
+  --court-line: #b07b45;
+  color-scheme: light;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  /* 押しやすさ：ボタンは高さ48px以上 */
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 text-base font-bold text-white shadow-sm active:translate-y-px;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--line)] bg-[var(--surface)] px-5 text-base font-bold text-[var(--ink)] active:translate-y-px;
+  }
+  .card {
+    @apply rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-4;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

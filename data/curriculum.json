@@ -1,0 +1,5576 @@
+{
+  "schema_version": 2,
+  "created_at": "2026-10-01",
+  "updated_at": "2026-10-01",
+  "note": "v2：105項目を再レビューし76項目に整理。retired は統合・削除した29項目（IDは再利用しない）。planned_sets は「同じ状況で一部だけ変える」問題セットの計画。",
+  "items": [
+    {
+      "id": "OF-SPC-01",
+      "category": "OFFENSE",
+      "subcategory": "スペーシング",
+      "title": "味方と近すぎる時に離れる",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "味方との距離を見て、DF1人に2人守られない位置へ動ける",
+      "situation": "ボールを持つ味方の近くに、あなたが寄ってしまっている",
+      "decision_point": {
+        "look_at": "味方との距離（目安4〜5m）",
+        "decide": "近すぎれば離れて、別の空いたスポットへ"
+      },
+      "common_mistakes": [
+        "ボールに寄っていく"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "あなたと味方は、1人のDFに2人とも守られる距離にいる？",
+        "decision": "どこへ動く？（図の A〜C から選ぶ）"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "「離れすぎ」の版も出す"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-189"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SPC-02",
+      "category": "OFFENSE",
+      "subcategory": "スペーシング",
+      "title": "ドライブに合わせて動く（道を空ける・ドリフト・リフト）",
+      "grade": [
+        1,
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "味方のドライブの方向とDFの目線を見て、道を空け、空く場所へ動ける",
+      "situation": "味方がウイングからミドル（またはベースライン）にドライブを始めた",
+      "decision_point": {
+        "look_at": "ドライブの方向・自分のDFの目線",
+        "decide": "道から出る。DFがボールを見たら、空く場所へ移動"
+      },
+      "common_mistakes": [
+        "止まって見ている",
+        "道に立つ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DRIVE-LANE",
+        "CUE-DEF-EYES"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "味方のドライブを見た瞬間、まず確認するのは？",
+        "decision": "あなたはどこへ動く？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "ドライブ方向違いのセット"
+      },
+      "question_set": "SET-DRIVE-SUPPORT",
+      "related_drills": [
+        "lib-062",
+        "lib-156"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-SPC-04（ドリフト・リフト）を統合。初級は「道を空ける」、中級は「空く場所へ」"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SPC-03",
+      "category": "OFFENSE",
+      "subcategory": "スペーシング",
+      "title": "コーナーで待つか、寄るか",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "逆サイドのドライブ中、コーナーに残る価値を判断できる",
+      "situation": "逆サイドで味方がドライブ。あなたは右コーナー",
+      "decision_point": {
+        "look_at": "自分のDFがペイントに寄ったか",
+        "decide": "DFが寄ったら受ける準備、寄らなければ位置を保つ"
+      },
+      "common_mistakes": [
+        "ボールに寄ってきてスペースを消す"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-HELP-FEET",
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ドライブが始まった。あなたが見るのは？",
+        "decision": "コーナーに残る？ ボールに寄る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "DFが寄る／寄らないのペア"
+      },
+      "question_set": "SET-DRIVE-SUPPORT",
+      "related_drills": [
+        "lib-194"
+      ],
+      "related_tactics": [
+        "HC-02"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "「意味を理解する」（知識）から「残るか寄るか」（判断）へ"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SPC-05",
+      "category": "OFFENSE",
+      "subcategory": "スペーシング",
+      "title": "カットで空いた場所を埋める（リプレイス）",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "味方がカットして空いた場所に気づき、埋められる",
+      "situation": "味方がパス＆カットでゴールへ走った",
+      "decision_point": {
+        "look_at": "空いたスポット・ボールとの角度",
+        "decide": "隣の人がそのスポットへ動く"
+      },
+      "common_mistakes": [
+        "全員が同じ側に集まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "味方がカットした。今、どこが空いた？",
+        "decision": "あなたはどこへ動く？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-181"
+      ],
+      "related_tactics": [
+        "HC-01"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-1V1-01",
+      "category": "OFFENSE",
+      "subcategory": "1on1",
+      "title": "キャッチした瞬間：打つか、抜くか",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "キャッチした時のDFとの距離で、シュートかドライブかを選べる",
+      "situation": "ウイングでボールを受けた",
+      "decision_point": {
+        "look_at": "DFとの距離・手の位置",
+        "decide": "遠ければシュート、近くて勢いがあれば抜く"
+      },
+      "common_mistakes": [
+        "DFを見ずに毎回同じ動き"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-DISTANCE"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールを受けた瞬間、最初に見るのは？",
+        "decision": "打つ？ 抜く？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "DF距離違いのセット必須"
+      },
+      "question_set": "SET-CATCH-READ",
+      "related_drills": [
+        "lib-043"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-SHT-02（打つか抜くか）を統合（同じ判断の重複）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-1V1-02",
+      "category": "OFFENSE",
+      "subcategory": "1on1",
+      "title": "DFの足を見て抜く方向を選ぶ",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "DFの構え（前足・体重）を見て、抜く方向を選べる",
+      "situation": "DFが片足を前に出して構えている",
+      "decision_point": {
+        "look_at": "DFの前足・体重のかかり方",
+        "decide": "前足側（反応が遅れる側）へ"
+      },
+      "common_mistakes": [
+        "得意な方向にしか行かない"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-STANCE"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "DFのどこを見て抜く方向を決める？",
+        "decision": "どちらへ抜く？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "左右反転の問題を混ぜる"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-126"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "技術寄り。「見る」問いを中心にする。前足側を抜くことの効果は研究で未確認（指導原則）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-1V1-03",
+      "category": "OFFENSE",
+      "subcategory": "1on1",
+      "title": "クローズアウトの勢いを見て攻め方を変える",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "走ってくるDF・止まって構えるDF・遅れたDFで、優先する攻め方を変えられる",
+      "situation": "キャッチした瞬間、DFが近づいてくる",
+      "decision_point": {
+        "look_at": "DFの勢い・距離・手の高さ",
+        "decide": "勢いがあればドライブ、構えていれば揺さぶり、遅れていればシュートを優先"
+      },
+      "common_mistakes": [
+        "勢いのあるDFの前でそのまま打つ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-CLOSEOUT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "DFが近づいてくる。最初に見るのは？",
+        "decision": "どの攻め方を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "DF3種類のセット必須"
+      },
+      "question_set": "SET-CLOSEOUT-READ",
+      "related_drills": [
+        "lib-184",
+        "lib-073"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "全選択肢に価値がある「優先」問題に変更"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-1V1-04",
+      "category": "OFFENSE",
+      "subcategory": "1on1",
+      "title": "ジャブへの反応を見て次を決める",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ジャブステップへのDFの反応で、シュートかドライブかを選べる",
+      "situation": "DFと向き合ってジャブをした",
+      "decision_point": {
+        "look_at": "ジャブでDFが下がったか、動かなかったか",
+        "decide": "下がった＝シュート、動かない＝ドライブ"
+      },
+      "common_mistakes": [
+        "反応を見ずにジャブを続ける"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-DISTANCE",
+        "CUE-DEF-STANCE"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ジャブの後、何を見る？",
+        "decision": "次はどうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "反応違いのペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-047"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-1V1-05",
+      "category": "OFFENSE",
+      "subcategory": "1on1",
+      "title": "抜けない時は攻め直す",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "進路を止められた時、無理をせずパスで攻め直せる",
+      "situation": "ドライブの進路をDFに止められた",
+      "decision_point": {
+        "look_at": "DFの位置・近くの味方の位置",
+        "decide": "戻すパスで作り直す（リセット）"
+      },
+      "common_mistakes": [
+        "無理に突っ込む",
+        "ドリブルを止めて固まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-DEF-STANCE",
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "進路を止められた。今、見るのは？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-178"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-DRV-01",
+      "category": "OFFENSE",
+      "subcategory": "ドライブ",
+      "title": "ドライブ中にヘルプを見て決める",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "ヘルプが来たかどうかを見て、自分で決めるかパスかを変えられる",
+      "situation": "ウイングからゴールへドライブした",
+      "decision_point": {
+        "look_at": "ヘルプDFの足がペイントに入ったか",
+        "decide": "来ない＝自分で決める、来た＝空いた味方を探す、次のDFも動いた＝さらに先へ"
+      },
+      "common_mistakes": [
+        "ゴールしか見ない",
+        "パスすると決めてからドライブ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-HELP-FEET",
+        "CUE-WHO-HELPED",
+        "CUE-ROTATION"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ドライブ中、最初に見るのは？",
+        "decision": "この瞬間、どうする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "ヘルプなし／あり／ローテーションのセット必須"
+      },
+      "question_set": "SET-DRIVE-HELP",
+      "related_drills": [
+        "lib-057",
+        "lib-060",
+        "lib-239"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-DRV-02（ヘルプが来なければ決める）を統合。同じ項目の「DF違い」は問題セットで扱う"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-DRV-03",
+      "category": "OFFENSE",
+      "subcategory": "ドライブ",
+      "title": "誰がヘルプしたかで、パス先を決める",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ヘルプに来たDFの担当を考えて、空いた味方を選べる",
+      "situation": "ドライブにコーナー・ウイング・ポストのどこかからヘルプが来る",
+      "decision_point": {
+        "look_at": "どのDFが寄ったか（もともと誰の担当か）",
+        "decide": "寄ったDFの担当へパス"
+      },
+      "common_mistakes": [
+        "いつも同じ人（コーナー）に出す"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-WHO-HELPED"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "寄ってきたDFは、もともと誰を守っていた？",
+        "decision": "誰にパスする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "ヘルプの出どころ違いのセット"
+      },
+      "question_set": "SET-WHO-HELPED",
+      "related_drills": [
+        "lib-239",
+        "lib-060",
+        "lib-034"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-PAS-03（ヘルプしたDFのマークへ）を統合（重複）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-DRV-04",
+      "category": "OFFENSE",
+      "subcategory": "ドライブ",
+      "title": "囲まれたら止まって見る",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ペイントで囲まれた時、止まって（ピボットして）外を見られる",
+      "situation": "ドライブ後、ペイントで2人に囲まれた",
+      "decision_point": {
+        "look_at": "囲まれたか・外の味方の位置",
+        "decide": "止まってピボット、外の空いた味方へ"
+      },
+      "common_mistakes": [
+        "ジャンプしてから考える"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-PAINT-CROWD"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "囲まれた。今、見るのは？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-057"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-DRV-05",
+      "category": "OFFENSE",
+      "subcategory": "ドライブ",
+      "title": "ベースラインドライブからのドロップパス",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ポストDFのヘルプに対して、ゴール下の味方へ低いパスを選べる",
+      "situation": "ベースラインドライブにポストDFが寄った",
+      "decision_point": {
+        "look_at": "ポストDFがボールに出たか",
+        "decide": "出たら、ゴール下の味方へ低いパス"
+      },
+      "common_mistakes": [
+        "浮いたパスでカットされる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-WHO-HELPED",
+        "CUE-POST-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ベースラインドライブ中、見るのは？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "ポストDFが出ない版とペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-142"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-DRV-06",
+      "category": "OFFENSE",
+      "subcategory": "ドライブ",
+      "title": "外だけで回っている時、中へ入る",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "DFが全員外に出ている時、ペイントに入って守備を縮ませる判断ができる",
+      "situation": "外でパスが回るだけで、DFは全員外に出ている",
+      "decision_point": {
+        "look_at": "ペイントに何人DFがいるか",
+        "decide": "少なければ中へ（ドライブ・カット）、縮んだら外へ"
+      },
+      "common_mistakes": [
+        "外だけでパスを回して時間切れ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-PAINT-CROWD"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、ペイントにDFは何人いる？",
+        "decision": "次に何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-241"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "「価値を理解する」（抽象的）から場面の判断へ"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PAS-01",
+      "category": "OFFENSE",
+      "subcategory": "パス",
+      "title": "空いている味方を選ぶ",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "パス先の候補の中から、DFから遠い味方を選べる",
+      "situation": "パス先の候補が2人いる",
+      "decision_point": {
+        "look_at": "味方とそのDFの距離",
+        "decide": "DFから遠い方へ"
+      },
+      "common_mistakes": [
+        "近い人に出す"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-DEF-DISTANCE"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "2人の味方、それぞれのDFはどこにいる？",
+        "decision": "どちらにパスする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "左右入れ替え"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-139"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PAS-04",
+      "category": "OFFENSE",
+      "subcategory": "キックアウト",
+      "title": "クローズアウトが間に合った時のもう1本",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "キックアウト後、DFが間に合ったらさらに1本回す判断ができる",
+      "situation": "キックアウトを受けたが、DFが間に合った",
+      "decision_point": {
+        "look_at": "クローズアウトの距離・次の味方のDF",
+        "decide": "間に合っていれば次の味方へ（エクストラパス）"
+      },
+      "common_mistakes": [
+        "打てないのに打つ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-CLOSEOUT",
+        "CUE-ROTATION"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールを受けた瞬間、何を見る？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "SET-DRIVE-HELP の3問目"
+      },
+      "question_set": "SET-DRIVE-HELP",
+      "related_drills": [
+        "lib-201"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PAS-05",
+      "category": "OFFENSE",
+      "subcategory": "パス",
+      "title": "逆サイドが空いている時のスキップパス",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "守備がボール側に寄りすぎた時、逆サイドを使える",
+      "situation": "ボール側に守備が集まっている",
+      "decision_point": {
+        "look_at": "逆サイドDFの位置",
+        "decide": "寄りすぎていれば逆サイドへ"
+      },
+      "common_mistakes": [
+        "近くのパスだけ使う"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-WEAKSIDE-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "逆サイドのDFはどこまで寄っている？",
+        "decision": "どこにパスする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "寄っていない版とペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-245"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "JBA基準規則でヘルプサイドのDFには位置の制約がある（M2M-HELPSIDE-FOOT）。問題の図はこの範囲で作る"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PAS-06",
+      "category": "OFFENSE",
+      "subcategory": "パス",
+      "title": "ポストへのパスの入れ方",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ポストDFの位置を見て、空いている側へパスを入れられる",
+      "situation": "ポストが面を取っている",
+      "decision_point": {
+        "look_at": "ポストDFが前・横・後ろのどこか",
+        "decide": "DFのいない側へ（または角度を変えてから）"
+      },
+      "common_mistakes": [
+        "DFの上から無理に入れる"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-POST-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ポストDFはどこにいる？",
+        "decision": "どうやってパスを入れる？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "DF位置3種類のセット"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-065",
+        "lib-190"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "やや細かい。優先度は低め（MVP外）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-OFB-01",
+      "category": "OFFENSE",
+      "subcategory": "オフボール",
+      "title": "自分のDFがボールを見た瞬間に動く",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "自分のDFの目線を見て、カットのタイミングを選べる",
+      "situation": "ウイングでボールを持っていない",
+      "decision_point": {
+        "look_at": "自分のDFの頭の向き",
+        "decide": "ボールを見た＝ゴールへカット、こちらを見ている＝位置を保つ"
+      },
+      "common_mistakes": [
+        "ずっと立って待つ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-EYES"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールを持っていない時、まず見るのは？",
+        "decision": "今、動く？ 待つ？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-CUT-READ 必須"
+      },
+      "question_set": "SET-CUT-READ",
+      "related_drills": [
+        "lib-185"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-OFB-02",
+      "category": "OFFENSE",
+      "subcategory": "バックカット",
+      "title": "ディナイされたら裏へ",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "DFの手と足がパスコースにある時、裏（ゴール側）へ走れる",
+      "situation": "ウイングでパスをもらえない",
+      "decision_point": {
+        "look_at": "DFの手と足がパスコースにあるか",
+        "decide": "入っていれば裏へカット、離れていれば外で受ける"
+      },
+      "common_mistakes": [
+        "外へ逃げ続ける"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DENY-HAND"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "パスがもらえない。何を見る？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-CUT-READ 必須"
+      },
+      "question_set": "SET-CUT-READ",
+      "related_drills": [
+        "lib-070",
+        "lib-202"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-OFB-03",
+      "category": "OFFENSE",
+      "subcategory": "カッティング",
+      "title": "パスの後、DFの動きでカットか残るかを決める",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "パスした後、自分のDFがボール側に寄ったかでカットを選べる",
+      "situation": "パスを出した直後",
+      "decision_point": {
+        "look_at": "自分のDFがボール側に寄ったか",
+        "decide": "寄った＝ゴールへカット、寄らない＝スペースを保つ・入れ替わる"
+      },
+      "common_mistakes": [
+        "パスの後に止まる",
+        "いつも走る"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-EYES"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "パスした直後、何を見る？",
+        "decision": "カットする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-CUT-READ"
+      },
+      "question_set": "SET-CUT-READ",
+      "related_drills": [
+        "lib-181",
+        "lib-063"
+      ],
+      "related_tactics": [
+        "HC-01"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "「パスしたら走る」（習慣の暗記）から「DFを見て決める」へ"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-OFB-04",
+      "category": "OFFENSE",
+      "subcategory": "カッティング",
+      "title": "カットでもらえなかった後に抜ける場所",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "カットでパスが来なかった時、空いたスポットへ抜けられる",
+      "situation": "カットしたがパスが来ない",
+      "decision_point": {
+        "look_at": "空いているスポット",
+        "decide": "空いた外のスポットへ抜ける"
+      },
+      "common_mistakes": [
+        "ゴール下に留まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "カットしたがパスが来ない。どこが空いている？",
+        "decision": "どこへ抜ける？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-196"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-OFB-06",
+      "category": "OFFENSE",
+      "subcategory": "オフボール",
+      "title": "困ったボールマンを助ける（近づく・フラッシュ）",
+      "grade": [
+        1,
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ボールマンが止められた時、受けに行ける場所を選べる",
+      "situation": "味方のドリブルが止まった／パスコースがない",
+      "decision_point": {
+        "look_at": "ボールマンの状態・ハイポストのスペース",
+        "decide": "近づいて受ける、またはハイポストへ飛び込む"
+      },
+      "common_mistakes": [
+        "離れたまま見ている",
+        "ボールに寄りすぎる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-TEAMMATE-SPACING",
+        "CUE-DENY-HAND"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "味方のドリブルが止まった。何を見る？",
+        "decision": "あなたはどう助ける？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-187",
+        "lib-191"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-OFB-05（困ったボールマンを助ける）を統合（重複）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SCR-01",
+      "category": "OFFENSE",
+      "subcategory": "スクリーン",
+      "title": "DFの追い方でスクリーンの使い方を変える",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ダウンスクリーンで、自分のDFの追い方を見て動きを変えられる",
+      "situation": "ダウンスクリーンを使う",
+      "decision_point": {
+        "look_at": "自分のDFが後ろから追うか・下を通るか",
+        "decide": "後ろから＝カール（中へ）、下を通る＝ポップ（外へ）"
+      },
+      "common_mistakes": [
+        "毎回同じ方向へ出る",
+        "スクリーンを待たずに動く"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-SCREEN-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンを使う時、何を見る？",
+        "decision": "どちらへ出る？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "追い方違いのセット"
+      },
+      "question_set": "SET-DOWNSCREEN",
+      "related_drills": [
+        "lib-061",
+        "lib-148",
+        "lib-215"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-SCR-03（スクリーンを待つ）は技術なので削除し、よくある間違いに入れた"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SCR-02",
+      "category": "OFFENSE",
+      "subcategory": "スクリーン",
+      "title": "スクリーナーが空いたら使う",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "スクリーンの後、2人のDFの反応を見てスクリーナーが空いたことに気づける",
+      "situation": "スクリーンをかけた後",
+      "decision_point": {
+        "look_at": "2人のDFが、使う人に付いたか",
+        "decide": "2人とも使う人に付いたら、スクリーナーが空く"
+      },
+      "common_mistakes": [
+        "スクリーンの後に止まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-SCREENER-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンの後、あなた（スクリーナー）は何を見る？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-DOWNSCREEN",
+      "related_drills": [
+        "lib-203"
+      ],
+      "related_tactics": [
+        "HC-03"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PNR-01",
+      "category": "OFFENSE",
+      "subcategory": "P&R（ボールスクリーン）",
+      "title": "自分のDFが上か下かを見る",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ボールスクリーンで、自分のDFの通り方を見て攻め方を選べる",
+      "situation": "ボールスクリーンを使う",
+      "decision_point": {
+        "look_at": "自分のDFがスクリーンの上か下か",
+        "decide": "下を通った＝シュート、上から追う＝加速してゴールへ"
+      },
+      "common_mistakes": [
+        "DFを見ずに同じ攻め"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCREEN-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンを使った瞬間、何を見る？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-PNR-READ 必須"
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-059"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PNR-02",
+      "category": "OFFENSE",
+      "subcategory": "P&R（ボールスクリーン）",
+      "title": "スクリーナーのDFを見る",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "スクリーナーのDFの位置で、パスか自分で行くかを選べる",
+      "situation": "ボールスクリーンを使った後",
+      "decision_point": {
+        "look_at": "スクリーナーのDFが出たか、下がったか",
+        "decide": "出た＝ロールへパス、下がった＝自分でシュート・前進"
+      },
+      "common_mistakes": [
+        "自分のDFしか見ない"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCREENER-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンの後、2人目に見るDFは？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-PNR-READ 必須"
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-059",
+        "lib-099"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-PNR-04",
+      "category": "OFFENSE",
+      "subcategory": "P&R（ボールスクリーン）",
+      "title": "ロールへのヘルプで逆サイドが空く",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "ロールマンにヘルプが来た時、逆サイドへ展開できる",
+      "situation": "P&Rのロールに逆サイドDFが寄った",
+      "decision_point": {
+        "look_at": "ロールに寄ったDF",
+        "decide": "そのDFの担当へ"
+      },
+      "common_mistakes": [
+        "逆サイドの選手が止まっている"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-WHO-HELPED",
+        "CUE-ROTATION"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ロールにDFが寄った。誰が空いた？",
+        "decision": "どこにパスする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-197"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "OF-SHT-01",
+      "category": "OFFENSE",
+      "subcategory": "ショット選択",
+      "title": "このシュートは良いシュート？",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "フリーか・得意な距離か・体勢は良いかで、シュートを選べる",
+      "situation": "シュートを打てそうな場面",
+      "decision_point": {
+        "look_at": "DFとの距離・自分の位置・体勢",
+        "decide": "3つそろえば打つ、そろわなければ次の良いシュートを探す"
+      },
+      "common_mistakes": [
+        "打てる時は全部打つ"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SHOT-QUALITY",
+        "CUE-DEF-DISTANCE"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "このシュート、3つの条件のうち何がそろっている？",
+        "decision": "打つ？ 次を探す？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "条件違いの複数問"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-249"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "「得意な距離」は選手ごとに違うため、チームの約束（TEAM_RULE）を併用"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "DF-BAL-01",
+      "category": "DEFENSE",
+      "subcategory": "ボールマンDF",
+      "title": "ボールマンとゴールの間に立つ",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "自分・ボールマン・ゴールの位置関係を保てる",
+      "situation": "1on1でボールマンを守る",
+      "decision_point": {
+        "look_at": "自分がボールとゴールを結ぶ線の上にいるか・距離",
+        "decide": "線からずれたら戻る"
+      },
+      "common_mistakes": [
+        "ボールに飛びつく"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-DEF-DISTANCE"
+      ],
+      "rule_refs": [
+        "M2M-ONBALL-1_5M"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ONBALL-1_5M",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "自分とボールマンとゴール、今どんな位置関係？",
+        "decision": "どこに立つ？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-207"
+      ],
+      "related_tactics": [
+        "DEF-01"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "ルール（JBA基準規則2-2-1：ボールとリングの間・1.5m以内）とコーチング（構え方）を分けて表示"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-BAL-02",
+      "category": "DEFENSE",
+      "subcategory": "ボールマンDF",
+      "title": "ドリブルが止まったら詰める",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "ドリブルが止まった瞬間に距離を詰め、パスを難しくできる",
+      "situation": "ボールマンがドリブルを止めた",
+      "decision_point": {
+        "look_at": "ドリブルが止まったか",
+        "decide": "止まったら詰めてパスコースに手を出す"
+      },
+      "common_mistakes": [
+        "離れたまま見ている"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-DISTANCE"
+      ],
+      "rule_refs": [
+        "M2M-ONBALL-1_5M"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ONBALL-1_5M",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、ボールマンのドリブルは続いている？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "ドリブル継続版とペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-207"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-BAL-03",
+      "category": "DEFENSE",
+      "subcategory": "ボールマンDF",
+      "title": "チームの約束の方向へ行かせる",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "チームの約束（ミドルかベースラインか）とヘルプの位置を見て守れる",
+      "situation": "ウイングでの1on1",
+      "decision_point": {
+        "look_at": "チームの約束・ヘルプの位置",
+        "decide": "約束の方向へ行かせ、ヘルプのいる方へ"
+      },
+      "common_mistakes": [
+        "毎回違う方向に抜かれる"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-TEAM-RULE"
+      ],
+      "rule_refs": [
+        "M2M-ONBALL-1_5M"
+      ],
+      "source_types": [
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ONBALL-1_5M",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ヘルプの味方はどちらにいる？",
+        "decision": "どちらへ行かせる？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "チームの約束を登録してから公開"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-180"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-OFB-01",
+      "category": "DEFENSE",
+      "subcategory": "オフボールDF",
+      "title": "ボールとマークの両方が見える位置",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "ボールと自分のマークの両方が見える位置を取れる",
+      "situation": "自分のマークがボールを持っていない",
+      "decision_point": {
+        "look_at": "ボールとマークが両方見えるか",
+        "decide": "見えない位置なら、ゴール側に下がって両方を見る"
+      },
+      "common_mistakes": [
+        "マークだけ",
+        "ボールだけを見る"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-BALL-AND-MARK"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今の位置で、ボールとマークの両方が見える？",
+        "decision": "どこに立つ？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "SET-OFFBALL-POSITION でボール位置を変える"
+      },
+      "question_set": "SET-OFFBALL-POSITION",
+      "related_drills": [
+        "lib-077"
+      ],
+      "related_tactics": [
+        "DEF-03"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "JBA基準規則3-2-1（ヘルプサイドは両方が見える位置）と一致することを明記"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-OFB-02",
+      "category": "DEFENSE",
+      "subcategory": "オフボールDF",
+      "title": "ボールの隣のマークはディナイ",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "マークがボールから1パスの時、パスコースに手と足を入れられる",
+      "situation": "自分のマークがボールの隣",
+      "decision_point": {
+        "look_at": "ボールとマークの距離（1パスか2パスか）",
+        "decide": "1パス＝パスコースに入る"
+      },
+      "common_mistakes": [
+        "離れすぎ",
+        "マークの後ろに立つ"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-BALL-POSITION"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "自分のマークはボールから何パス離れている？",
+        "decision": "どこに立つ？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "1パス・2パスを混ぜる"
+      },
+      "question_set": "SET-OFFBALL-POSITION",
+      "related_drills": [],
+      "related_tactics": [
+        "DEF-02"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": "ディナイの強さはチームで違う（指導原則）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-OFB-03",
+      "category": "DEFENSE",
+      "subcategory": "オフボールDF",
+      "title": "逆サイドのマークはヘルプ位置",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "マークが逆サイドの時、ペイント側へ寄れる",
+      "situation": "自分のマークがボールと逆サイド",
+      "decision_point": {
+        "look_at": "ボールとマークの距離・ヘルプサイドか",
+        "decide": "2パス＝ボールとゴールの線に近づく（ヘルプサイドに足を残す）"
+      },
+      "common_mistakes": [
+        "マークにくっつく"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-BALL-POSITION",
+        "CUE-BALL-AND-MARK"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION",
+        "M2M-HELPSIDE-FOOT"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELPSIDE-FOOT",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "自分のマークはボールから何パス離れている？",
+        "decision": "どこに立つ？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-OFFBALL-POSITION"
+      },
+      "question_set": "SET-OFFBALL-POSITION",
+      "related_drills": [],
+      "related_tactics": [
+        "DEF-03"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "JBA基準規則3-2-4（ヘルプサイドに片足以上）を図の制約に追加"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-OFB-04",
+      "category": "DEFENSE",
+      "subcategory": "パスへの対応",
+      "title": "パスが出たら位置を変える",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "パスの間に、次の正しい位置へ動ける",
+      "situation": "ボールが隣へパスされた",
+      "decision_point": {
+        "look_at": "ボールの移動（何パス離れに変わったか）",
+        "decide": "ボールの方向へ移動して位置を取り直す"
+      },
+      "common_mistakes": [
+        "パスの後に止まっている"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-BALL-POSITION"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "パスが出た。自分のマークは何パス離れになった？",
+        "decision": "どこへ動く？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-OFFBALL-POSITION",
+      "related_drills": [
+        "lib-208"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "JBA基準規則3-2-2（ボールが動いたら合わせて移動）とも一致"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-HLP-01",
+      "category": "DEFENSE",
+      "subcategory": "ヘルプ",
+      "title": "ヘルプに出るタイミング",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "味方が抜かれた（抜かれそうな）時に出られる",
+      "situation": "味方DFがドライブで抜かれた",
+      "decision_point": {
+        "look_at": "味方DFが抜かれたか・抜かれそうか",
+        "decide": "抜かれた（抜かれそう）なら出る、止めていれば位置を保つ"
+      },
+      "common_mistakes": [
+        "早すぎて自分のマークが空く",
+        "遅すぎる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-BEATEN-TEAMMATE"
+      ],
+      "rule_refs": [
+        "M2M-HELP"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ドライブが始まった。何を見る？",
+        "decision": "今、ヘルプに出る？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "抜かれた／止めたのペア"
+      },
+      "question_set": "SET-HELP",
+      "related_drills": [
+        "lib-076"
+      ],
+      "related_tactics": [
+        "DEF-04"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": "ヘルプ自体はJBA基準規則4-2-1で認められている（ルール）。タイミングはコーチングの原則"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-HLP-02",
+      "category": "DEFENSE",
+      "subcategory": "ギャップ",
+      "title": "隣のボールマンとの間（ギャップ）に立つ",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ボールの隣で、ドライブの道をふさぐ位置を取れる",
+      "situation": "ボールが自分のマークの隣",
+      "decision_point": {
+        "look_at": "ボールマンとマークの間",
+        "decide": "間に立ち、ドライブにもパスにも対応"
+      },
+      "common_mistakes": [
+        "マークに張り付く"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-BALL-POSITION",
+        "CUE-DRIVE-LANE"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールマンとマークの間に、ドライブの道はある？",
+        "decision": "どこに立つ？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-HELP",
+      "related_drills": [
+        "lib-213"
+      ],
+      "related_tactics": [
+        "DEF-03"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-HLP-03",
+      "category": "DEFENSE",
+      "subcategory": "ヘルプ",
+      "title": "ヘルプの後、戻る（リカバー）",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ヘルプの後、ボールの行き先を見て自分のマークへ戻れる",
+      "situation": "ヘルプ後、ボールが自分のマークへパスされた",
+      "decision_point": {
+        "look_at": "ボールの行き先",
+        "decide": "自分のマークへ戻る（クローズアウト）"
+      },
+      "common_mistakes": [
+        "ボールを追い続ける"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-BALL-POSITION",
+        "CUE-CLOSEOUT"
+      ],
+      "rule_refs": [
+        "M2M-HELP",
+        "M2M-ROTATION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ROTATION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ヘルプした後、何を見る？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-HELP",
+      "related_drills": [
+        "lib-076"
+      ],
+      "related_tactics": [
+        "DEF-04"
+      ],
+      "review": {
+        "verdict": "改訂",
+        "note": "「直ちに戻るかローテーションしてマッチアップを明確に」はルール（4-2-3）。戻り方はコーチング"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-CLO-01",
+      "category": "DEFENSE",
+      "subcategory": "クローズアウト",
+      "title": "走って、最後は小刻みに止まる",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "クローズアウトで速く近づき、最後は止まって構えられる",
+      "situation": "パスが外へ出た",
+      "decision_point": {
+        "look_at": "相手との距離",
+        "decide": "遠い間は速く、近づいたら小刻みに止まる"
+      },
+      "common_mistakes": [
+        "走ったまま飛び込む"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-CLOSEOUT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "パスが出た。相手まで、どれくらい離れている？",
+        "decision": "どうやって近づく？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "距離違いの版"
+      },
+      "question_set": "SET-CLOSEOUT-D",
+      "related_drills": [
+        "lib-073"
+      ],
+      "related_tactics": [
+        "DEF-06"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "DF-CLO-02",
+      "category": "DEFENSE",
+      "subcategory": "クローズアウト",
+      "title": "相手に合わせたクローズアウト",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "相手がシューターかドライバーかで、止まる距離を変えられる",
+      "situation": "クローズアウトする",
+      "decision_point": {
+        "look_at": "相手の特徴（チームの情報）",
+        "decide": "シューターは近く手を高く、ドライバーは少し距離を残す"
+      },
+      "common_mistakes": [
+        "誰にでも同じ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-BALLHANDLER-SKILL",
+        "CUE-CLOSEOUT"
+      ],
+      "rule_refs": [
+        "M2M-ONBALL-1_5M"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ONBALL-1_5M",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "この相手は何が得意？",
+        "decision": "何を優先して止める？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "相手違いのセット"
+      },
+      "question_set": "SET-CLOSEOUT-D",
+      "related_drills": [
+        "lib-206"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "ボールを持った相手には1.5m以内（JBA基準規則2-2-1）の範囲で距離を調整することを明記"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-ROT-01",
+      "category": "DEFENSE",
+      "subcategory": "ローテーション",
+      "title": "ヘルプで空いたゴール下を守る（ヘルプのヘルプ）",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "ヘルプで空いた選手のうち、ゴールに近い選手を守りに行ける",
+      "situation": "味方がヘルプに出て、ゴール下が空いた",
+      "decision_point": {
+        "look_at": "空いた選手・ゴールに近い順",
+        "decide": "ゴールに近い空きから埋める（その後マッチアップを明確に）"
+      },
+      "common_mistakes": [
+        "全員がボールに集まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-OPEN-NEAR-RIM"
+      ],
+      "rule_refs": [
+        "M2M-ROTATION",
+        "M2M-HELP"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ROTATION",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、誰が空いている？ 一番危ないのは？",
+        "decision": "あなたはどうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-HELP",
+      "related_drills": [
+        "lib-079"
+      ],
+      "related_tactics": [
+        "DEF-05"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": "ローテーションはルール上可能（4-1-2・4-2-3）。誰が動くかはチームの約束"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-ROT-02",
+      "category": "DEFENSE",
+      "subcategory": "ローテーション",
+      "title": "スキップパスの後の守り直し（Xアウト）",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "スキップパスの後、近い人から出て守り直せる",
+      "situation": "ローテーション中にスキップパスが出た",
+      "decision_point": {
+        "look_at": "ボールとの距離・空いた選手",
+        "decide": "近い人がボールへ、残りが入れ替わってマッチアップを明確に"
+      },
+      "common_mistakes": [
+        "2人が同じ相手へ行く"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-BALL-POSITION",
+        "CUE-OPEN-NEAR-RIM"
+      ],
+      "rule_refs": [
+        "M2M-ROTATION",
+        "M2M-MATCHUP"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ROTATION",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-MATCHUP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スキップパスが出た。空いたのは誰？",
+        "decision": "あなたは誰を守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-210",
+        "lib-077"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "3年・チームで採用している場合のみ（難しすぎる可能性あり）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-CUT-01",
+      "category": "DEFENSE",
+      "subcategory": "カットへの対応",
+      "title": "カット・フラッシュにはボール側に体を入れる",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "マークがゴールや中央へ走った時、ボールとの間に入れる",
+      "situation": "自分のマークがカット（またはハイポストへフラッシュ）",
+      "decision_point": {
+        "look_at": "マークの動き・ボールの位置",
+        "decide": "ボール側に体を入れて進路をふさぐ"
+      },
+      "common_mistakes": [
+        "後ろから追うだけ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-CUTTER"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "マークが走り出した。何を確認する？",
+        "decision": "どう守る？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-063",
+        "lib-191"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "DF-CUT-03（フラッシュを止める）を統合（同じ判断）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-CUT-02",
+      "category": "DEFENSE",
+      "subcategory": "カットへの対応",
+      "title": "ディナイ中のバックカットに気づく",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "強くディナイしている時、裏へのカットに対応できる",
+      "situation": "強くディナイしている",
+      "decision_point": {
+        "look_at": "マークの足の向き・ボールの位置",
+        "decide": "裏へ走ったら、ゴール側へ戻ってボールを見る"
+      },
+      "common_mistakes": [
+        "ボールだけ見る"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-CUTTER",
+        "CUE-BALL-AND-MARK"
+      ],
+      "rule_refs": [
+        "M2M-OFFBALL-VISION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ディナイ中、何を同時に見る？",
+        "decision": "マークが裏へ走った。どうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "OF-OFB-02と鏡の問題"
+      },
+      "question_set": "SET-CUT-READ",
+      "related_drills": [
+        "lib-070"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-SCR-02",
+      "category": "DEFENSE",
+      "subcategory": "スクリーンへの対応",
+      "title": "オフボールスクリーン：追うか、下を通るか",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "スクリーンに気づき、相手の特徴で追い方を選べる",
+      "situation": "ダウンスクリーンが来る",
+      "decision_point": {
+        "look_at": "近づくスクリーナー・相手の特徴",
+        "decide": "シューターは追う、カッターは下を通る（チームの約束に合わせる）"
+      },
+      "common_mistakes": [
+        "気づかずぶつかる",
+        "いつも同じ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCREEN-COMING",
+        "CUE-BALLHANDLER-SKILL"
+      ],
+      "rule_refs": [
+        "M2M-NO-OFFBALL-SWITCH"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-NO-OFFBALL-SWITCH",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンが来る。何で気づく？",
+        "decision": "どう通る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-DOWNSCREEN",
+      "related_drills": [
+        "lib-215"
+      ],
+      "related_tactics": [
+        "DEF-07",
+        "DEF-08",
+        "DEF-09"
+      ],
+      "review": {
+        "verdict": "統合先",
+        "note": "DF-SCR-01（スクリーンに気づく）を「見る問い」として統合。スクリーン後のスイッチはルール上可能（6-1-1）だが、スクリーンなしのオフボールのスイッチは不可（3-2-3）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-PNR-02",
+      "category": "DEFENSE",
+      "subcategory": "P&R Defense",
+      "title": "ボールスクリーン：上を通るか、下を通るか",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ボールマンの特徴を見て、スクリーンの上か下かを選べる",
+      "situation": "ボールスクリーンが来る",
+      "decision_point": {
+        "look_at": "ボールマンがシューターかドライバーか・スクリーナーの位置",
+        "decide": "シューターなら上、シュートが得意でなければ下（チームの約束に合わせる）"
+      },
+      "common_mistakes": [
+        "シューターに下を通る"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCREEN-COMING",
+        "CUE-BALLHANDLER-SKILL"
+      ],
+      "rule_refs": [
+        "M2M-PNR-NOT-NAMED",
+        "M2M-ONBALL-1_5M"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-PNR-NOT-NAMED",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ONBALL-1_5M",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "スクリーンが来る。誰の何を確認する？",
+        "decision": "上を通る？ 下を通る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-080"
+      ],
+      "related_tactics": [
+        "DEF-11",
+        "DEF-12"
+      ],
+      "review": {
+        "verdict": "統合先",
+        "note": "DF-PNR-01（声）・DF-PNR-03（UNDER）を統合（OVER/UNDERは1つの判断の2択）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-PNR-04",
+      "category": "DEFENSE",
+      "subcategory": "P&R Defense",
+      "title": "SWITCH（守る相手の交換）",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "交換の合図を出し、2人同時に交換して、交換後のミスマッチに備えられる",
+      "situation": "ボールスクリーン（チームが SWITCH を採用）",
+      "decision_point": {
+        "look_at": "交換のタイミング・相手の組み合わせ",
+        "decide": "2人同時に交換し、マッチアップを明確にする"
+      },
+      "common_mistakes": [
+        "片方だけ交換して2人とも空く"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-MATCHUP",
+        "CUE-TEAM-RULE"
+      ],
+      "rule_refs": [
+        "M2M-NO-OFFBALL-SWITCH",
+        "M2M-PNR-NOT-NAMED",
+        "M2M-MATCHUP"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-NO-OFFBALL-SWITCH",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-PNR-NOT-NAMED",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-MATCHUP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "交換した後、誰が誰を守る？",
+        "decision": "あなたはどうする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-080"
+      ],
+      "related_tactics": [
+        "DEF-14"
+      ],
+      "review": {
+        "verdict": "維持",
+        "note": "ボール保持者が関係するスイッチはルール上許容（6-2-1）。採用するかはチームの約束"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-PNR-05",
+      "category": "DEFENSE",
+      "subcategory": "P&R Defense",
+      "title": "スクリーナーのDF：チームの守り方で動く（DROP・SHOW・HEDGE）",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "チームの守り方に合わせ、ボールマンを遅らせてから自分のマークに戻れる",
+      "situation": "ボールスクリーン（チームが DROP／SHOW／HEDGE のどれかを採用）",
+      "decision_point": {
+        "look_at": "ボールマンの進み・自分のマーク（ロールマン）",
+        "decide": "チームの約束の位置へ出て（下がって）、遅らせたら自分のマークへ戻る"
+      },
+      "common_mistakes": [
+        "出たまま戻らない",
+        "下がりすぎ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-SCREENER-DEF",
+        "CUE-TEAM-RULE"
+      ],
+      "rule_refs": [
+        "M2M-PNR-NOT-NAMED",
+        "M2M-TRAP",
+        "M2M-HELP"
+      ],
+      "source_types": [
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-PNR-NOT-NAMED",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-TRAP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールマンを遅らせた後、次に見るのは？",
+        "decision": "いつ戻る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "3年・チームで採用時のみ"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-214"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "DF-PNR-06（SHOW/HEDGE）を統合。基準規則に名前がない守り方のため、チームの約束として登録し、先生が基準規則と照合してから公開"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "DF-PNR-07",
+      "category": "DEFENSE",
+      "subcategory": "P&R Defense",
+      "title": "ロールマンへのヘルプ（タグ）",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "ロールマンがゴールへ向かった時、近い逆サイドDFが一時的に止められる",
+      "situation": "P&Rでロールされた",
+      "decision_point": {
+        "look_at": "ロールマンの進路・自分のマーク",
+        "decide": "一番近い逆サイドDFが止め、戻る（ローテーション）"
+      },
+      "common_mistakes": [
+        "誰もロールを見ない"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-OPEN-NEAR-RIM"
+      ],
+      "rule_refs": [
+        "M2M-HELP",
+        "M2M-ROTATION"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-ROTATION",
+          "source_id": "SRC-JBA-M2M-REG"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ロールマンを誰が見ている？",
+        "decision": "あなたは出る？ 残る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "3年"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-197"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "TR-ODF-02",
+      "category": "TRANSITION",
+      "subcategory": "OF→DF：判断の優先順位",
+      "title": "戻る時、まず何をするか（ゴール・ボール・相手）",
+      "grade": [
+        1,
+        2,
+        3
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "誰が戻っているかを見て、ゴールを守る・ボールを止める・相手を見つけるのどれを優先するか選べる",
+      "situation": "味方のシュートが外れ、相手が速攻",
+      "decision_point": {
+        "look_at": "ゴール下に味方がいるか・ボールの前に誰かいるか",
+        "decide": "誰もいなければゴール、ゴールが守られていればボール、両方守られていれば近い相手"
+      },
+      "common_mistakes": [
+        "自分のマークだけを探す",
+        "全員がゴール下へ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-RIM-PROTECTED",
+        "CUE-BALL-PUSH"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "戻りながら、最初に確認するのは？",
+        "decision": "あなたは何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "戻っている人数違いのセット必須"
+      },
+      "question_set": "SET-TRANSITION-D",
+      "related_drills": [
+        "lib-082",
+        "lib-211",
+        "lib-234"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "TR-ODF-01（戻り役）・TR-ODF-03（ストップ・ボール）を統合。「順番を並べる」（暗記）をやめ、状況で優先が変わる問題セットに"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-ODF-04",
+      "category": "TRANSITION",
+      "subcategory": "OF→DF",
+      "title": "戻りながらマッチアップを見つける",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "近い相手から守り、声で入れ替えられる",
+      "situation": "戻っている途中、自分のマークが遠い",
+      "decision_point": {
+        "look_at": "近い相手・危険な相手",
+        "decide": "近い相手を声で取り、落ち着いたら入れ替える"
+      },
+      "common_mistakes": [
+        "自分のマークにこだわって走る"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-OPEN-NEAR-RIM",
+        "CUE-MATCHUP"
+      ],
+      "rule_refs": [
+        "M2M-MATCHUP"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-JBA-M2M-REG"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-MATCHUP",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "戻りながら、誰が空いている？",
+        "decision": "あなたは誰を守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-TRANSITION-D",
+      "related_drills": [
+        "lib-234"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "マッチアップエリア内ではマッチアップを明確に（JBA基準規則1-2）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "TR-ODF-06",
+      "category": "TRANSITION",
+      "subcategory": "数的不利",
+      "title": "1人で2人を守る（1対2）",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "フェイクで迷わせながらゴールを守り、時間を稼げる",
+      "situation": "2on1で守る",
+      "decision_point": {
+        "look_at": "ボールマンのドリブル・パスの構え",
+        "decide": "ゴール前で迷わせ、味方が戻る時間を作る"
+      },
+      "common_mistakes": [
+        "ボールに飛び込む"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-NUMBERS",
+        "CUE-DEF-COMMIT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、攻撃と守備は何人ずつ？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "AD-2V1-01と鏡"
+      },
+      "question_set": "SET-2V1",
+      "related_drills": [
+        "lib-088",
+        "lib-230"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-ODF-07",
+      "category": "TRANSITION",
+      "subcategory": "数的不利",
+      "title": "2人で3人を守る（2対3）",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "縦に並んで守る考え方で、ゴールを守りながら遅らせられる",
+      "situation": "3on2を守る",
+      "decision_point": {
+        "look_at": "ボールの位置・ペアのDFの位置",
+        "decide": "上の人がボール、下の人がゴール、パスに合わせて入れ替わる"
+      },
+      "common_mistakes": [
+        "横に並んで2人とも抜かれる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-NUMBERS",
+        "CUE-TANDEM-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "攻撃と守備は何人ずつ？ 味方DFはどこ？",
+        "decision": "あなたはどこを守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "AD-3V2-01と鏡"
+      },
+      "question_set": "SET-3V2",
+      "related_drills": [
+        "lib-084"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-ODF-08",
+      "category": "TRANSITION",
+      "subcategory": "数的不利",
+      "title": "3人で4人を守る（3対4）",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "ゴールに近い相手から守り、外は遅らせられる",
+      "situation": "4on3を守る",
+      "decision_point": {
+        "look_at": "ボールとゴールに近い相手",
+        "decide": "ゴールに近い順に守り、外はクローズアウトで遅らせる"
+      },
+      "common_mistakes": [
+        "全員がボールへ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-NUMBERS",
+        "CUE-OPEN-NEAR-RIM"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "誰が一番ゴールに近い？",
+        "decision": "あなたは誰を守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-228"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-DOF-01",
+      "category": "TRANSITION",
+      "subcategory": "DF→OF",
+      "title": "リバウンドを取ったら前を見る",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "リバウンドの後すぐに顔を上げ、前の味方を見つけられる",
+      "situation": "ディフェンスリバウンドを取った",
+      "decision_point": {
+        "look_at": "前を走る味方・相手の戻り",
+        "decide": "前が空いていれば前へ、空いていなければ近くへ"
+      },
+      "common_mistakes": [
+        "すぐドリブルする"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-NUMBERS",
+        "CUE-TRAILER"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "リバウンドを取った。最初に見るのは？",
+        "decision": "どこへボールを出す？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "前が空いている／いない"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-093"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-DOF-03",
+      "category": "TRANSITION",
+      "subcategory": "DF→OF",
+      "title": "速攻で走る場所（レーン・受ける位置）",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "味方の走る位置を見て、空いたレーン・ボールを受けやすい位置を選べる",
+      "situation": "味方がリバウンドを取り、速攻が始まる",
+      "decision_point": {
+        "look_at": "味方の走っている位置・リバウンダーの位置",
+        "decide": "空いたレーンを走る、受ける時はボール側を向く"
+      },
+      "common_mistakes": [
+        "同じレーンを走る",
+        "ゴールへ走り背を向ける"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "味方はどのレーンを走っている？",
+        "decision": "あなたはどこを走る？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-087",
+        "lib-086",
+        "lib-093"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "TR-DOF-02（アウトレットの受け方）を統合"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "TR-DOF-04",
+      "category": "TRANSITION",
+      "subcategory": "判断の優先順位",
+      "title": "速攻を続けるか、やめるか",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "数的優位がなくなったら、セットオフェンスに切り替えられる",
+      "situation": "速攻でDFが戻ってきた",
+      "decision_point": {
+        "look_at": "攻撃と守備の人数",
+        "decide": "有利が残っていれば攻め切る、なくなったら作り直す"
+      },
+      "common_mistakes": [
+        "無理に突っ込む",
+        "有利なのに止まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-NUMBERS"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、攻撃と守備は何人ずつ？",
+        "decision": "続ける？ 作り直す？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "人数違いのペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-085"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-REC-01",
+      "category": "ADVANTAGE",
+      "subcategory": "ずれに気づく",
+      "title": "この場面に「ずれ（有利）」はある？",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "DFが遅れている・人数が多い状態に気づける",
+      "situation": "いろいろな場面（3場面を続けて見る）",
+      "decision_point": {
+        "look_at": "DFが間に合っているか・人数",
+        "decide": "ずれがあればすぐ攻める、なければ作り直す"
+      },
+      "common_mistakes": [
+        "ずれに気づかず止まる"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "YESNO",
+      "cues": [
+        "CUE-NUMBERS",
+        "CUE-CLOSEOUT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "この場面、DFは間に合っている？",
+        "decision": "ずれはある？ どうする？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": "複数場面"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-233"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "「ずれとは」（定義の知識）から「この場面にずれはあるか」（認識）へ"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-REC-02",
+      "category": "ADVANTAGE",
+      "subcategory": "ずれを使い切る",
+      "title": "ずれが残るうちに次へ渡す",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ずれを止めずに、次の味方へつなげられる",
+      "situation": "キックアウトを受けた",
+      "decision_point": {
+        "look_at": "DFの戻りの距離",
+        "decide": "遅れていればすぐ打つ・抜く・次へ"
+      },
+      "common_mistakes": [
+        "ずれがあるのにドリブルして止まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-CLOSEOUT",
+        "CUE-ROTATION"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ボールを受けた瞬間、DFはどれくらい遅れている？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-DRIVE-HELP",
+      "related_drills": [
+        "lib-201",
+        "lib-204"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-2V1-01",
+      "category": "ADVANTAGE",
+      "subcategory": "2on1",
+      "title": "2対1：DFが来たらパス、来なければシュート",
+      "grade": [
+        1
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "DFの動きを見て、パスかシュートかを変えられる",
+      "situation": "2on1の速攻でボールを持っている",
+      "decision_point": {
+        "look_at": "DFがボールマンに来たか",
+        "decide": "来たらパス、来なければ自分で行く"
+      },
+      "common_mistakes": [
+        "最初から決めている"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-COMMIT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "DFは今、誰の方へ動いている？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-2V1 必須"
+      },
+      "question_set": "SET-2V1",
+      "related_drills": [
+        "lib-083",
+        "lib-237"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-2V1-02",
+      "category": "ADVANTAGE",
+      "subcategory": "2on1",
+      "title": "2対1：ボールを持っていない時の位置",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "幅を取って、DF1人で2人を守らせない位置を選べる",
+      "situation": "2on1の速攻で、味方がボールを持っている",
+      "decision_point": {
+        "look_at": "味方・DFとの距離",
+        "decide": "離れて走り、DFが迷う位置を取る"
+      },
+      "common_mistakes": [
+        "近づきすぎ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-TEAMMATE-SPACING",
+        "CUE-DEF-COMMIT"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "DFは1人で2人を守れる距離？",
+        "decision": "あなたはどこを走る？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": "SET-2V1",
+      "related_drills": [
+        "lib-083"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-3V2-01",
+      "category": "ADVANTAGE",
+      "subcategory": "3on2",
+      "title": "3対2：真ん中の選手の判断",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "上のDFの動きを見て、パスか前進かを選べる",
+      "situation": "3on2の真ん中でボールを持つ",
+      "decision_point": {
+        "look_at": "上のDFが来たか",
+        "decide": "来たらウイングへ、来なければ進んで引きつける"
+      },
+      "common_mistakes": [
+        "真ん中が突っ込む"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-TANDEM-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "上のDFは何をしている？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "上のDFが来る／来ないのセット"
+      },
+      "question_set": "SET-3V2",
+      "related_drills": [
+        "lib-084",
+        "lib-238"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-3V2-02",
+      "category": "ADVANTAGE",
+      "subcategory": "3on2",
+      "title": "3対2：ウイングで受けた後の判断",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "下のDFが出てきたら、逆のウイングへ出せる",
+      "situation": "3on2でウイングがボールを受けた",
+      "decision_point": {
+        "look_at": "下のDFが出たか",
+        "decide": "出たら逆ウイングへ、出なければシュート"
+      },
+      "common_mistakes": [
+        "そのまま打つ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-TANDEM-DEF"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "下のDFは何をしている？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-3V2"
+      },
+      "question_set": "SET-3V2",
+      "related_drills": [
+        "lib-084",
+        "lib-238"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-4V3-01",
+      "category": "ADVANTAGE",
+      "subcategory": "4on3",
+      "title": "4対3：2人を見ているDFと遅れて来る味方",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "1人で2人を見ているDFや、遅れて来る4人目を見つけられる",
+      "situation": "4on3の速攻、またはヘルプ直後のハーフコート",
+      "decision_point": {
+        "look_at": "2人の間にいるDF・DFが見ていない選手",
+        "decide": "DFがいない方、見ていない選手へ"
+      },
+      "common_mistakes": [
+        "先に走った3人だけで攻める"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-TRAILER",
+        "CUE-NUMBERS"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "1人で2人を見ているDFは誰？",
+        "decision": "誰にパスする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-228"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "AD-REC-03（2人を守っているDFを探す）を統合"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-MIS-01",
+      "category": "ADVANTAGE",
+      "subcategory": "ミスマッチ",
+      "title": "ミスマッチに気づく",
+      "grade": [
+        2
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "交換（スイッチ）の後、誰が誰を守っているかを見て、差のある組み合わせを見つけられる",
+      "situation": "ボールスクリーンでDFが交換した後",
+      "decision_point": {
+        "look_at": "誰が誰を守っているか（身長・スピード）",
+        "decide": "差がある組み合わせを攻めどころにする"
+      },
+      "common_mistakes": [
+        "気づかずにいつも通り攻める"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "SPOT",
+      "cues": [
+        "CUE-MATCHUP"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "交換の後、誰が誰を守っている？",
+        "decision": "どこを攻める？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-PNR-READ",
+      "related_drills": [
+        "lib-188"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "OF-PNR-03（スイッチされたらミスマッチを探す）を統合（重複）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "AD-MIS-02",
+      "category": "ADVANTAGE",
+      "subcategory": "ミスマッチ",
+      "title": "ミスマッチの攻め方",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "小さいDFにはゴール近く、大きいDFには外からのドライブを選べる",
+      "situation": "ミスマッチが起きた",
+      "decision_point": {
+        "look_at": "相手の特徴・味方の位置",
+        "decide": "有利な場所で攻める（周りはスペースを空ける）"
+      },
+      "common_mistakes": [
+        "すぐに攻めない",
+        "周りが寄って邪魔をする"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-MATCHUP"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "ミスマッチの相手は、自分より大きい？ 小さい？",
+        "decision": "どこで、どう攻める？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "大小のペア"
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-188"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    },
+    {
+      "id": "GI-CLK-02",
+      "category": "GAME_IQ",
+      "subcategory": "時計",
+      "title": "ショットクロックの残りで攻め方を変える",
+      "grade": [
+        1,
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "ショットクロックを見て、残り秒数からシュートまでつながるプレーを選べる",
+      "situation": "ショットクロック残り約8秒（同じ場面で15秒・3秒も出す）",
+      "decision_point": {
+        "look_at": "ショットクロックの残り秒数",
+        "decide": "多ければ形を作る、少なければシュートにつながるプレー、ごくわずかならその場で最善のシュート"
+      },
+      "common_mistakes": [
+        "時計を見ずにパスを回し続ける",
+        "焦って早打ち"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SHOT-CLOCK"
+      ],
+      "rule_refs": [
+        "RULE-SHOT-CLOCK"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-SHOT-CLOCK",
+          "source_id": "SRC-JBA-RULES-2025"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、ショットクロックは何秒？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "秒数違いのセット"
+      },
+      "question_set": "SET-SHOT-CLOCK",
+      "related_drills": [
+        "lib-069"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "GI-CLK-01（見る習慣）を「見る問い」として統合。24秒はルール、何秒で何をするかはコーチング（目安）"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-CLK-03",
+      "category": "GAME_IQ",
+      "subcategory": "時計",
+      "title": "プレスを受けた時の8秒",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "8秒ルールを意識して、プレスの中で早めに前へ運べる",
+      "situation": "相手がプレス。バックコートでボールを持って5秒たった",
+      "decision_point": {
+        "look_at": "経過時間・前の味方",
+        "decide": "早めに前へ（パス・ドリブル）"
+      },
+      "common_mistakes": [
+        "ゆっくり運んで違反"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-GAME-CLOCK",
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "rule_refs": [
+        "RULE-8-SECONDS",
+        "M2M-PRESS"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-8-SECONDS",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-PRESS",
+          "source_id": "SRC-JBA-M2M-REG"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "バックコートでボールを持って何秒たった？",
+        "decision": "どうする？"
+      },
+      "memorization_risk": {
+        "level": "低",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [
+        "lib-248"
+      ],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "ルールの知識（8秒）から、プレス中の判断へ"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-CLK-04",
+      "category": "GAME_IQ",
+      "subcategory": "時計",
+      "title": "クォーター最後の攻撃",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "ゲームクロックとショットクロックを見て、時間内に最後のシュートを打てる",
+      "situation": "クォーター残り約10秒で自分のボール",
+      "decision_point": {
+        "look_at": "ゲームクロック・ショットクロック",
+        "decide": "残り時間内に良いシュートで終える（早すぎず遅すぎず）"
+      },
+      "common_mistakes": [
+        "打たずに終わる",
+        "早すぎて相手に時間を残す"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-GAME-CLOCK",
+        "CUE-SHOT-CLOCK"
+      ],
+      "rule_refs": [
+        "RULE-SHOT-CLOCK",
+        "RULE-U15-GAME-TIME"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-SHOT-CLOCK",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-U15-GAME-TIME",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、2つの時計は何秒？",
+        "decision": "いつ、どう打つ？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": null,
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "統合先",
+        "note": "GI-CLK-05（ゲームクロックとショットクロックの関係）を統合。細かすぎるため、見る問いの中で扱う"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-FOU-01",
+      "category": "GAME_IQ",
+      "subcategory": "ファウル状況",
+      "title": "自チームのチームファウルが多い時の守り",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "チームファウル数を見て、不要なファウルを避けられる",
+      "situation": "第4Q・自チームのチームファウルがすでに4つ",
+      "decision_point": {
+        "look_at": "チームファウル数",
+        "decide": "次のファウルは相手に2本のフリースロー → 手を出すファウルを避ける"
+      },
+      "common_mistakes": [
+        "気にせず手を出す"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "rule_refs": [
+        "RULE-TEAM-FOULS"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-TEAM-FOULS",
+          "source_id": "SRC-JBA-RULES-2025"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "今、自分のチームのチームファウルは何個？",
+        "decision": "このボールマン、どう守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "ファウル数違いのペア"
+      },
+      "question_set": "SET-FOULS",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "v1の「5つ目からフリースロー」を条文（41-1-1：4個記録後はペナルティ）に合わせて表現を修正"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-FOU-02",
+      "category": "GAME_IQ",
+      "subcategory": "ファウル状況",
+      "title": "自分が4ファウルの時",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "自分の個人ファウル数を見て、無理な守りを避けられる",
+      "situation": "自分が4ファウル。相手がドライブしてきた",
+      "decision_point": {
+        "look_at": "自分のファウル数・ヘルプの位置",
+        "decide": "無理にブロックに飛ばず、ヘルプにまかせる判断も"
+      },
+      "common_mistakes": [
+        "同じ守り方で5ファウル退場"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "rule_refs": [
+        "RULE-PLAYER-5-FOULS"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-PLAYER-5-FOULS",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "自分の個人ファウルは何個？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-FOULS",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-FOU-03",
+      "category": "GAME_IQ",
+      "subcategory": "ファウル状況",
+      "title": "相手のチームファウルが多い時の攻め",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "相手のチームファウルが多い時、ゴールへ攻める価値が上がることを使える",
+      "situation": "相手のチームファウルがすでに4つ（ペナルティシチュエーション）",
+      "decision_point": {
+        "look_at": "相手のチームファウル数",
+        "decide": "ゴールへ攻める選択を優先しやすい"
+      },
+      "common_mistakes": [
+        "外から打つだけ"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "rule_refs": [
+        "RULE-TEAM-FOULS"
+      ],
+      "source_types": [
+        "OFFICIAL_RULE",
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-JBA-RULES-2025",
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-TEAM-FOULS",
+          "source_id": "SRC-JBA-RULES-2025"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "相手のチームファウルは何個？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-FOULS",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-SCR-01",
+      "category": "GAME_IQ",
+      "subcategory": "点差（リード）",
+      "title": "リードしている終盤の攻め",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "点差と時間を見て、時間を使いながらも良いシュートを選べる",
+      "situation": "第4Q残り1分・6点リード",
+      "decision_point": {
+        "look_at": "点差・ゲームクロック・ショットクロック",
+        "decide": "時間を使いつつ、ボールを失わずに確実なシュート"
+      },
+      "common_mistakes": [
+        "すぐ打つ",
+        "無理なパスで失う"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCORE",
+        "CUE-GAME-CLOCK",
+        "CUE-SHOT-CLOCK"
+      ],
+      "rule_refs": [
+        "RULE-SHOT-CLOCK"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-SHOT-CLOCK",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "点差と残り時間は？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "点差・時間違いのセット"
+      },
+      "question_set": "SET-ENDGAME",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-SCR-02",
+      "category": "GAME_IQ",
+      "subcategory": "点差（追いかける）",
+      "title": "追いかけている終盤の攻め",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "点差と時間を見て、時間を減らさない攻め方を選べる",
+      "situation": "第4Q残り1分・5点負け、自分のボール",
+      "decision_point": {
+        "look_at": "点差・時間・何回の攻撃で追いつけるか",
+        "decide": "早く良いシュートを打つ（ファウルで時計を止めるかはチームの方針）"
+      },
+      "common_mistakes": [
+        "いつも通りの時間の使い方"
+      ],
+      "presentation": "STATIC",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCORE",
+        "CUE-GAME-CLOCK"
+      ],
+      "rule_refs": [
+        "RULE-TEAM-FOULS"
+      ],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE",
+        "OFFICIAL_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM",
+        "SRC-JBA-RULES-2025"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "rule_constraint",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-TEAM-FOULS",
+          "source_id": "SRC-JBA-RULES-2025"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "あと何回の攻撃で追いつける？",
+        "decision": "何を優先する？"
+      },
+      "memorization_risk": {
+        "level": "高",
+        "mitigation": "SET-ENDGAME"
+      },
+      "question_set": "SET-ENDGAME",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "改訂",
+        "note": "タイムアウトは選手が請求しない（競技規則18-1）ため、選手の判断から外した"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": "rules.json の条文（2026-10-01確認）に照らして先生が確認"
+      }
+    },
+    {
+      "id": "GI-SCR-03",
+      "category": "GAME_IQ",
+      "subcategory": "点差（リード）",
+      "title": "3点リード・残り数秒の守り",
+      "grade": [
+        3
+      ],
+      "difficulty": "ADVANCED",
+      "learning_goal": "点差と時間を見て、3ポイントを打たせない守りを優先できる",
+      "situation": "残り8秒・3点リード・相手ボール",
+      "decision_point": {
+        "look_at": "点差・時間",
+        "decide": "3ポイントを防ぐ（ファウルするかはチームの方針）"
+      },
+      "common_mistakes": [
+        "2点を守りすぎて3ポイントを打たれる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "PRIORITY",
+      "cues": [
+        "CUE-SCORE",
+        "CUE-GAME-CLOCK"
+      ],
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE",
+        "TEAM_RULE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL",
+        "SRC-TEAM"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        },
+        {
+          "part": "team_specific_choice",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM"
+        }
+      ],
+      "sample_questions": {
+        "recognition": "相手が同点にするには何が必要？",
+        "decision": "何を優先して守る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": null
+      },
+      "question_set": "SET-ENDGAME",
+      "related_drills": [],
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": null
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      }
+    }
+  ],
+  "planned_sets": [
+    {
+      "id": "SET-DRIVE-HELP",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ドライブ：ヘルプなし／ヘルプあり／ヘルプ＋ローテーション",
+      "learning_point": "同じドライブで、DFの反応だけが3通りに変わる",
+      "curriculum_items": [
+        "OF-DRV-01",
+        "OF-PAS-04",
+        "AD-REC-02"
+      ]
+    },
+    {
+      "id": "SET-WHO-HELPED",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ヘルプの出どころ（コーナー／ウイング／ポスト）",
+      "learning_point": "寄ったDFが違えば、空く味方も違う",
+      "curriculum_items": [
+        "OF-DRV-03"
+      ]
+    },
+    {
+      "id": "SET-DRIVE-SUPPORT",
+      "kind": "DEFENSE_VARIATION",
+      "title": "味方のドライブ：自分のDFが寄る／寄らない",
+      "learning_point": "自分のDFの動きで、残るか動くかが変わる",
+      "curriculum_items": [
+        "OF-SPC-02",
+        "OF-SPC-03"
+      ]
+    },
+    {
+      "id": "SET-CATCH-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "キャッチの瞬間：DFが遠い／近い",
+      "learning_point": "同じキャッチで、DFの距離だけが変わる",
+      "curriculum_items": [
+        "OF-1V1-01"
+      ]
+    },
+    {
+      "id": "SET-CLOSEOUT-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "クローズアウト：勢いあり／構えている／遅れた",
+      "learning_point": "すべての攻め方に価値があるが、優先が変わる",
+      "curriculum_items": [
+        "OF-1V1-03"
+      ]
+    },
+    {
+      "id": "SET-CUT-READ",
+      "kind": "DEFENSE_VARIATION+MIRROR",
+      "title": "オフボール：DFがボールを見る／ディナイ／離れて守る（＋守備側から見る）",
+      "learning_point": "自分のDFの位置で、カットの種類が変わる",
+      "curriculum_items": [
+        "OF-OFB-01",
+        "OF-OFB-02",
+        "OF-OFB-03",
+        "DF-CUT-02"
+      ]
+    },
+    {
+      "id": "SET-DOWNSCREEN",
+      "kind": "DEFENSE_VARIATION+MIRROR",
+      "title": "ダウンスクリーン：DFが追う／下を通る（＋守備側）",
+      "learning_point": "DFの通り方で、使い方が変わる",
+      "curriculum_items": [
+        "OF-SCR-01",
+        "OF-SCR-02",
+        "DF-SCR-02"
+      ]
+    },
+    {
+      "id": "SET-PNR-READ",
+      "kind": "DEFENSE_VARIATION+MIRROR",
+      "title": "ボールスクリーン：上／下／交換（＋守備側）",
+      "learning_point": "2人のDFを見て、優先が変わる",
+      "curriculum_items": [
+        "OF-PNR-01",
+        "OF-PNR-02",
+        "OF-PNR-04",
+        "DF-PNR-02",
+        "DF-PNR-04",
+        "AD-MIS-01"
+      ]
+    },
+    {
+      "id": "SET-OFFBALL-POSITION",
+      "kind": "BALL_VARIATION",
+      "title": "ボールの位置が変わると、守る位置が変わる",
+      "learning_point": "同じマークでも、ボールが動けば正しい位置が変わる",
+      "curriculum_items": [
+        "DF-OFB-01",
+        "DF-OFB-02",
+        "DF-OFB-03",
+        "DF-OFB-04"
+      ]
+    },
+    {
+      "id": "SET-HELP",
+      "kind": "PROGRESSION",
+      "title": "抜かれた → ヘルプ → ローテーション → リカバー",
+      "learning_point": "1つの場面の続きで、次の判断が変わっていく",
+      "curriculum_items": [
+        "DF-HLP-01",
+        "DF-HLP-02",
+        "DF-HLP-03",
+        "DF-ROT-01"
+      ]
+    },
+    {
+      "id": "SET-CLOSEOUT-D",
+      "kind": "OFFENSE_VARIATION",
+      "title": "クローズアウト：相手がシューター／ドライバー",
+      "learning_point": "相手が違えば、止まる距離が変わる",
+      "curriculum_items": [
+        "DF-CLO-01",
+        "DF-CLO-02"
+      ]
+    },
+    {
+      "id": "SET-TRANSITION-D",
+      "kind": "CONTEXT_VARIATION",
+      "title": "戻る時：誰も戻っていない／ゴールは守られている／両方守られている",
+      "learning_point": "戻っている人数で、優先が変わる",
+      "curriculum_items": [
+        "TR-ODF-02",
+        "TR-ODF-04"
+      ]
+    },
+    {
+      "id": "SET-2V1",
+      "kind": "DEFENSE_VARIATION+MIRROR",
+      "title": "2対1：DFがボールに来る／来ない（＋守備側）",
+      "learning_point": "DFの動きで、パスかシュートかが変わる",
+      "curriculum_items": [
+        "TR-ODF-06",
+        "AD-2V1-01",
+        "AD-2V1-02"
+      ]
+    },
+    {
+      "id": "SET-3V2",
+      "kind": "DEFENSE_VARIATION+MIRROR",
+      "title": "3対2：上のDFが来る／来ない、下のDFが出る（＋守備側）",
+      "learning_point": "2人のDFの動きで、パス先が変わる",
+      "curriculum_items": [
+        "TR-ODF-07",
+        "AD-3V2-01",
+        "AD-3V2-02"
+      ]
+    },
+    {
+      "id": "SET-SHOT-CLOCK",
+      "kind": "CONTEXT_VARIATION",
+      "title": "同じ場面で、ショットクロックだけ 15秒／8秒／3秒",
+      "learning_point": "時計が変われば、優先も変わる",
+      "curriculum_items": [
+        "GI-CLK-02"
+      ]
+    },
+    {
+      "id": "SET-FOULS",
+      "kind": "CONTEXT_VARIATION",
+      "title": "同じ場面で、ファウル数だけが変わる",
+      "learning_point": "ファウル数で、守り方・攻め方の優先が変わる",
+      "curriculum_items": [
+        "GI-FOU-01",
+        "GI-FOU-02",
+        "GI-FOU-03"
+      ]
+    },
+    {
+      "id": "SET-ENDGAME",
+      "kind": "CONTEXT_VARIATION",
+      "title": "同じ場面で、点差と残り時間だけが変わる",
+      "learning_point": "点差と時間で、優先が変わる",
+      "curriculum_items": [
+        "GI-SCR-01",
+        "GI-SCR-02",
+        "GI-SCR-03"
+      ]
+    }
+  ],
+  "retired": [
+    {
+      "id": "OF-SPC-04",
+      "verdict": "統合",
+      "into": "OF-SPC-02",
+      "issue": "重複",
+      "reason": "ドライブへの合わせ（ドリフト・リフト）は OF-SPC-02 と同じ判断"
+    },
+    {
+      "id": "OF-SHT-02",
+      "verdict": "統合",
+      "into": "OF-1V1-01",
+      "issue": "重複",
+      "reason": "「打つか抜くか」は OF-1V1-01 と同じ判断"
+    },
+    {
+      "id": "OF-DRV-02",
+      "verdict": "統合",
+      "into": "OF-DRV-01",
+      "issue": "重複（DF違い）",
+      "reason": "同じ項目の「ヘルプが来ない版」。項目ではなく問題セットのバリエーションとして扱う"
+    },
+    {
+      "id": "OF-PAS-02",
+      "verdict": "削除",
+      "into": "練習 lib-139",
+      "issue": "技術寄り・問題化しにくい",
+      "reason": "DFの手の動きに合わせたパスの種類は実行の技術。手のタイミングは図やアニメで再現しにくく、コートの練習で扱う方が良い"
+    },
+    {
+      "id": "OF-PAS-03",
+      "verdict": "統合",
+      "into": "OF-DRV-03",
+      "issue": "重複",
+      "reason": "「ヘルプしたDFのマークへ出す」は OF-DRV-03 と同じ"
+    },
+    {
+      "id": "OF-OFB-05",
+      "verdict": "統合",
+      "into": "OF-OFB-06",
+      "issue": "重複",
+      "reason": "困ったボールマンを助ける判断は1項目にまとめた"
+    },
+    {
+      "id": "OF-SCR-03",
+      "verdict": "削除",
+      "into": "OF-SCR-01 のよくある間違い",
+      "issue": "技術寄り・暗記になりやすい",
+      "reason": "「スクリーンを待つ」はタイミングの技術。問題にすると「待つ」の暗記になる"
+    },
+    {
+      "id": "OF-PNR-03",
+      "verdict": "統合",
+      "into": "AD-MIS-01",
+      "issue": "重複",
+      "reason": "スイッチ後のミスマッチ探しは AD-MIS-01 と同じ"
+    },
+    {
+      "id": "OF-SHT-03",
+      "verdict": "削除",
+      "into": "—",
+      "issue": "中学生には難しすぎる・暗記になりやすい",
+      "reason": "シュート前にリバウンドの人数まで確認するのは負荷が高い。問題にすると「打つ前に見る」の暗記になる"
+    },
+    {
+      "id": "DF-BAL-04",
+      "verdict": "削除",
+      "into": "練習 lib-073",
+      "issue": "技術寄り",
+      "reason": "足で進路に入るのは実行の技術。判断ではない"
+    },
+    {
+      "id": "DF-CLO-03",
+      "verdict": "削除",
+      "into": "DF-CLO-01 の解説・練習 lib-073",
+      "issue": "技術寄り・暗記になりやすい",
+      "reason": "「打たれたら当たる」は習慣。選択肢がほぼ1つで暗記問題になる"
+    },
+    {
+      "id": "DF-ROT-03",
+      "verdict": "削除",
+      "into": "各問題のよくある間違い",
+      "issue": "判断ではない",
+      "reason": "声を出すのはコミュニケーションの習慣。判断を問う問題にしにくい"
+    },
+    {
+      "id": "DF-CUT-03",
+      "verdict": "統合",
+      "into": "DF-CUT-01",
+      "issue": "重複",
+      "reason": "フラッシュへの対応はカットへの対応と同じ判断"
+    },
+    {
+      "id": "DF-SCR-01",
+      "verdict": "統合",
+      "into": "DF-SCR-02（見る問い）",
+      "issue": "重複",
+      "reason": "「スクリーンに気づく」は DF-SCR-02 の見る問いとして扱う"
+    },
+    {
+      "id": "DF-PNR-01",
+      "verdict": "統合",
+      "into": "DF-PNR-02（見る問い）",
+      "issue": "重複",
+      "reason": "スクリーンの声は DF-PNR-02 の見る問い・よくある間違いとして扱う"
+    },
+    {
+      "id": "DF-PNR-03",
+      "verdict": "統合",
+      "into": "DF-PNR-02",
+      "issue": "重複",
+      "reason": "OVER と UNDER は1つの判断の2択"
+    },
+    {
+      "id": "DF-PNR-06",
+      "verdict": "統合",
+      "into": "DF-PNR-05",
+      "issue": "重複・細かすぎ",
+      "reason": "SHOW／HEDGE／DROP はチームの約束で選ぶ1項目にまとめた"
+    },
+    {
+      "id": "TR-ODF-01",
+      "verdict": "統合",
+      "into": "TR-ODF-02",
+      "issue": "暗記になりやすい",
+      "reason": "「誰が戻るか」はチームの約束の暗記になる。状況判断の問題セットの中で扱う"
+    },
+    {
+      "id": "TR-ODF-03",
+      "verdict": "統合",
+      "into": "TR-ODF-02",
+      "issue": "重複（状況違い）",
+      "reason": "ストップ・ボールは「ゴールが守られている場合」のバリエーション"
+    },
+    {
+      "id": "TR-ODF-05",
+      "verdict": "削除",
+      "into": "—",
+      "issue": "判断ではない・問題化しにくい",
+      "reason": "ターンオーバー直後の切り替えは意識・態度の問題で、画面で判断を問いにくい"
+    },
+    {
+      "id": "TR-DOF-02",
+      "verdict": "統合",
+      "into": "TR-DOF-03",
+      "issue": "重複",
+      "reason": "アウトレットの受け方は走る位置の判断に含める"
+    },
+    {
+      "id": "AD-REC-03",
+      "verdict": "統合",
+      "into": "AD-4V3-01",
+      "issue": "重複",
+      "reason": "2人を守っているDFを探すのは 4対3 の判断と同じ"
+    },
+    {
+      "id": "GI-CLK-01",
+      "verdict": "統合",
+      "into": "GI-CLK-02（見る問い）",
+      "issue": "重複",
+      "reason": "ショットクロックを見る習慣は GI-CLK-02 の見る問いとして扱う"
+    },
+    {
+      "id": "GI-CLK-05",
+      "verdict": "統合",
+      "into": "GI-CLK-04",
+      "issue": "細かすぎる",
+      "reason": "2つの時計の関係は GI-CLK-04 の見る問いで扱う。ショットクロックが消える規定は今回条文で確認できなかった"
+    },
+    {
+      "id": "GI-TO-01",
+      "verdict": "削除",
+      "into": "MAP の知識カード",
+      "issue": "選手の判断ではない",
+      "reason": "タイムアウトはヘッドコーチ等が請求する（競技規則18-1）。v1 は選手の判断のように扱っていたので修正"
+    },
+    {
+      "id": "GI-TO-02",
+      "verdict": "削除",
+      "into": "MAP の知識カード",
+      "issue": "選手の判断ではない",
+      "reason": "残り2分のスローイン位置はヘッドコーチが選ぶ（競技規則17-2-4）"
+    },
+    {
+      "id": "GI-GEN-01",
+      "verdict": "削除",
+      "into": "—",
+      "issue": "抽象的・根拠が弱い",
+      "reason": "「流れが悪い時」は状況が定義しにくく、判断の根拠が示しにくい"
+    },
+    {
+      "id": "GI-QTR-01",
+      "verdict": "削除",
+      "into": "MAP の知識カード",
+      "issue": "判断ではない（知識）",
+      "reason": "8分×4クォーターは競技規則で確認済みだが、判断を問う問題にならない"
+    },
+    {
+      "id": "GI-QTR-02",
+      "verdict": "削除",
+      "into": "MAP の知識カード",
+      "issue": "判断ではない（知識）",
+      "reason": "クォーター開始のスローインは知識で、判断にならない"
+    }
+  ]
+}

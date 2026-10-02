@@ -1,0 +1,20 @@
+# 依存関係・生成物
+node_modules
+dist
+# data/ からコピーして作る（原本は data/）
+public/data
+
+# ログ・OS・エディタ
+*.log
+.DS_Store
+.vscode/*
+.idea
+
+# 環境変数・秘密情報（公開しない）
+.env
+.env.*
+!.env.example
+
+# Playwright の結果（失敗時の記録）
+test-results
+playwright-report

@@ -1,0 +1,65 @@
+# main に push すると、チェック・テスト・ビルドをしてから GitHub Pages に公開する。
+# 失敗した時は公開しない（原因は Actions のログに出る）。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ['main']
+  workflow_dispatch: # Actions の画面から手動でも実行できる
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Node.js を準備（手元の開発環境と同じ 24）
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: パッケージを入れる（package-lock.json のとおり）
+        run: npm ci
+
+      - name: 教材データのチェック
+        run: npm run check
+
+      - name: ユニットテスト
+        run: npm test
+
+      # build の中で data/ を public/data/ にコピーしてから dist/ を作る
+      - name: ビルド
+        run: npm run build
+
+      - name: 公開する中身を表示（失敗時の確認用）
+        run: ls -R dist | head -40
+
+      - name: GitHub Pages を準備
+        uses: actions/configure-pages@v5
+
+      - name: GitHub Pages 用の成果物をアップロード
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: GitHub Pages へ公開
+        id: deployment
+        uses: actions/deploy-pages@v4
