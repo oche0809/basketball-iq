@@ -1,6 +1,6 @@
 import { answerStage, currentStage, expect, explanation, goHash, openApp, question, SETS, set, solveToExplanation, storedAttempts, test, QUESTIONS } from './helpers.ts'
 
-const SINGLE = 'OF-1V1-03-A' // セットに入っていない問題（データの set_id が null）
+const SINGLE = 'DF-CLO-01-A' // セットに入っていない問題（データの set_id が null）
 
 test.describe('通常の PLAY', () => {
   test('A-1：PLAY の一覧から問題を開始でき、問題文が表示される', async ({ page }) => {

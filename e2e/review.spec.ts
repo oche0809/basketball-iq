@@ -22,7 +22,7 @@ const storedReviews = (page: Page) =>
   }, REVIEW_STORAGE_KEY)
 
 test.describe('教材レビュー（先生用）', () => {
-  test('COACH から教材レビューへ移動。問題15件・カリキュラム76件が表示される', async ({ page }) => {
+  test('COACH から教材レビューへ移動。問題17件・カリキュラム76件が表示される', async ({ page }) => {
     await openApp(page, '#/coach')
     await page.getByRole('link', { name: /教材レビュー/ }).click()
     await expect(page).toHaveURL(/#\/coach\/review$/)
@@ -174,12 +174,12 @@ test.describe('教材レビュー（先生用）', () => {
   })
 
   test('生徒の画面は変わらない：レビューで「保留」にしても PLAY・MAP にそのまま出る', async ({ page }) => {
-    await openApp(page, '#/coach/review/question/OF-1V1-03-A')
+    await openApp(page, '#/coach/review/question/DF-CLO-01-A')
     await reviewButton(page, '保留').click()
     await expect(reviewButton(page, '保留')).toHaveAttribute('aria-pressed', 'true')
     await goHash(page, '#/play')
-    await expect(page.getByRole('link', { name: new RegExp(QUESTIONS.find((q) => q.id === 'OF-1V1-03-A')!.title) })).toBeVisible()
-    await goHash(page, '#/map/OF-1V1-03')
+    await expect(page.getByRole('link', { name: new RegExp(QUESTIONS.find((q) => q.id === 'DF-CLO-01-A')!.title) })).toBeVisible()
+    await goHash(page, '#/map/DF-CLO-01')
     await expect(page.getByText('レビュー')).toHaveCount(0)
   })
 

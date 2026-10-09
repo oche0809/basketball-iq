@@ -163,7 +163,7 @@ describe('レビューの計算', () => {
   ]
   it('集計：問題とカリキュラムを別々に数える。教材にないIDの記録は数えない', () => {
     const q = summarize(c.questions.map((x) => x.id), records, 'question')
-    expect(q).toEqual({ total: 15, reviewed: 3, counts: { unreviewed: 12, adopt: 1, revise: 1, hold: 1 } })
+    expect(q).toEqual({ total: 17, reviewed: 3, counts: { unreviewed: 14, adopt: 1, revise: 1, hold: 1 } })
     const cur = summarize(c.curriculum.map((x) => x.id), records, 'curriculum')
     expect(cur).toEqual({ total: 76, reviewed: 1, counts: { unreviewed: 75, adopt: 1, revise: 0, hold: 0 } })
   })
@@ -174,7 +174,7 @@ describe('レビューの計算', () => {
   })
   it('絞り込み：レビュー状態は AND で効く（未確認のみ・採用・修正・保留）', () => {
     const un = filterQuestionsForReview(c, { ...EMPTY_REVIEW_FILTER, status: 'unreviewed' }, records)
-    expect(un).toHaveLength(12)
+    expect(un).toHaveLength(14)
     expect(un.map((q) => q.id)).not.toContain('OF-DRV-01-A')
     expect(filterQuestionsForReview(c, { ...EMPTY_REVIEW_FILTER, status: 'revise' }, records).map((q) => q.id)).toEqual(['AD-2V1-01-A'])
     expect(filterQuestionsForReview(c, { ...EMPTY_REVIEW_FILTER, status: 'adopt', cat: 'GAME_IQ' }, records)).toEqual([]) // 採用は OFFENSE の1問だけ
@@ -186,7 +186,7 @@ describe('レビューの計算', () => {
     const n = neighbors(c.questions, filtered, 'OF-DRV-01-A')
     expect(n.prev).toBeNull() // データの先頭
     expect(n.next?.id).toBe('OF-DRV-01-B')
-    expect(n.total).toBe(13)
+    expect(n.total).toBe(15)
     const last = neighbors(c.questions, c.questions, c.questions.at(-1)!.id)
     expect(last.next).toBeNull()
     expect(last.prev?.id).toBe(c.questions.at(-2)!.id)

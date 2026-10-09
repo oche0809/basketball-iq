@@ -43,8 +43,8 @@ function solve(question: Question) {
 }
 
 describe('回答の流れ（見る → 判断 → なぜ →（次の判断）→ 解説）', () => {
-  it('15問すべてが最初の段階から解説まで進める', () => {
-    expect(c.questions).toHaveLength(15)
+  it('17問すべてが最初の段階から解説まで進める', () => {
+    expect(c.questions).toHaveLength(17)
     for (const question of c.questions) {
       const a = solve(question)
       expect(isFinished(question, a), question.id).toBe(true)

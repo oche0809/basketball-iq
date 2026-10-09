@@ -138,6 +138,74 @@
         ]
       },
       "mastery_rule": "2問とも priority の時に『読めている』とする"
+    },
+    {
+      "id": "SET-CLOSEOUT-READ",
+      "kind": "DEFENSE_VARIATION",
+      "scenario_id": "SCN-WING-CATCH",
+      "title": "キャッチの瞬間：DFの近づき方が2通り",
+      "order": "fixed",
+      "intro": "同じキャッチを2回します。あなたの動きは毎回同じ。DFの近づき方だけが違います。",
+      "items": [
+        "OF-1V1-03-A",
+        "OF-1V1-03-C"
+      ],
+      "closing": {
+        "prompt": "2問で、あなたの優先を変えたのは何でしたか？",
+        "options": [
+          {
+            "id": "c1",
+            "text": "DFの近づき方（勢い・距離）",
+            "cue_id": "CUE-CLOSEOUT",
+            "correct": true
+          },
+          {
+            "id": "c2",
+            "text": "パスをくれた味方",
+            "correct": false
+          },
+          {
+            "id": "c3",
+            "text": "ゴールまでの距離",
+            "correct": false
+          }
+        ]
+      },
+      "mastery_rule": "2問とも priority の時に『読めている』とする"
+    },
+    {
+      "id": "SET-3V2",
+      "kind": "DEFENSE_VARIATION",
+      "scenario_id": "SCN-3V2",
+      "title": "3対2：上のDFが出てくる／出てこない",
+      "order": "fixed",
+      "intro": "同じ3対2です。あなたの動きは同じ。上のDFの動きだけが違います。",
+      "items": [
+        "AD-3V2-01-A",
+        "AD-3V2-01-B"
+      ],
+      "closing": {
+        "prompt": "2問で、あなたの判断を変えたのは何でしたか？",
+        "options": [
+          {
+            "id": "c1",
+            "text": "上のDFが出てきたかどうか",
+            "cue_id": "CUE-TANDEM-DEF",
+            "correct": true
+          },
+          {
+            "id": "c2",
+            "text": "ウイングの味方が呼んだかどうか",
+            "correct": false
+          },
+          {
+            "id": "c3",
+            "text": "ゴールまでの距離",
+            "correct": false
+          }
+        ]
+      },
+      "mastery_rule": "2問とも priority の時に『読めている』とする"
     }
   ],
   "questions": [
@@ -1060,7 +1128,7 @@
       "schema_version": 2,
       "id": "OF-1V1-03-A",
       "curriculum_id": "OF-1V1-03",
-      "set_id": null,
+      "set_id": "SET-CLOSEOUT-READ",
       "scenario_id": "SCN-WING-CATCH",
       "variant": {
         "label": "A",
@@ -1327,6 +1395,267 @@
       "visibility": "public",
       "created_at": "2026-10-01",
       "updated_at": "2026-10-01"
+    },
+    {
+      "schema_version": 2,
+      "id": "OF-1V1-03-C",
+      "curriculum_id": "OF-1V1-03",
+      "set_id": "SET-CLOSEOUT-READ",
+      "scenario_id": "SCN-WING-CATCH",
+      "variant": {
+        "label": "C",
+        "what_changed": "DFが遅れて、ゆっくり出てくる"
+      },
+      "title": "キャッチの瞬間、DFが遅れている",
+      "category": "OFFENSE",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        1,
+        2,
+        3
+      ],
+      "presentation": "ANIMATION",
+      "cues": [
+        "CUE-CLOSEOUT"
+      ],
+      "situation": "あなた（2番）は右ウイング。トップからパスが来た。あなたのDFはペイントの近くにいる。",
+      "court": {
+        "court": "half",
+        "you": "O2",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 62
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 53
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 62,
+              "y": 28
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "トップの1番からあなたへパス。あなたのDFは、ゆっくり出てくる。まだ遠い。",
+            "actions": [
+              {
+                "type": "pass",
+                "from": "O1",
+                "to": "O2"
+              },
+              {
+                "type": "move",
+                "player": "D2",
+                "to": {
+                  "x": 66,
+                  "y": 31
+                }
+              }
+            ]
+          },
+          {
+            "text": "DFが遠いうちに、シュート。",
+            "actions": [
+              {
+                "type": "shoot",
+                "player": "O2"
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。あなたのDFは、どう近づいてきている？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "まだ遠く、ゆっくり出てくる",
+              "cue_id": "CUE-CLOSEOUT",
+              "value": "key",
+              "feedback": "DFが遅れている。打つ時間がある。"
+            },
+            {
+              "id": "s2",
+              "text": "勢いよく走ってくる",
+              "value": "irrelevant",
+              "feedback": "よく見よう。DFはゆっくり出てきている（問題Aとの違い）。"
+            },
+            {
+              "id": "s3",
+              "text": "目の前で手を上げて構えている",
+              "value": "irrelevant",
+              "feedback": "DFはまだ遠く、構えていない。"
+            },
+            {
+              "id": "s4",
+              "text": "トップの1番が空いた",
+              "value": "irrelevant",
+              "feedback": "1番のDFは1番の近くにいる。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 1,
+          "prompt": "どの攻め方にも価値があります。この状況で、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "シュート",
+              "fit": "priority",
+              "feedback": "DFが遠く、手も届かない。打つ時間がある。"
+            },
+            {
+              "id": "B",
+              "text": "ドライブ（DFの横を抜く）",
+              "fit": "conditional",
+              "condition": "DFが勢いよく走ってくる時は優先（→ 問題A）",
+              "feedback": "DFが遠いので、抜く前に打てる。ドライブすると、ほかのDFが寄る時間ができる。"
+            },
+            {
+              "id": "C",
+              "text": "パス（次の味方へ）",
+              "fit": "conditional",
+              "condition": "DFが間に合って構えていて、次の味方が空いていれば有効",
+              "feedback": "今はあなたが空いている。先に自分の有利を使いたい。"
+            },
+            {
+              "id": "D",
+              "text": "一度止まって作り直す（リセット）",
+              "fit": "situational",
+              "condition": "ショットクロックに余裕があり、味方の位置が悪い時は有効",
+              "feedback": "DFが遅れている有利（ずれ）を使わずに終わる。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "DFが遠くて、打つ時間がある",
+              "quality": "key",
+              "cue_id": "CUE-CLOSEOUT",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "DFが勢いよく走ってきて、止まれなさそう",
+              "quality": "key",
+              "cue_id": "CUE-CLOSEOUT",
+              "supports": [
+                "B"
+              ],
+              "note": "この場面ではDFはゆっくり出てきている（見間違い）"
+            },
+            {
+              "id": "r3",
+              "text": "キャッチしたら必ずシュートする",
+              "quality": "misconception",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "シュートに自信がない",
+              "quality": "irrelevant",
+              "supports": [
+                "B",
+                "C",
+                "D"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "クローズアウトが遅れていれば、シュートを優先する。",
+        "explanation": "問題Aと、あなたの動きは同じ。違うのはDFの近づき方だけ。DFが遠く遅れている時は、抜くより先に打てる。同じキャッチでも、DFの勢いと距離で優先が変わる。",
+        "if_defense_changes": [
+          {
+            "change": "DFが勢いよく走ってくる",
+            "then": "ドライブを優先",
+            "question_id": "OF-1V1-03-A"
+          },
+          {
+            "change": "DFが止まって構えている",
+            "then": "揺さぶり（フェイク）や次の味方へのパスを優先"
+          }
+        ]
+      },
+      "related_drills": [
+        "lib-184",
+        "lib-073",
+        "lib-206"
+      ],
+      "related_tactics": [],
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "遅れたクローズアウトにはシュートを優先する",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "4つの選択肢それぞれが有効になる条件（OF-1V1-03-A と同じ条件）",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ],
+      "rule_notes": [],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-CLOSEOUT-READ の2問目（遅れた版）。構えている版は、選択肢に「揺さぶり」がないため今回は作っていない。"
+      },
+      "visibility": "public",
+      "created_at": "2026-10-08",
+      "updated_at": "2026-10-08"
     },
     {
       "schema_version": 2,
@@ -3514,7 +3843,7 @@
       "schema_version": 2,
       "id": "AD-3V2-01-A",
       "curriculum_id": "AD-3V2-01",
-      "set_id": null,
+      "set_id": "SET-3V2",
       "scenario_id": "SCN-3V2",
       "variant": {
         "label": "A",
@@ -3821,6 +4150,279 @@
       "visibility": "public",
       "created_at": "2026-10-01",
       "updated_at": "2026-10-01"
+    },
+    {
+      "schema_version": 2,
+      "id": "AD-3V2-01-B",
+      "curriculum_id": "AD-3V2-01",
+      "set_id": "SET-3V2",
+      "scenario_id": "SCN-3V2",
+      "variant": {
+        "label": "B",
+        "what_changed": "上のDFが出てこず、下がる"
+      },
+      "title": "3対2の真ん中。上のDFが下がった",
+      "category": "ADVANTAGE",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2,
+        3
+      ],
+      "presentation": "ANIMATION",
+      "cues": [
+        "CUE-TANDEM-DEF"
+      ],
+      "situation": "3対2の速攻。あなた（1番）が真ん中でボールを持つ。2番が左、3番が右を走っている。DFは縦に2人（上と下）。",
+      "court": {
+        "court": "half",
+        "you": "O1",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 70
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 14,
+              "y": 56
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 86,
+              "y": 56
+            }
+          },
+          {
+            "id": "DA",
+            "label": "上",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 44
+            }
+          },
+          {
+            "id": "DB",
+            "label": "下",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 18
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "あなたが真ん中をドリブルで進む。2番・3番は幅を取って走る。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O1",
+                "to": {
+                  "x": 50,
+                  "y": 56
+                }
+              },
+              {
+                "type": "move",
+                "player": "O2",
+                "to": {
+                  "x": 16,
+                  "y": 40
+                }
+              },
+              {
+                "type": "move",
+                "player": "O3",
+                "to": {
+                  "x": 84,
+                  "y": 40
+                }
+              }
+            ]
+          },
+          {
+            "text": "上のDFは出てこず、ゴールの方へ下がった。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "DA",
+                "to": {
+                  "x": 50,
+                  "y": 36
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたはそのまま真ん中を進み、DFを引きつける。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O1",
+                "to": {
+                  "x": 50,
+                  "y": 46
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 2,
+          "prompt": "止まった画面。上のDFは何をした？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "出てこずに、ゴールの方へ下がった",
+              "cue_id": "CUE-TANDEM-DEF",
+              "value": "key",
+              "feedback": "上のDFが出てこない。真ん中の前が空いている。"
+            },
+            {
+              "id": "s2",
+              "text": "あなたに向かって出てきた",
+              "value": "irrelevant",
+              "feedback": "よく見よう。上のDFは下がっている（問題Aとの違い）。"
+            },
+            {
+              "id": "s3",
+              "text": "右のウイングに付いた",
+              "value": "irrelevant",
+              "feedback": "上のDFは真ん中にいる。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 2,
+          "prompt": "上のDFは出てこない。どうする？",
+          "options": [
+            {
+              "id": "A",
+              "text": "左右どちらかのウイングへパス",
+              "fit": "conditional",
+              "condition": "上のDFがあなたに出てきた時は優先（→ 問題A）",
+              "feedback": "上のDFがまだ真ん中にいる。今パスすると、DFは引きつけられていない。"
+            },
+            {
+              "id": "B",
+              "text": "そのまま真ん中をドライブ",
+              "fit": "priority",
+              "feedback": "上のDFが出てこない。真ん中を進めば、DFは誰を守るかを決めなければならない。"
+            },
+            {
+              "id": "C",
+              "text": "止まって後ろの味方を待つ",
+              "fit": "low",
+              "feedback": "相手が戻ってきて、3対2の有利が消えていく。"
+            },
+            {
+              "id": "D",
+              "text": "その場でシュート",
+              "fit": "situational",
+              "condition": "DFが離れていて、シュートが得意な距離なら有効",
+              "feedback": "まだゴールから遠い。進んでから決めたい。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "上のDFが出てこない",
+              "quality": "key",
+              "cue_id": "CUE-TANDEM-DEF",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "進めば、DFが誰を守るか決めなければならない",
+              "quality": "supporting",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "3対2はいつもウイングへパス",
+              "quality": "misconception",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "なんとなく",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "上のDFが来なければ、真ん中を進んでDFを引きつける。",
+        "explanation": "問題Aとの違いは、上のDFの動きだけ。上のDFが出てこない時は、真ん中を進んでDFに決めさせる。DFが動いたら、その時に空いた味方へ出す。",
+        "if_defense_changes": [
+          {
+            "change": "上のDFがあなたに出てきた",
+            "then": "ウイングへパス",
+            "question_id": "AD-3V2-01-A"
+          }
+        ]
+      },
+      "related_drills": [
+        "lib-084",
+        "lib-238",
+        "lib-233"
+      ],
+      "related_tactics": [],
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "上のDFが来なければ進んで引きつける",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ],
+      "rule_notes": [],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-3V2 の2問目。DFの並び方（縦・横）は相手によって違う。本問は縦並びの場合。"
+      },
+      "visibility": "public",
+      "created_at": "2026-10-08",
+      "updated_at": "2026-10-08"
     },
     {
       "schema_version": 2,
