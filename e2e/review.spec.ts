@@ -22,7 +22,7 @@ const storedReviews = (page: Page) =>
   }, REVIEW_STORAGE_KEY)
 
 test.describe('教材レビュー（先生用）', () => {
-  test('COACH から教材レビューへ移動。問題17件・カリキュラム76件が表示される', async ({ page }) => {
+  test('COACH から教材レビューへ移動。問題19件・カリキュラム76件が表示される', async ({ page }) => {
     await openApp(page, '#/coach')
     await page.getByRole('link', { name: /教材レビュー/ }).click()
     await expect(page).toHaveURL(/#\/coach\/review$/)

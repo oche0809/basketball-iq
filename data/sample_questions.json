@@ -206,6 +206,40 @@
         ]
       },
       "mastery_rule": "2問とも priority の時に『読めている』とする"
+    },
+    {
+      "id": "SET-ENDGAME",
+      "kind": "CONTEXT_VARIATION",
+      "scenario_id": "SCN-ENDGAME",
+      "title": "残り1分：同じ場面で、点差だけが違う",
+      "order": "fixed",
+      "intro": "コートの様子と残り時間はまったく同じです。点差だけが違います。",
+      "items": [
+        "GI-SCR-01-A",
+        "GI-SCR-02-A"
+      ],
+      "closing": {
+        "prompt": "2問で、あなたの優先を変えたのは何でしたか？",
+        "options": [
+          {
+            "id": "c1",
+            "text": "点差（リードか、負けているか）",
+            "cue_id": "CUE-SCORE",
+            "correct": true
+          },
+          {
+            "id": "c2",
+            "text": "ショットクロックの残り秒数",
+            "correct": false
+          },
+          {
+            "id": "c3",
+            "text": "DFの位置",
+            "correct": false
+          }
+        ]
+      },
+      "mastery_rule": "2問とも priority の時に『読めている』とする"
     }
   ],
   "questions": [
@@ -4923,6 +4957,553 @@
       "visibility": "public",
       "created_at": "2026-10-01",
       "updated_at": "2026-10-01"
+    },
+    {
+      "schema_version": 2,
+      "scenario_id": "SCN-ENDGAME",
+      "set_id": "SET-ENDGAME",
+      "category": "GAME_IQ",
+      "presentation": "STATIC",
+      "cues": [
+        "CUE-SCORE",
+        "CUE-GAME-CLOCK"
+      ],
+      "related_drills": [
+        "lib-069",
+        "lib-249"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "RULE-SHOT-CLOCK",
+          "text": "【ルール】ボールをコントロールしたチームは24秒以内にショットをしなければならない（競技規則 29-1-1）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "id": "GI-SCR-01-A",
+      "curriculum_id": "GI-SCR-01",
+      "variant": {
+        "label": "A",
+        "what_changed": "6点リード"
+      },
+      "title": "終盤①：6点リード、残り1分",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2,
+        3
+      ],
+      "situation": "第4クォーター残り1分、6点リード。あなた（1番）はトップでボールを持っている。ショットクロックは24秒。",
+      "court": {
+        "court": "half",
+        "you": "O1",
+        "ball": "O1",
+        "hud": {
+          "quarter": 4,
+          "game_clock": "1:00",
+          "shot_clock": 24,
+          "score": {
+            "us": 50,
+            "them": 44
+          }
+        },
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 53
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 78,
+              "y": 42
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 24,
+              "y": 36
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "この場面で、攻め方を決める前に確認すべきものは？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "点差と残り時間",
+              "cue_id": "CUE-SCORE",
+              "value": "key",
+              "feedback": "6点リードで残り1分。相手は、何回も攻めないと追いつけない。"
+            },
+            {
+              "id": "s2",
+              "text": "ショットクロックの残り秒数",
+              "cue_id": "CUE-SHOT-CLOCK",
+              "value": "useful",
+              "feedback": "時間を使う時に必要。点差と残り時間がわかってから使う。"
+            },
+            {
+              "id": "s3",
+              "text": "DFの位置",
+              "value": "useful",
+              "feedback": "攻め方を選ぶ時に必要。でも、点差と時間を知らないと、何を優先するか決められない。"
+            },
+            {
+              "id": "s4",
+              "text": "チームファウルの数",
+              "cue_id": "CUE-FOULS",
+              "value": "not_now",
+              "feedback": "関係する場面もある。でも攻め方を決める一番の手がかりは、点差と時間。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 0,
+          "prompt": "6点リード・残り1分。どれにも価値がある場面があります。今、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "時間を使いながら、ボールを失わずに確実なシュートを狙う",
+              "fit": "priority",
+              "feedback": "相手の攻撃の回数を減らせる。ボールを失わなければ、相手は追いつきにくい。"
+            },
+            {
+              "id": "B",
+              "text": "すぐに攻めて、早く良いシュートを打つ",
+              "fit": "conditional",
+              "condition": "DFの準備ができておらず、すぐゴール下で打てる形なら有効",
+              "feedback": "早く打って外れると、相手に時間を多く残してしまう。"
+            },
+            {
+              "id": "C",
+              "text": "外から、すぐに3ポイントを打つ",
+              "fit": "low",
+              "feedback": "外れると相手ボールになり、時間も多く残る。今は急ぐ理由がない。"
+            },
+            {
+              "id": "D",
+              "text": "ゴールへ攻めて、ファウルをもらいにいく",
+              "fit": "situational",
+              "feedback": "ゴールへ攻めると、ボールを失う危険もある。まず時間を使うことが先。",
+              "condition": "時間を使った後、相手がファウルで止めに来る時は有効（フリースローを確実に決める）"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "リードしていて、時間を使うほど相手の攻撃が減る",
+              "quality": "key",
+              "cue_id": "CUE-SCORE",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ボールを失わなければ、相手は追いつきにくい",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "点差や時間に関係なく、いつも早く攻める",
+              "quality": "misconception",
+              "supports": [
+                "B",
+                "C"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "3ポイントが好きだから",
+              "quality": "irrelevant",
+              "supports": [
+                "C"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "リードしている終盤は、時間を使いながらボールを失わず、確実なシュートで終える。",
+        "explanation": "問題②と、コートの様子と残り時間は同じ。違うのは点差だけ。リードしている時は、相手の攻撃の回数を減らすことが大事。ただし24秒以内に打たないと違反になる（ルール）。何秒使うかはルールではなく目安で、チームの方針によって変わる。",
+        "if_defense_changes": [
+          {
+            "change": "5点負けている",
+            "then": "早く良いシュートを打つ",
+            "question_id": "GI-SCR-02-A"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "rule_note",
+          "claim": "24秒以内にショットしなければならない",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-SHOT-CLOCK",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "29-1-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decision_rule",
+          "claim": "リードしている終盤は時間を使い、ボールを失わない",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "終盤の時間の使い方はチームの方針で変わる",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-ENDGAME の1問目。何秒使うかはチームの方針で先生が確認。"
+      }
+    },
+    {
+      "schema_version": 2,
+      "scenario_id": "SCN-ENDGAME",
+      "set_id": "SET-ENDGAME",
+      "category": "GAME_IQ",
+      "presentation": "STATIC",
+      "cues": [
+        "CUE-SCORE",
+        "CUE-GAME-CLOCK",
+        "CUE-FOULS"
+      ],
+      "related_drills": [
+        "lib-069",
+        "lib-249"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "RULE-SHOT-CLOCK",
+          "text": "【ルール】ボールをコントロールしたチームは24秒以内にショットをしなければならない（競技規則 29-1-1）。"
+        },
+        {
+          "rule_id": "RULE-TEAM-FOULS",
+          "text": "【ルール】クォーターごとにチームファウルが4個記録された後は、ショットの動作中でない相手へのファウルでもフリースロー2本になる（競技規則 41-1-1、41-2-1）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "id": "GI-SCR-02-A",
+      "curriculum_id": "GI-SCR-02",
+      "variant": {
+        "label": "B",
+        "what_changed": "5点負け"
+      },
+      "title": "終盤②：5点負け、残り1分",
+      "difficulty": "ADVANCED",
+      "grade": [
+        3
+      ],
+      "situation": "第4クォーター残り1分、5点負け。あなた（1番）はトップでボールを持っている。ショットクロックは24秒。",
+      "court": {
+        "court": "half",
+        "you": "O1",
+        "ball": "O1",
+        "hud": {
+          "quarter": 4,
+          "game_clock": "1:00",
+          "shot_clock": 24,
+          "score": {
+            "us": 44,
+            "them": 49
+          }
+        },
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 53
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 78,
+              "y": 42
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 24,
+              "y": 36
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "この場面で、攻め方を決める前に確認すべきものは？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "点差と残り時間",
+              "cue_id": "CUE-SCORE",
+              "value": "key",
+              "feedback": "5点負けで残り1分。追いつくには、ふつう2回以上の攻撃で点を取る必要がある。"
+            },
+            {
+              "id": "s2",
+              "text": "ショットクロックの残り秒数",
+              "cue_id": "CUE-SHOT-CLOCK",
+              "value": "useful",
+              "feedback": "24秒すべてを使う必要はない。点差と残り時間から、早く打つべきかが決まる。"
+            },
+            {
+              "id": "s3",
+              "text": "DFの位置",
+              "value": "useful",
+              "feedback": "攻め方を選ぶ時に必要。でも、点差と時間を知らないと、何を優先するか決められない。"
+            },
+            {
+              "id": "s4",
+              "text": "チームファウルの数",
+              "cue_id": "CUE-FOULS",
+              "value": "useful",
+              "feedback": "ファウルをもらいにいく価値が変わる。でも、先に点差と時間。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 0,
+          "prompt": "5点負け・残り1分。どれにも価値がある場面があります。今、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "時間を使いながら、ボールを失わずに確実なシュートを狙う",
+              "fit": "low",
+              "feedback": "時間を使うと、追いつくための攻撃の回数が減ってしまう。"
+            },
+            {
+              "id": "B",
+              "text": "すぐに攻めて、早く良いシュートを打つ",
+              "fit": "priority",
+              "feedback": "早く良いシュートを打てば、もう1回攻撃する時間が残る。"
+            },
+            {
+              "id": "C",
+              "text": "外から、すぐに3ポイントを打つ",
+              "fit": "situational",
+              "condition": "良い形で空いていれば有効。急いで打つ悪い3ポイントは優先しない",
+              "feedback": "入れば差は2点になる。でも外れれば時間も減る。良い形かどうかで決める。"
+            },
+            {
+              "id": "D",
+              "text": "ゴールへ攻めて、ファウルをもらいにいく",
+              "fit": "conditional",
+              "feedback": "相手のチームファウルが少ないと、ファウルされてもスローインになり、時間だけが減ることがある。",
+              "condition": "相手のチームファウルが4つ以上なら有効（フリースロー2本で、時計が止まった中で点が取れる）"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "5点差は、ふつう2回以上の攻撃が必要",
+              "quality": "key",
+              "cue_id": "CUE-SCORE",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "早く打てば、もう1回攻める時間が残る",
+              "quality": "supporting",
+              "cue_id": "CUE-GAME-CLOCK",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "3ポイントでないと追いつけない",
+              "quality": "misconception",
+              "supports": [
+                "C"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "いつも通り、ゆっくり攻める",
+              "quality": "misconception",
+              "supports": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "追いかけている終盤は、時間を減らさず、早く良いシュートを打つ。",
+        "explanation": "問題①と、コートの様子と残り時間は同じ。違うのは点差だけ。負けている時は、攻撃の回数を増やすことが大事。急ぐのは『良いシュートを早く』であって、悪いシュートを急いで打つことではない。守る時にファウルで時計を止めるかどうかは、ルールではなくチームの方針で、先生が決める。",
+        "if_defense_changes": [
+          {
+            "change": "6点リードしている",
+            "then": "時間を使い、確実なシュートで終える",
+            "question_id": "GI-SCR-01-A"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "rule_note",
+          "claim": "24秒以内にショットしなければならない",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-SHOT-CLOCK",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "29-1-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decide.options.D",
+          "claim": "チームファウル4個の後は、ショット動作中でないファウルでもフリースロー2本",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-TEAM-FOULS",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "41-1-1、41-2-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decision_rule",
+          "claim": "追いかけている終盤は早く良いシュートを打つ",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "ファウルで時計を止めるか、3ポイントを狙うかはチームの方針で変わる",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-ENDGAME の2問目。ファウルで時計を止めるかはチームの方針で先生が確認。"
+      }
     }
   ]
 }
