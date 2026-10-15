@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import { MIN_ATTEMPTS_FOR_TREND, RECENT_WINDOW, aggregate } from '../analytics/aggregate.ts'
+import { type RetryReason, retryCandidates } from '../analytics/retry.ts'
 import { PageTitle } from '../components/PageTitle.tsx'
 import { useContent } from '../content/context.ts'
 import { DIAGNOSIS_LABELS, FIT_LABELS, QUALITY_LABELS } from '../play/evaluate.ts'
@@ -8,6 +9,12 @@ import type { Fit, ReasonQuality } from '../types/content.ts'
 
 const FITS: Fit[] = ['priority', 'conditional', 'situational', 'low']
 const QUALITIES: ReasonQuality[] = ['key', 'supporting', 'misconception', 'irrelevant']
+// もう一度解いてみる理由（前回の回答の事実だけを書く）
+const RETRY_TEXT: Record<RetryReason, string> = {
+  look: '前回、見る問いで決め手の情報を選んでいなかった',
+  decision: `前回、判断で〈${FIT_LABELS.low}〉を選んでいた`,
+  reason: `前回、「なぜ」で〈${QUALITY_LABELS.misconception}〉の理由を選んでいた`,
+}
 const formatTime = (iso: string) => new Date(iso).toLocaleString('ja-JP', { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })
 
 // これまでの回答から確認できる事実だけを表示する。点数・正解率・ランク・「得意／苦手」は出さない。
@@ -19,6 +26,7 @@ export function MyIqPage() {
   const [confirming, setConfirming] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
   const agg = useMemo(() => aggregate(loaded.attempts), [loaded])
+  const retry = useMemo(() => retryCandidates(loaded.attempts, (id) => c.byId.question.has(id)), [loaded, c])
   const cueName = (id: string) => c.byId.cue.get(id)?.name ?? `${id}（現在の教材にない手がかり）`
   const qTitle = (id: string) => c.byId.question.get(id)?.title ?? `${id}（現在の教材にない問題）`
   const setTitle = (id: string) => c.byId.questionSet.get(id)?.title ?? `${id}（現在の教材にないセット）`
@@ -67,6 +75,38 @@ export function MyIqPage() {
               <p className="mt-2 text-sm text-[var(--muted)]">まだ回答数が少ないため、傾向は表示していません（{MIN_ATTEMPTS_FOR_TREND}回以上で表示します）。</p>
             )}
           </Section>
+
+          <section className="card text-base" aria-labelledby="retry-title">
+            <h2 id="retry-title" className="mb-1 text-sm font-bold text-[var(--muted)]">
+              もう一度解いてみる問題（{retry.length}）
+            </h2>
+            <p className="text-sm text-[var(--muted)]">各問題の一番新しい回答が、下のどれかに当たる問題です。解き直して当たらなくなると、ここから外れます。</p>
+            {retry.length === 0 ? (
+              <p className="mt-2">今は、当たる問題はありません。</p>
+            ) : (
+              <ul className="mt-2 flex flex-col gap-2" aria-label="もう一度解いてみる問題の一覧">
+                {retry.map((r) => (
+                  <li key={r.questionId}>
+                    <a href={`#/play/q/${encodeURIComponent(r.questionId)}`} className="flex min-h-14 items-center justify-between gap-3 rounded-xl border border-[var(--line)] p-3 active:bg-[var(--hover)]">
+                      <span className="min-w-0">
+                        <span className="block font-bold">{qTitle(r.questionId)}</span>
+                        {r.reasons.map((x) => (
+                          <span key={x} className="block text-sm">
+                            ・{RETRY_TEXT[x]}
+                          </span>
+                        ))}
+                        <span className="block text-sm text-[var(--muted)]">前回：{formatTime(r.completedAt)}</span>
+                      </span>
+                      <span aria-hidden="true" className="text-2xl text-[var(--muted)]">
+                        ›
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p className="mt-2 text-sm text-[var(--muted)]">〈{FIT_LABELS.low}〉は「間違い」という意味ではありません。この状況では、ほかに優先したい選択がある、という意味です。</p>
+          </section>
 
           <Section title="「見る」の記録（手がかり別）">
             <p>

@@ -52,7 +52,8 @@ test.describe('課題URL', () => {
     const main = page.getByRole('main')
     await expect(main).toContainText(/回答した回数\s*2回/)
     await expect(main).toContainText(/解いた問題\s*2問/)
-    await expect(main.getByText(question('GI-CLK-02-A').title)).toBeVisible() // 最近の回答に課題の問題も出る
+    const recent = main.locator('section', { has: page.getByRole('heading', { name: /^最近の回答/ }) })
+    await expect(recent.getByText(question('GI-CLK-02-A').title)).toBeVisible() // 最近の回答に課題の問題も出る
     await expect(main).not.toContainText('assignment')
   })
 
