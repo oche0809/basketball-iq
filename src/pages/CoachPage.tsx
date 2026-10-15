@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { type AssignmentTarget, assignmentPath, assignmentUrl, copyText } from '../coach/assignment.ts'
 import { filterQuestions, filterSets } from '../coach/coachFilter.ts'
+import { encodeTeamRules, pickTeamRules } from '../coach/teamRuleParam.ts'
+import { teamRuleStore } from '../storage/teamRuleStore.ts'
 import { ChipGroup } from '../components/ChipGroup.tsx'
 import { PageTitle } from '../components/PageTitle.tsx'
 import { CategoryChip, Chip, DifficultyChip } from '../components/ui.tsx'
@@ -11,13 +13,15 @@ import { CATEGORY_ORDER, DIFFICULTY_LABELS, SET_KIND_LABELS, gradeLabel } from '
 import { EMPTY_FILTER, type MapFilter, difficultiesIn, gradesIn } from '../utils/mapFilter.ts'
 
 // 先生用：問題かセットを1つ選び、生徒に配る課題URLを作る。
-// URLには教材のIDだけを入れる。生徒の回答は先生に送られない（各自の端末にだけ記録される）。
+// URLには教材のIDと、先生が選んだ場合のチームの約束だけを入れる。生徒の回答は先生に送られない（各自の端末にだけ記録される）。
 export function CoachPage() {
   const c = useContent()
   const [f, setF] = useState<MapFilter>(EMPTY_FILTER)
   const [selected, setSelected] = useState<AssignmentTarget | null>(null)
   const [url, setUrl] = useState<string | null>(null)
   const [copy, setCopy] = useState<'idle' | 'ok' | 'failed'>('idle')
+  const [teamRules] = useState(() => teamRuleStore().load().rules) // このブラウザに保存したチームの約束
+  const [withTeam, setWithTeam] = useState(true)
   const update = (patch: Partial<MapFilter>) => setF((prev) => ({ ...prev, ...patch }))
   const sets = useMemo(() => filterSets(c, f), [c, f])
   const questions = useMemo(() => filterQuestions(c, f), [c, f])
@@ -31,6 +35,10 @@ export function CoachPage() {
     setCopy('idle')
   }
   const selectedTitle = selected ? (selected.type === 'set' ? c.byId.questionSet.get(selected.id)?.title : c.byId.question.get(selected.id)?.title) : null
+  // 選んだ教材の問題に、チームの約束があれば URL に入れられる
+  const selectedIds = selected ? (selected.type === 'set' ? (c.byId.questionSet.get(selected.id)?.items ?? []) : [selected.id]) : []
+  const teamCount = Object.keys(pickTeamRules(teamRules, selectedIds)).length
+  const team = withTeam ? encodeTeamRules(pickTeamRules(teamRules, selectedIds)) : null
   const isSel = (t: AssignmentTarget) => selected?.type === t.type && selected.id === t.id
   const doCopy = async () => {
     if (!url) return
@@ -47,7 +55,7 @@ export function CoachPage() {
         <span aria-hidden="true">›</span>
       </a>
       <p className="mb-3 rounded-xl bg-[var(--hover)] px-3 py-2 text-sm">
-        URLには教材のIDだけが入ります（名前などの個人情報は入りません）。生徒の回答は先生には送られず、それぞれの端末の中だけに記録されます。
+        URLには教材のIDと、選んだ場合はチームの約束だけが入ります（名前などの個人情報は入りません）。生徒の回答は先生には送られず、それぞれの端末の中だけに記録されます。チームの約束は、教材レビューの問題のページで書けます。
       </p>
 
       <div className="card flex flex-col gap-3" role="search">
@@ -159,8 +167,23 @@ export function CoachPage() {
               'セットか問題を1つ選んでください。'
             )}
           </p>
+          {teamCount > 0 && (
+            <label className="flex min-h-11 items-center gap-2 text-sm font-bold">
+              <input
+                type="checkbox"
+                checked={withTeam}
+                onChange={(e) => {
+                  setWithTeam(e.target.checked)
+                  setUrl(null)
+                  setCopy('idle')
+                }}
+                className="size-5"
+              />
+              チームの約束（{teamCount}問分）もURLに入れる
+            </label>
+          )}
           {!url ? (
-            <button type="button" disabled={!selected} onClick={() => selected && setUrl(assignmentUrl(window.location.href, selected))} className="btn-primary w-full disabled:opacity-40">
+            <button type="button" disabled={!selected} onClick={() => selected && setUrl(assignmentUrl(window.location.href, selected, team))} className="btn-primary w-full disabled:opacity-40">
               課題URLを作成
             </button>
           ) : (
@@ -173,7 +196,7 @@ export function CoachPage() {
                 <button type="button" onClick={doCopy} className="btn-primary px-2" aria-label="課題URLをコピー">
                   URLをコピー
                 </button>
-                <a href={selected ? assignmentPath(selected) : '#/coach'} className="btn-secondary px-2">
+                <a href={selected ? assignmentPath(selected, team) : '#/coach'} className="btn-secondary px-2">
                   開いて確認
                 </a>
               </div>

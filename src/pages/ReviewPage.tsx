@@ -26,6 +26,8 @@ import {
 } from '../review/reviewModel.ts'
 import { REVIEW_STATUSES, REVIEW_STATUS_LABELS, type ReviewRecord, type ReviewStatus } from '../storage/review.ts'
 import { type ReviewLoadResult, reviewStore } from '../storage/reviewStore.ts'
+import { TEAM_RULE_MAX_LENGTH, normalizeTeamRuleText } from '../storage/teamRule.ts'
+import { type TeamRuleLoadResult, teamRuleStore } from '../storage/teamRuleStore.ts'
 import type { Category, CurriculumItem, DecisionOption, Difficulty, Question } from '../types/content.ts'
 import { CATEGORY_ORDER, DIFFICULTY_LABELS, gradeLabel } from '../utils/labels.ts'
 import { difficultiesIn, gradesIn } from '../utils/mapFilter.ts'
@@ -34,6 +36,7 @@ import { Basis, RelatedDrills, RelatedTactics } from './MapPage.tsx'
 
 // 先生の教材レビュー。教材データ（data/）は変更せず、先生のレビュー結果だけをこのブラウザに保存する。
 // レビュー結果は、生徒の画面（HOME・PLAY・MAP・課題・MY IQ）の表示には使わない。
+// 問題の詳細では「チームの約束」も書ける（これは別の保存場所。課題URLに入れると生徒の解説に出る）。
 // #/coach/review?tab=…&…                 … 一覧（問題・カリキュラム）
 // #/coach/review/question/<問題ID>?…      … 問題の詳細
 // #/coach/review/curriculum/<項目ID>?…    … カリキュラムの詳細
@@ -298,6 +301,7 @@ function ReviewDetail({
   onSaved: () => void
 }) {
   const c = useContent()
+  const [teamRules, setTeamRules] = useState<TeamRuleLoadResult>(() => teamRuleStore().load())
   const item = kind === 'question' ? c.byId.question.get(id) : c.byId.curriculum.get(id)
   const backHref = `#/coach/review${query}`
   if (!item) return <NotFound id={`${kind}/${id}`} backHref={backHref} />
@@ -345,7 +349,15 @@ function ReviewDetail({
         )}
       </nav>
 
-      {kind === 'question' ? <QuestionReview q={item as Question} reviewHref={reviewHref} /> : <CurriculumReview item={item as CurriculumItem} reviewHref={reviewHref} />}
+      {kind === 'question' && (
+        <TeamRulePanel key={id} q={item as Question} loaded={teamRules} onSaved={() => setTeamRules(teamRuleStore().load())} />
+      )}
+
+      {kind === 'question' ? (
+        <QuestionReview q={item as Question} reviewHref={reviewHref} teamRule={teamRules.rules[id]} />
+      ) : (
+        <CurriculumReview item={item as CurriculumItem} reviewHref={reviewHref} />
+      )}
     </article>
   )
 }
@@ -429,6 +441,83 @@ function ReviewPanel({
   )
 }
 
+// チームの約束：問題ごとに先生が書く。このブラウザに保存し、課題URLに入れると生徒の解説に出る
+function TeamRulePanel({ q, loaded, onSaved }: { q: Question; loaded: TeamRuleLoadResult; onSaved: () => void }) {
+  const saved = loaded.rules[q.id] ?? ''
+  const [text, setText] = useState(saved)
+  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null)
+  const dirty = normalizeTeamRuleText(text) !== saved
+  // 教材データで「チームによって変わる」とされている点（TEAM_RULE の根拠）
+  const points = q.evidence.filter((e) => e.basis === 'TEAM_RULE').map((e) => e.claim)
+  const save = (next: string, okText: string) => {
+    const r = teamRuleStore().save(q.id, next)
+    if (r.ok) {
+      setText(normalizeTeamRuleText(next))
+      setMessage({ ok: true, text: okText })
+      onSaved()
+    } else
+      setMessage({
+        ok: false,
+        text:
+          r.reason === 'newer-version'
+            ? 'この端末ではチームの約束を保存できませんでした。新しい形式の記録があるため、上書きしていません。'
+            : 'この端末ではチームの約束を保存できませんでした。ブラウザの設定や空き容量を確かめてください。',
+      })
+  }
+  return (
+    <section className="card flex flex-col gap-3 border-2 border-[#15803d]/40 text-base" aria-labelledby="team-rule-title">
+      <h2 id="team-rule-title" className="text-sm font-bold text-[#14532d]">
+        チームの約束（生徒の解説に出る・このブラウザだけに保存）
+      </h2>
+      {points.length > 0 ? (
+        <div>
+          <p className="text-sm font-bold">この問題で、チームが決める点</p>
+          <ul className="list-disc pl-5 text-sm">
+            {points.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p className="text-sm text-[var(--muted)]">この問題には、チームが決める点の指定はありません。必要なら書けます。</p>
+      )}
+      {loaded.status === 'unreadable' && (
+        <p className="rounded-lg bg-[#fef3c7] px-3 py-2 text-sm font-bold text-[#92400e]">保存されていたチームの約束を読み込めませんでした。新しく保存すると、読めなかった記録は別に残したうえで書き直します。</p>
+      )}
+      <label className="flex flex-col gap-1">
+        <span className="text-sm font-bold">
+          チームの約束（{normalizeTeamRuleText(text).length} / {TEAM_RULE_MAX_LENGTH}字）
+        </span>
+        <textarea
+          value={text}
+          maxLength={TEAM_RULE_MAX_LENGTH}
+          rows={3}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="例：4ファウルの時は、ブロックに跳ばない。ヘルプにまかせて、リバウンドへ。"
+          className="min-h-24 rounded-xl border border-[var(--line)] bg-[var(--bg)] px-3 py-2 text-base"
+        />
+      </label>
+      <p className="text-sm text-[var(--muted)]">名前・学校名など、個人が分かることは書かないでください。COACH で課題URLを作る時に、URLに入れて生徒に配れます。</p>
+      <div className="grid grid-cols-2 gap-2">
+        <button type="button" disabled={!dirty || !normalizeTeamRuleText(text)} onClick={() => save(text, 'チームの約束を保存しました。')} className="btn-primary px-2 disabled:opacity-40">
+          約束を保存
+        </button>
+        <button type="button" disabled={!saved} onClick={() => save('', 'チームの約束を消しました。')} className="btn-secondary px-2 disabled:opacity-40">
+          約束を消す
+        </button>
+      </div>
+      <p className="text-sm text-[var(--muted)]" aria-live="polite">
+        {dirty ? '保存していない変更があります。' : saved ? '保存済み（下の「生徒が見る解説」に出ています）。' : 'まだ登録していません。'}
+      </p>
+      {message && (
+        <p role="status" className={`rounded-lg px-3 py-2 text-sm font-bold ${message.ok ? 'bg-[#f0fdf4] text-[#166534]' : 'bg-[#fef3c7] text-[#92400e]'}`}>
+          {message.text}
+        </p>
+      )}
+    </section>
+  )
+}
+
 function Block({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="card text-base">
@@ -452,7 +541,7 @@ function Facts({ rows }: { rows: [string, ReactNode][] }) {
 }
 
 // 問題の内容。データの順のまま（生徒の画面のように並べ替えない）、評価・条件・根拠もデータのまま表示する
-function QuestionReview({ q, reviewHref }: { q: Question; reviewHref: (t: ReviewTab, id: string) => string }) {
+function QuestionReview({ q, reviewHref, teamRule }: { q: Question; reviewHref: (t: ReviewTab, id: string) => string; teamRule?: string }) {
   const c = useContent()
   const set = q.set_id ? c.byId.questionSet.get(q.set_id) : undefined
   const cur = c.byId.curriculum.get(q.curriculum_id)
@@ -579,7 +668,7 @@ function QuestionReview({ q, reviewHref }: { q: Question; reviewHref: (t: Review
 
       <section aria-label="解説（生徒が見る内容）" className="flex flex-col gap-3">
         <p className="text-sm font-bold text-[var(--muted)]">▼ 生徒が見る解説（PLAY と同じ表示）</p>
-        <Explanation question={q} answer={null} linkTo={(x) => reviewHref('question', x)} />
+        <Explanation question={q} answer={null} linkTo={(x) => reviewHref('question', x)} teamRule={teamRule} />
       </section>
     </>
   )

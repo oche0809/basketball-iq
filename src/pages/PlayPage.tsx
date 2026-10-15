@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { type AssignmentTarget, assignmentPath, assignmentSource, parseAssignment } from '../coach/assignment.ts'
+import { TEAM_PARAM, cleanTeamParam, decodeTeamRules } from '../coach/teamRuleParam.ts'
 import { PageTitle } from '../components/PageTitle.tsx'
 import { BackLink, CategoryChip, Chip, DifficultyChip } from '../components/ui.tsx'
 import { useContent } from '../content/context.ts'
@@ -10,6 +11,8 @@ import { appRecorder, newSolveSessionId } from '../play/recorder.ts'
 import { SaveNotice } from '../play/SaveNotice.tsx'
 import { SetReview } from '../play/SetReview.tsx'
 import { orderedItems } from '../play/setOrder.ts'
+import type { TeamRules } from '../storage/teamRule.ts'
+import { teamRuleStore } from '../storage/teamRuleStore.ts'
 import type { Question, QuestionSet } from '../types/content.ts'
 import { SET_KIND_LABELS, gradeLabel } from '../utils/labels.ts'
 import type { Route } from '../utils/router.ts'
@@ -23,7 +26,7 @@ export function PlayPage({ route }: { route: Route }) {
   const [, kind, id] = route.segments
   const target = parseAssignment(route.segments)
   if (target) {
-    const entry: Entry = { kind: 'assignment', target }
+    const entry: Entry = { kind: 'assignment', target, team: cleanTeamParam(route.params.get(TEAM_PARAM)) }
     if (target.type === 'set')
       return <SetView key={`a|${target.id}`} setId={target.id} questionId={route.params.get('q')} review={route.params.get('review') === '1'} entry={entry} />
     return <SingleView key={`a|${target.id}`} questionId={target.id} entry={entry} />
@@ -34,10 +37,21 @@ export function PlayPage({ route }: { route: Route }) {
   return <PlayList />
 }
 
-// 入口：通常の練習か、先生の課題URLか。QuestionFlow には渡さない（変わるのは記録の source とリンク先だけ）
-type Entry = { kind: 'practice' } | { kind: 'assignment'; target: AssignmentTarget }
+// 入口：通常の練習か、先生の課題URLか。QuestionFlow には渡さない（変わるのは記録の source・リンク先・チームの約束だけ）
+// team：課題URLに入っていたチームの約束（?team= の値。なければ null）
+type Entry = { kind: 'practice' } | { kind: 'assignment'; target: AssignmentTarget; team: string | null }
 const PRACTICE: Entry = { kind: 'practice' }
 const sourceOf = (e: Entry) => (e.kind === 'assignment' ? assignmentSource(e.target) : ({ type: 'practice' } as const))
+// 課題の中で次の問題・振り返りへ進む時も、チームの約束を URL に残す
+const teamQuery = (e: Entry) => (e.kind === 'assignment' && e.team ? `&${TEAM_PARAM}=${e.team}` : '')
+
+// 解説に出すチームの約束。課題URLに入っていれば、それだけを使う（先生が配った内容のまま）。
+// なければ、このブラウザに保存された約束（先生が自分の端末で確かめる時）
+function useTeamRules(entry: Entry, ids: string[]): TeamRules {
+  const [local] = useState(() => teamRuleStore().load().rules)
+  if (entry.kind === 'assignment' && entry.team) return decodeTeamRules(entry.team, ids)
+  return local
+}
 
 function AssignmentBanner({ entry, title }: { entry: Entry; title: string }) {
   if (entry.kind !== 'assignment') return null
@@ -105,14 +119,15 @@ function SetView({ setId, questionId, review, entry }: { setId: string; question
   const [saved, setSaved] = useState<Record<string, RecordOutcome>>({})
   const [session] = useState(newSolveSessionId) // このセットを開いた1回（開き直すと別の回）
   const set = c.byId.questionSet.get(setId)
+  const teamRules = useTeamRules(entry, set?.items ?? [])
   if (!set) return <Missing what="セット" id={setId} assignment={entry.kind === 'assignment'} />
   const items = orderedItems(set)
     .map((id) => c.byId.question.get(id))
     .filter((q): q is Question => !!q)
   // 課題URLから開いた時は、課題のURLのまま問題を進める
   const base = entry.kind === 'assignment' ? assignmentPath({ type: 'set', id: set.id }) : `#/play/set/${encodeURIComponent(set.id)}`
-  const href = (id: string) => `${base}?q=${encodeURIComponent(id)}`
-  const reviewHref = `${base}?review=1`
+  const href = (id: string) => `${base}?q=${encodeURIComponent(id)}${teamQuery(entry)}`
+  const reviewHref = `${base}?review=1${teamQuery(entry)}`
   const linkTo = (id: string) => (items.some((q) => q.id === id) ? href(id) : `#/play/q/${encodeURIComponent(id)}`)
 
   if (review)
@@ -161,6 +176,7 @@ function SetView({ setId, questionId, review, entry }: { setId: string; question
           if (outcome.status !== 'skipped') setSaved((prev) => ({ ...prev, [current.id]: outcome }))
         }}
         notice={<SaveNotice outcome={saved[current.id]} />}
+        teamRule={teamRules[current.id]}
         linkTo={linkTo}
         finish={
           next ? (
@@ -196,6 +212,7 @@ function SingleView({ questionId, entry }: { questionId: string; entry: Entry })
   const [answer, setAnswer] = useState<QuestionAnswer>(emptyAnswer)
   const [saved, setSaved] = useState<RecordOutcome>()
   const [session] = useState(newSolveSessionId) // この問題を開いた1回（開き直すと別の回）
+  const teamRules = useTeamRules(entry, [questionId])
   const q = c.byId.question.get(questionId)
   if (!q) return <Missing what="問題" id={questionId} assignment={entry.kind === 'assignment'} />
   const set = q.set_id ? c.byId.questionSet.get(q.set_id) : undefined
@@ -219,6 +236,7 @@ function SingleView({ questionId, entry }: { questionId: string; entry: Entry })
           if (outcome.status !== 'skipped') setSaved(outcome)
         }}
         notice={<SaveNotice outcome={saved} />}
+        teamRule={teamRules[q.id]}
         linkTo={(id) => `#/play/q/${encodeURIComponent(id)}`}
         finish={
           entry.kind === 'assignment' ? (

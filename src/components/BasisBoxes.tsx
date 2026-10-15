@@ -9,11 +9,13 @@ export type RuleEntry = { rule: Rule; text?: string; sourceTitle: string }
 export function BasisBoxes({
   practiceTitles,
   teamRule,
+  teamRuleText,
   rules,
   reviewNote,
 }: {
   practiceTitles: string[]
-  teamRule: boolean
+  teamRule: boolean // チームによって答えが変わる部分がある（教材データの TEAM_RULE）
+  teamRuleText?: string | null // 先生が登録したチームの約束（あれば）
   rules: RuleEntry[]
   reviewNote: string
 }) {
@@ -32,11 +34,19 @@ export function BasisBoxes({
           ))}
         </div>
       )}
-      {teamRule && (
-        <div>
-          <p className="font-bold">【チームの約束】</p>
-          <p className="text-[var(--muted)]">チームによって答えが変わる部分があります。チームの約束はまだ登録されていません。</p>
+      {teamRuleText ? (
+        <div className="rounded-xl border-2 border-[#15803d]/30 bg-[#f0fdf4] p-3" role="region" aria-label="先生が決めたチームの約束">
+          <p className="font-bold text-[#14532d]">【チームの約束】</p>
+          <p className="mt-1 whitespace-pre-wrap">{teamRuleText}</p>
+          <p className="mt-2 text-sm text-[var(--muted)]">先生が決めた、このチームの約束です。JBAルールや一般的な判断原則とは別のものです。</p>
         </div>
+      ) : (
+        teamRule && (
+          <div>
+            <p className="font-bold">【チームの約束】</p>
+            <p className="text-[var(--muted)]">チームによって答えが変わる部分があります。チームの約束はまだ登録されていません。</p>
+          </div>
+        )
       )}
       {articles.length > 0 && (
         <div className="rounded-xl border-2 border-[#1d4ed8]/30 bg-[#eff6ff] p-3">

@@ -15,10 +15,11 @@ type Props = {
   linkTo: (questionId: string) => string // 「相手が変えたら」から別の問題へ
   finish: ReactNode // 解説の後に出すボタン（次の問題・振り返り・PLAYへ）
   notice?: ReactNode // 解説の上に出すお知らせ（学習記録の保存の結果など）
+  teamRule?: string | null // 解説に出すチームの約束（先生が登録した場合だけ）
 }
 
 // 1問を「見る → 判断 → なぜ →（次の判断）→ 解説」の順に、1段階ずつ表示する
-export function QuestionFlow({ question: q, answer, onChange, linkTo, finish, notice }: Props) {
+export function QuestionFlow({ question: q, answer, onChange, linkTo, finish, notice, teamRule }: Props) {
   const total = q.stages.length
   const idx = Math.min(answer.stageIndex, total)
   const stage: Stage | undefined = q.stages[idx]
@@ -116,7 +117,7 @@ export function QuestionFlow({ question: q, answer, onChange, linkTo, finish, no
           ) : (
             <>
               {notice}
-              <Explanation question={q} answer={answer} linkTo={linkTo} />
+              <Explanation question={q} answer={answer} linkTo={linkTo} teamRule={teamRule} />
             </>
           )}
         </div>

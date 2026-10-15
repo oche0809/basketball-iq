@@ -8,7 +8,18 @@ import { DIAGNOSIS_LABELS, FIT_LABELS, QUALITY_LABELS, RECOGNITION_LABELS, diagn
 
 // 解説：教材データの内容だけを、決まった順で表示する（データにない条件・理由は作らない）
 // answer が null の時（先生の教材レビュー）は「あなたの回答」を出さない。生徒の画面では常に回答を渡す
-export function Explanation({ question: q, answer, linkTo }: { question: Question; answer: QuestionAnswer | null; linkTo: (id: string) => string }) {
+// teamRule：先生が登録したチームの約束（課題URL、または先生のこのブラウザから）
+export function Explanation({
+  question: q,
+  answer,
+  linkTo,
+  teamRule,
+}: {
+  question: Question
+  answer: QuestionAnswer | null
+  linkTo: (id: string) => string
+  teamRule?: string | null
+}) {
   const c = useContent()
   const see = q.stages.find((s): s is RecognitionStage => s.kind === 'RECOGNITION')
   const dec = q.stages.find((s) => s.kind === 'DECISION')
@@ -177,6 +188,7 @@ export function Explanation({ question: q, answer, linkTo }: { question: Questio
       <BasisBoxes
         practiceTitles={q.evidence.filter((e) => e.basis === 'COACHING_PRACTICE').map((e) => c.byId.source.get(e.source_id)?.title ?? e.source_id)}
         teamRule={q.evidence.some((e) => e.basis === 'TEAM_RULE')}
+        teamRuleText={teamRule}
         rules={rules}
         reviewNote={q.verification.status === 'draft' ? 'この問題は先生の確認前です。' : '先生が確認した問題です。'}
       />

@@ -1,18 +1,19 @@
-// 課題URL。URLに入れるのは、教材を特定するID（セットIDか問題ID）だけ。
+// 課題URL。URLに入れるのは、教材を特定するID（セットIDか問題ID）と、先生が選んだ場合のチームの約束（?team=）だけ。
 // 名前・学校名・メール・回答・端末の記録などは入れない。
 import type { AttemptSource } from '../storage/attempt.ts'
+import { TEAM_PARAM } from './teamRuleParam.ts'
 
 export type AssignmentTarget = { type: 'set' | 'question'; id: string }
 
-// ハッシュの道（#/play/assignment/set/<セットID>、#/play/assignment/q/<問題ID>）
-export function assignmentPath(t: AssignmentTarget): string {
-  return `#/play/assignment/${t.type === 'set' ? 'set' : 'q'}/${encodeURIComponent(t.id)}`
+// ハッシュの道（#/play/assignment/set/<セットID>、#/play/assignment/q/<問題ID>）。team は encodeTeamRules の値
+export function assignmentPath(t: AssignmentTarget, team?: string | null): string {
+  return `#/play/assignment/${t.type === 'set' ? 'set' : 'q'}/${encodeURIComponent(t.id)}${team ? `?${TEAM_PARAM}=${team}` : ''}`
 }
 
 // 配る用の完全なURL。今のページの ? 以降（検索・確認用の文字など）は持ち込まない
-export function assignmentUrl(pageUrl: string, t: AssignmentTarget): string {
+export function assignmentUrl(pageUrl: string, t: AssignmentTarget, team?: string | null): string {
   const u = new URL(pageUrl)
-  return `${u.origin}${u.pathname}${assignmentPath(t)}`
+  return `${u.origin}${u.pathname}${assignmentPath(t, team)}`
 }
 
 // #/play/assignment/... の segments（['play','assignment','set',ID]）から、課題の指定を読む
