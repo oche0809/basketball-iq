@@ -84,6 +84,12 @@ export function validateContent(raw: RawContent): string[] {
     }
     if (!ids.has(court.you)) e('you の選手がいない')
     if (!ids.has(court.ball)) e('ball の選手がいない')
+    const f = court.hud?.fouls
+    if (f) {
+      // 5個で退場（競技規則 40-1）なので、コートにいる「あなた」は0〜4
+      if (f.you !== undefined && !(Number.isInteger(f.you) && f.you >= 0 && f.you <= 4)) e('個人ファウルは0〜4')
+      for (const n of [f.team_us, f.team_them]) if (n !== undefined && !(Number.isInteger(n) && n >= 0)) e('チームファウルは0以上の整数')
+    }
     for (const s of court.steps)
       for (const a of s.actions) {
         if ('player' in a && !ids.has(a.player)) e(`動作の選手がいない ${a.player}`)
@@ -192,7 +198,7 @@ export function validateContent(raw: RawContent): string[] {
     if (set.kind === 'DEFENSE_VARIATION' && new Set(items.map(defense)).size !== items.length) e('DFの配置・動きが変わっていない問題がある')
     if (set.kind === 'CONTEXT_VARIATION') {
       if (new Set(items.map((q) => JSON.stringify(q.court?.players))).size !== 1) e('コートが同じではない')
-      if (new Set(items.map((q) => JSON.stringify(q.court?.hud))).size !== items.length) e('時計・点差が変わっていない')
+      if (new Set(items.map((q) => JSON.stringify(q.court?.hud))).size !== items.length) e('時計・点差・ファウル数が変わっていない')
     }
     if (new Set(items.map((q) => JSON.stringify(decisionOf(q).map((o) => o.text).sort()))).size !== 1)
       e('判断の選択肢の文が問題ごとに違う（同じ選択肢で優先が変わる形にする）')

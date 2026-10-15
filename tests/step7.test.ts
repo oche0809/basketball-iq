@@ -47,10 +47,10 @@ function solve(question: Question): QuestionAnswer {
 }
 
 describe('COACH の教材一覧と絞り込み', () => {
-  it('条件なし：セット7つ・問題19問がすべて出る（名前はデータのまま）', () => {
+  it('条件なし：セット8つ・問題21問がすべて出る（名前はデータのまま）', () => {
     expect(filterSets(c, EMPTY_FILTER).map((s) => s.title)).toEqual(c.questionSets.map((s) => s.title))
     expect(filterQuestions(c, EMPTY_FILTER).map((x) => x.title)).toEqual(c.questions.map((x) => x.title))
-    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(19)
+    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(21)
   })
   it('カテゴリー・難易度・学年それぞれで、条件を満たす問題だけになる', () => {
     expect(filterQuestions(c, { ...EMPTY_FILTER, cat: 'OFFENSE' }).every((x) => x.category === 'OFFENSE')).toBe(true)
@@ -64,7 +64,7 @@ describe('COACH の教材一覧と絞り込み', () => {
     const expected = c.questions.filter((x) => x.category === 'OFFENSE' && x.difficulty === 'BEGINNER' && x.grade.includes(1)).map((x) => x.id)
     expect(and).toEqual(expected)
     expect(and.length).toBeGreaterThan(0)
-    expect(filterQuestions(c, { ...f, cat: 'GAME_IQ' })).toEqual([]) // GAME IQ に初級・1年の問題はない
+    expect(filterQuestions(c, { ...f, cat: 'GAME_IQ' }).map((x) => x.id)).toEqual(['GI-FOU-02-A', 'GI-FOU-02-B']) // GAME IQ の初級・1年はファウル数のセットだけ
   })
   it('セット：条件をすべて満たす問題が1問以上入っているセットだけが出る', () => {
     const f: MapFilter = { ...EMPTY_FILTER, cat: 'TRANSITION' }

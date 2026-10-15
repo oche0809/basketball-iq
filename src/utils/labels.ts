@@ -18,7 +18,7 @@ export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
 // 問題セットの種類（データの kind）を、選手向けの短い説明にする
 export const SET_KIND_LABELS: Record<string, string> = {
   DEFENSE_VARIATION: '攻撃は同じ。DFの動きだけが違う',
-  CONTEXT_VARIATION: 'コートは同じ。時計や点差だけが違う',
+  CONTEXT_VARIATION: 'コートは同じ。時計・点差・ファウル数だけが違う',
   BALL_VARIATION: 'ボールの位置だけが違う',
   OFFENSE_VARIATION: '相手の特徴だけが違う',
   MIRROR: '同じ場面を攻撃側・守備側から見る',

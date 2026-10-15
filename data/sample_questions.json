@@ -240,6 +240,40 @@
         ]
       },
       "mastery_rule": "2問とも priority の時に『読めている』とする"
+    },
+    {
+      "id": "SET-FOULS",
+      "kind": "CONTEXT_VARIATION",
+      "scenario_id": "SCN-FOULS",
+      "title": "抜かれかけた：同じ場面で、自分のファウル数だけが違う",
+      "order": "fixed",
+      "intro": "コートの様子はまったく同じです。あなたのファウル数だけが違います。",
+      "items": [
+        "GI-FOU-02-A",
+        "GI-FOU-02-B"
+      ],
+      "closing": {
+        "prompt": "2問で、あなたの優先を変えたのは何でしたか？",
+        "options": [
+          {
+            "id": "c1",
+            "text": "自分のファウル数",
+            "cue_id": "CUE-FOULS",
+            "correct": true
+          },
+          {
+            "id": "c2",
+            "text": "点差",
+            "correct": false
+          },
+          {
+            "id": "c3",
+            "text": "ヘルプの味方の位置",
+            "correct": false
+          }
+        ]
+      },
+      "mastery_rule": "2問とも priority の時に『読めている』とする"
     }
   ],
   "questions": [
@@ -5503,6 +5537,541 @@
         "reviewed_by": null,
         "reviewed_at": null,
         "note": "SET-ENDGAME の2問目。ファウルで時計を止めるかはチームの方針で先生が確認。"
+      }
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "GI-FOU-02",
+      "set_id": "SET-FOULS",
+      "scenario_id": "SCN-FOULS",
+      "category": "GAME_IQ",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "STATIC",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "related_drills": [
+        "lib-213",
+        "lib-076"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "RULE-PLAYER-5-FOULS",
+          "text": "【ルール】5個のファウルを宣せられたプレーヤーはコートを離れなければならない（競技規則 40-1）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "id": "GI-FOU-02-A",
+      "variant": {
+        "label": "A",
+        "what_changed": "あなたは1ファウル"
+      },
+      "title": "ファウル数①：1ファウルで抜かれかけた",
+      "situation": "第4クォーター残り3分、2点リード。あなた（1番のDF）は、ドライブしてきた1番に半歩抜かれかけている。ゴール前では味方の5番がヘルプで待っている。あなたは今、1ファウル。",
+      "court": {
+        "court": "half",
+        "you": "D1",
+        "ball": "O1",
+        "hud": {
+          "quarter": 4,
+          "game_clock": "3:00",
+          "score": {
+            "us": 40,
+            "them": 38
+          },
+          "fouls": {
+            "you": 1,
+            "team_us": 2
+          }
+        },
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 36,
+              "y": 24
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "O5",
+            "label": "5",
+            "team": "offense",
+            "start": {
+              "x": 64,
+              "y": 14
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 41,
+              "y": 29
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 76,
+              "y": 38
+            }
+          },
+          {
+            "id": "D5",
+            "label": "5",
+            "team": "defense",
+            "start": {
+              "x": 44,
+              "y": 16
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "抜かれかけた。どう守るかを決める前に確認すべきものは？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "自分のファウル数",
+              "cue_id": "CUE-FOULS",
+              "value": "key",
+              "feedback": "まだ1ファウル。思い切って守れる。"
+            },
+            {
+              "id": "s2",
+              "text": "ヘルプの味方の位置",
+              "value": "useful",
+              "feedback": "味方の5番がゴール前で待っている。まかせられるかがわかる。"
+            },
+            {
+              "id": "s3",
+              "text": "点差",
+              "cue_id": "CUE-SCORE",
+              "value": "not_now",
+              "feedback": "終盤の2点差。でも今は、守り方を決める一番の手がかりではない。"
+            },
+            {
+              "id": "s4",
+              "text": "ショットクロックの残り秒数",
+              "cue_id": "CUE-SHOT-CLOCK",
+              "value": "irrelevant",
+              "feedback": "相手はもうゴールへ向かっている。今は関係ない。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 0,
+          "prompt": "あなたは1ファウル。どれにも価値がある場面があります。今、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "手を出さず、足を動かして追いかける",
+              "fit": "conditional",
+              "condition": "相手がまだシュートの形に入っていない時は有効（先に追いつく）",
+              "feedback": "追いかけるのは大事。最後はシュートにも手を合わせたい。"
+            },
+            {
+              "id": "B",
+              "text": "追いついて、シュートに合わせて真上に手を伸ばす",
+              "fit": "priority",
+              "feedback": "まだ1ファウル。追いついてシュートに手を合わせれば、ヘルプの5番と2人で守れる。"
+            },
+            {
+              "id": "C",
+              "text": "横から手を出して、ボールをはたきにいく",
+              "fit": "low",
+              "feedback": "抜かれた後に横から手を出すと、ファウルになりやすい。"
+            },
+            {
+              "id": "D",
+              "text": "ヘルプの味方にまかせ、リバウンドの位置に入る",
+              "fit": "situational",
+              "condition": "4ファウルの時や、もう追いつけない時は有効（→ 問題2）",
+              "feedback": "まだ1ファウル。ヘルプと2人で守る方が止めやすい。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "まだ1ファウルで、思い切って守れる",
+              "quality": "key",
+              "cue_id": "CUE-FOULS",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ヘルプの味方と2人で守れる",
+              "quality": "supporting",
+              "supports": [
+                "B",
+                "D"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "抜かれたら、手を出して止めるしかない",
+              "quality": "misconception",
+              "supports": [
+                "C"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "相手が下手そうだから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "ファウルに余裕がある時は、追いついてシュートに手を合わせ、ヘルプと2人で守る。",
+        "explanation": "問題2と、コートの様子は同じ。違うのはあなたのファウル数だけ。ファウルに余裕がある時は、思い切って守れる。それでも、抜かれた後に横から手を出すのはファウルになりやすい。",
+        "if_defense_changes": [
+          {
+            "change": "あなたが4ファウル",
+            "then": "ヘルプにまかせ、リバウンドの位置へ",
+            "question_id": "GI-FOU-02-B"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "rule_note",
+          "claim": "5個のファウルで退場",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-PLAYER-5-FOULS",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "40-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decision_rule",
+          "claim": "ファウルに余裕がある時は、追いついてシュートに手を合わせる",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "ファウル数による守り方の変え方はチームの方針で変わる",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-FOULS の1問目。"
+      }
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "GI-FOU-02",
+      "set_id": "SET-FOULS",
+      "scenario_id": "SCN-FOULS",
+      "category": "GAME_IQ",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "STATIC",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "related_drills": [
+        "lib-213",
+        "lib-076"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "RULE-PLAYER-5-FOULS",
+          "text": "【ルール】5個のファウルを宣せられたプレーヤーはコートを離れなければならない（競技規則 40-1）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-09",
+      "updated_at": "2026-10-09",
+      "id": "GI-FOU-02-B",
+      "variant": {
+        "label": "B",
+        "what_changed": "あなたは4ファウル"
+      },
+      "title": "ファウル数②：4ファウルで抜かれかけた",
+      "situation": "第4クォーター残り3分、2点リード。あなた（1番のDF）は、ドライブしてきた1番に半歩抜かれかけている。ゴール前では味方の5番がヘルプで待っている。あなたは今、4ファウル。",
+      "court": {
+        "court": "half",
+        "you": "D1",
+        "ball": "O1",
+        "hud": {
+          "quarter": 4,
+          "game_clock": "3:00",
+          "score": {
+            "us": 40,
+            "them": 38
+          },
+          "fouls": {
+            "you": 4,
+            "team_us": 2
+          }
+        },
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 36,
+              "y": 24
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "O5",
+            "label": "5",
+            "team": "offense",
+            "start": {
+              "x": 64,
+              "y": 14
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 41,
+              "y": 29
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 76,
+              "y": 38
+            }
+          },
+          {
+            "id": "D5",
+            "label": "5",
+            "team": "defense",
+            "start": {
+              "x": 44,
+              "y": 16
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "抜かれかけた。どう守るかを決める前に確認すべきものは？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "自分のファウル数",
+              "cue_id": "CUE-FOULS",
+              "value": "key",
+              "feedback": "4ファウル。次のファウルで退場（ルール）。"
+            },
+            {
+              "id": "s2",
+              "text": "ヘルプの味方の位置",
+              "value": "useful",
+              "feedback": "味方の5番がゴール前で待っている。まかせられるかがわかる。"
+            },
+            {
+              "id": "s3",
+              "text": "点差",
+              "cue_id": "CUE-SCORE",
+              "value": "not_now",
+              "feedback": "終盤の2点差。でも今は、守り方を決める一番の手がかりではない。"
+            },
+            {
+              "id": "s4",
+              "text": "ショットクロックの残り秒数",
+              "cue_id": "CUE-SHOT-CLOCK",
+              "value": "irrelevant",
+              "feedback": "相手はもうゴールへ向かっている。今は関係ない。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 0,
+          "prompt": "あなたは4ファウル。どれにも価値がある場面があります。今、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "手を出さず、足を動かして追いかける",
+              "fit": "conditional",
+              "condition": "ヘルプの味方がいない時は有効（体の位置で守る）",
+              "feedback": "ヘルプが待っている。無理に追うと、ぶつかってファウルになりやすい。"
+            },
+            {
+              "id": "B",
+              "text": "追いついて、シュートに合わせて真上に手を伸ばす",
+              "fit": "situational",
+              "condition": "相手が真上に打ち、体をぶつけずに真上に跳べる時は有効",
+              "feedback": "跳ぶと体が当たりやすい。今退場すると、チームが困る。"
+            },
+            {
+              "id": "C",
+              "text": "横から手を出して、ボールをはたきにいく",
+              "fit": "low",
+              "feedback": "抜かれた後に横から手を出すと、ファウルになりやすい。"
+            },
+            {
+              "id": "D",
+              "text": "ヘルプの味方にまかせ、リバウンドの位置に入る",
+              "fit": "priority",
+              "feedback": "4ファウル。次のファウルで退場。ヘルプの5番が待っているので、まかせてリバウンドで助ける。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "4ファウルで、次のファウルは退場",
+              "quality": "key",
+              "cue_id": "CUE-FOULS",
+              "supports": [
+                "D"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ヘルプの味方がゴール前で待っている",
+              "quality": "supporting",
+              "supports": [
+                "D"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "抜かれたら、手を出して止めるしかない",
+              "quality": "misconception",
+              "supports": [
+                "C"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "ファウル数は気にしなくていい",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "4ファウルの時は、無理にブロックに跳ばず、ヘルプにまかせて次のプレーで助ける。",
+        "explanation": "問題1と、コートの様子は同じ。違うのはあなたのファウル数だけ。5ファウルで退場になるのはルール。4ファウルの時にどこまで守るかはルールではなく、チームの方針で先生が決める。",
+        "if_defense_changes": [
+          {
+            "change": "あなたが1ファウル",
+            "then": "追いついて、シュートに手を合わせる",
+            "question_id": "GI-FOU-02-A"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "rule_note",
+          "claim": "5個のファウルで退場",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-PLAYER-5-FOULS",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "40-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decision_rule",
+          "claim": "4ファウルの時は無理に跳ばず、ヘルプにまかせる",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "4ファウルの選手にどこまで守らせるかはチームの方針で変わる",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ],
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "SET-FOULS の2問目。4ファウルの時の守り方はチームの方針で先生が確認。"
       }
     }
   ]

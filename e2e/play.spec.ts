@@ -100,4 +100,11 @@ test.describe('通常の PLAY', () => {
     await expect(main).toContainText(/解いたセット\s*1セット/)
     await expect(main.getByText(s.title).first()).toBeVisible() // セット別
   })
+
+  test('ファウル数：画面上部に、あなたの個人ファウルとチームファウルが出る', async ({ page }) => {
+    await openApp(page, '#/play/set/SET-FOULS?q=GI-FOU-02-B')
+    const hud = page.getByLabel('試合の状況')
+    await expect(hud).toContainText('あなた 4ファウル')
+    await expect(hud).toContainText('自チームのチームファウル 2')
+  })
 })

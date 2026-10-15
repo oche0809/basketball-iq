@@ -13,7 +13,13 @@ export type CourtAction =
   | { type: 'shoot' | 'rebound'; player: string }
   | { type: 'wait' }
 export type CourtStep = { text: string; actions: CourtAction[] }
-export type Hud = { quarter?: number; game_clock?: string; shot_clock?: number; score?: { us: number; them: number } }
+export type Hud = {
+  quarter?: number
+  game_clock?: string
+  shot_clock?: number
+  score?: { us: number; them: number }
+  fouls?: { you?: number; team_us?: number; team_them?: number } // you：あなたの個人ファウル。team_*：このクォーターのチームファウル
+}
 export type Court = {
   court: 'half'
   you: string

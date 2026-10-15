@@ -327,6 +327,9 @@ export function HudBar({ hud }: { hud: NonNullable<NonNullable<Question['court']
     hud.game_clock && `残り ${hud.game_clock}`,
     hud.score && `自チーム ${hud.score.us}－${hud.score.them} 相手`,
     hud.shot_clock !== undefined && `ショットクロック ${hud.shot_clock}秒`,
+    hud.fouls?.you !== undefined && `あなた ${hud.fouls.you}ファウル`,
+    hud.fouls?.team_us !== undefined && `自チームのチームファウル ${hud.fouls.team_us}`,
+    hud.fouls?.team_them !== undefined && `相手のチームファウル ${hud.fouls.team_them}`,
   ].filter(Boolean) as string[]
   return (
     <p className="flex flex-wrap gap-1.5" aria-label="試合の状況">
