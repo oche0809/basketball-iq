@@ -5182,6 +5182,190 @@
         "needs_coach_review": true,
         "rule_check": null
       }
+    },
+    {
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "question_set": null,
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "2026-10-21 カリキュラムを広げて追加した項目"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      },
+      "id": "DF-REB-01",
+      "category": "DEFENSE",
+      "subcategory": "リバウンド",
+      "title": "シュートが打たれたら、まず相手に体を当てる",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "シュートが打たれた瞬間に、自分のマークを見つけて体を当て（ボックスアウト）、それからボールへ行ける",
+      "situation": "相手がシュートを打った",
+      "decision_point": {
+        "look_at": "シュートが打たれたか・自分のマークの動き",
+        "decide": "マークに体を当ててゴールから遠ざけ、それからボールへ"
+      },
+      "common_mistakes": [
+        "ボールだけを見てゴールへ走り、相手に前へ入られる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-BALL-AND-MARK"
+      ],
+      "sample_questions": {
+        "recognition": "シュートが打たれた瞬間、自分のマークは何をしている？",
+        "decision": "リバウンドのために、まず何をする？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "マークの動き違い"
+      },
+      "related_drills": [
+        "lib-213",
+        "lib-093"
+      ]
+    },
+    {
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "question_set": null,
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "2026-10-21 カリキュラムを広げて追加した項目"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      },
+      "id": "OF-REB-01",
+      "category": "OFFENSE",
+      "subcategory": "リバウンド",
+      "title": "オフェンスリバウンド：どこへ入る？",
+      "grade": [
+        2,
+        3
+      ],
+      "difficulty": "INTERMEDIATE",
+      "learning_goal": "シュートの角度を見て、ボールが落ちやすい場所へ入れる",
+      "situation": "味方が横からシュートを打った",
+      "decision_point": {
+        "look_at": "シュートを打った角度（どちら側から打ったか）",
+        "decide": "横から打ったシュートは、反対側のゴール下へ入る"
+      },
+      "common_mistakes": [
+        "シュートを見ているだけ",
+        "シュートを打った側に集まる"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-SHOT-ANGLE"
+      ],
+      "sample_questions": {
+        "recognition": "シュートはどちら側から打った？",
+        "decision": "リバウンドのために、どこへ入る？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "シュートの角度違い"
+      },
+      "related_drills": [
+        "lib-093"
+      ]
+    },
+    {
+      "rule_refs": [],
+      "source_types": [
+        "COACHING_PRACTICE"
+      ],
+      "sources": [
+        "SRC-CP-GENERAL"
+      ],
+      "evidence": [
+        {
+          "part": "look_and_decide",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL"
+        }
+      ],
+      "question_set": null,
+      "related_tactics": [],
+      "review": {
+        "verdict": "維持",
+        "note": "2026-10-21 カリキュラムを広げて追加した項目"
+      },
+      "verification": {
+        "status": "draft",
+        "needs_coach_review": true,
+        "rule_check": null
+      },
+      "id": "OF-INB-01",
+      "category": "OFFENSE",
+      "subcategory": "スローイン",
+      "title": "スローイン：誰に入れる？",
+      "grade": [
+        1,
+        2
+      ],
+      "difficulty": "BEGINNER",
+      "learning_goal": "スローインの時、DFがボールを見て目を離した味方の動きを使ってパスを入れられる",
+      "situation": "ゴールの下のエンドラインから、スローインをする",
+      "decision_point": {
+        "look_at": "味方のDFがボールを見ているか・味方の動き",
+        "decide": "DFがボールを見て空いた味方へ入れる。空いていなければ、遠くの安全な味方へ"
+      },
+      "common_mistakes": [
+        "一番近い味方にいつも入れる",
+        "迷って時間がたつ"
+      ],
+      "presentation": "ANIMATION",
+      "decision_type": "CHOICE",
+      "cues": [
+        "CUE-DEF-EYES"
+      ],
+      "sample_questions": {
+        "recognition": "どの味方のDFが、ボールを見ている？",
+        "decision": "誰に入れる？"
+      },
+      "memorization_risk": {
+        "level": "中",
+        "mitigation": "空く味方の違い"
+      },
+      "related_drills": []
     }
   ],
   "planned_sets": [

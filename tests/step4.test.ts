@@ -32,8 +32,8 @@ describe('今日の問題セット（日付で決まる）', () => {
 
 describe('コート図（データの座標だけを描く）', () => {
   const withCourt = c.questions.filter((q) => q.court)
-  it('全110問にコート図のデータがある', () => {
-    expect(withCourt).toHaveLength(110)
+  it('全113問にコート図のデータがある', () => {
+    expect(withCourt).toHaveLength(113)
   })
   it('描く選手はデータの選手と完全に同じ（人数・ID・位置）。追加も省略もしない', () => {
     for (const q of withCourt) {
@@ -84,12 +84,12 @@ describe('コート図（データの座標だけを描く）', () => {
 })
 
 describe('MAP の検索・絞り込み', () => {
-  it('条件なしで76項目すべて', () => {
-    expect(filterCurriculum(c.curriculum, EMPTY_FILTER, cueName)).toHaveLength(76)
+  it('条件なしで79項目すべて', () => {
+    expect(filterCurriculum(c.curriculum, EMPTY_FILTER, cueName)).toHaveLength(79)
   })
-  it('カテゴリー別の件数（29・21・8・9・9）', () => {
+  it('カテゴリー別の件数（31・22・8・9・9）', () => {
     const count = (cat: Category) => filterCurriculum(c.curriculum, { ...EMPTY_FILTER, cat }, cueName).length
-    expect([count('OFFENSE'), count('DEFENSE'), count('TRANSITION'), count('ADVANTAGE'), count('GAME_IQ')]).toEqual([29, 21, 8, 9, 9])
+    expect([count('OFFENSE'), count('DEFENSE'), count('TRANSITION'), count('ADVANTAGE'), count('GAME_IQ')]).toEqual([31, 22, 8, 9, 9])
   })
   it('難易度・学年の選択肢はデータにある値だけ', () => {
     expect(difficultiesIn(c.curriculum)).toEqual(['BEGINNER', 'INTERMEDIATE', 'ADVANCED'])
@@ -127,7 +127,7 @@ describe('MAP の検索・絞り込み', () => {
 })
 
 describe('関連データのつながり', () => {
-  it('76項目の関連練習・ルール・出典・手がかりがすべて引ける', () => {
+  it('79項目の関連練習・ルール・出典・手がかりがすべて引ける', () => {
     for (const it of c.curriculum) {
       for (const d of it.related_drills) expect(c.byId.drill.get(d), `${it.id} ${d}`).toBeTruthy()
       for (const r of it.rule_refs) expect(c.byId.rule.get(r), `${it.id} ${r}`).toBeTruthy()

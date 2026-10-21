@@ -30742,6 +30742,745 @@
         "reviewed_at": null,
         "note": "SET-ADVANTAGE-READ（はい／いいえ）の3問目。"
       }
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "DF-REB-01",
+      "set_id": null,
+      "category": "DEFENSE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "ANIMATION",
+      "cues": [
+        "CUE-BALL-AND-MARK"
+      ],
+      "related_drills": [
+        "lib-213",
+        "lib-093"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "2026-10-21 カリキュラムを広げて追加した問題。"
+      },
+      "id": "DF-REB-01-A",
+      "scenario_id": "SCN-BOX-OUT",
+      "variant": {
+        "label": "A",
+        "what_changed": "シュートが打たれ、マークがゴールへ向かってきた"
+      },
+      "title": "シュートが打たれた！ まず何をする？",
+      "situation": "あなた（X3）は左ウイングの3番を守っている。トップの1番がシュートを打った。",
+      "court": {
+        "court": "half",
+        "you": "D3",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 62
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 54
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 28,
+              "y": 30
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "1番がシュートを打った。3番がゴールへ走り込もうとしている。",
+            "actions": [
+              {
+                "type": "shoot",
+                "player": "O1"
+              },
+              {
+                "type": "move",
+                "player": "O3",
+                "to": {
+                  "x": 19,
+                  "y": 35
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたは3番に体を当てて、ゴールから遠ざける（ボックスアウト）。それからボールへ。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "D3",
+                "to": {
+                  "x": 27,
+                  "y": 29
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。シュートが打たれた瞬間、3番は何をしている？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "ゴールへ走り込もうとしている",
+              "cue_id": "CUE-BALL-AND-MARK",
+              "value": "key",
+              "feedback": "3番がリバウンドを取りに来る。先に止める必要がある。"
+            },
+            {
+              "id": "s2",
+              "text": "その場で止まって見ている",
+              "value": "irrelevant",
+              "feedback": "よく見よう。3番はゴールへ向かっている。"
+            },
+            {
+              "id": "s3",
+              "text": "守りに戻ろうとしている",
+              "value": "irrelevant",
+              "feedback": "3番はゴールへ向かっている。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "リバウンドのために、まず何をする？",
+          "options": [
+            {
+              "id": "A",
+              "text": "3番に体を当てて止めてから、ボールへ行く（ボックスアウト）",
+              "fit": "priority",
+              "feedback": "3番をゴールから遠ざければ、落ちてきたボールを自分が取りやすい。"
+            },
+            {
+              "id": "B",
+              "text": "すぐにボールが落ちる場所へ走る",
+              "fit": "low",
+              "feedback": "3番に前へ入られて、リバウンドを取られやすい。"
+            },
+            {
+              "id": "C",
+              "text": "シュートが入るかどうかを見ている",
+              "fit": "low",
+              "feedback": "見ている間に、3番がゴールの前に入ってしまう。"
+            },
+            {
+              "id": "D",
+              "text": "速攻のために、前へ走り出す",
+              "fit": "situational",
+              "condition": "味方が確実にリバウンドを取れる時は有効（チームの約束）",
+              "feedback": "まだ誰がリバウンドを取るか分からない。先に3番を止める。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "3番がゴールへ向かってきた。先に体を当てる",
+              "quality": "key",
+              "cue_id": "CUE-BALL-AND-MARK",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "相手をゴールから遠ざければ、ボールは自分の前に落ちる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "リバウンドは、ボールに一番早く近づいた人が取る",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "シュートが入るか気になるから",
+              "quality": "irrelevant",
+              "supports": [
+                "C"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "シュートが打たれたら、ボールより先に自分のマークを見て、体を当てる（ボックスアウト）。それからボールへ。",
+        "explanation": "リバウンドは、ボールを見て走るだけでは取れない。相手をゴールから遠ざけた人が、落ちてきたボールを取りやすい。シュートが打たれた瞬間に、まず自分のマークを探す。",
+        "if_defense_changes": [
+          {
+            "change": "3番がその場で止まって見ている",
+            "then": "3番を見ながら、ゴールとの間に入ってからボールへ"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "シュートが打たれたらボックスアウトしてからボールへ",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "OF-REB-01",
+      "set_id": null,
+      "category": "OFFENSE",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2,
+        3
+      ],
+      "presentation": "ANIMATION",
+      "cues": [
+        "CUE-SHOT-ANGLE"
+      ],
+      "related_drills": [
+        "lib-093"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "2026-10-21 カリキュラムを広げて追加した問題。"
+      },
+      "id": "OF-REB-01-A",
+      "scenario_id": "SCN-OFF-REBOUND",
+      "variant": {
+        "label": "A",
+        "what_changed": "左ウイングからシュートが打たれた"
+      },
+      "title": "オフェンスリバウンド。どこへ入る？",
+      "situation": "あなた（4番）は右のコーナーにいる。左ウイングの3番がシュートを打った。",
+      "court": {
+        "court": "half",
+        "you": "O4",
+        "ball": "O3",
+        "players": [
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 62
+            }
+          },
+          {
+            "id": "O4",
+            "label": "4",
+            "team": "offense",
+            "start": {
+              "x": 93,
+              "y": 10
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 22,
+              "y": 36
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 54
+            }
+          },
+          {
+            "id": "D4",
+            "label": "4",
+            "team": "defense",
+            "start": {
+              "x": 84,
+              "y": 16
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "左ウイングの3番がシュートを打った。",
+            "actions": [
+              {
+                "type": "shoot",
+                "player": "O3"
+              }
+            ]
+          },
+          {
+            "text": "あなたは、反対側（右側）のゴール下へ入る。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "O4",
+                "to": {
+                  "x": 66,
+                  "y": 12
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 1,
+          "prompt": "リバウンドに入る場所を決める前に、何を見る？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "シュートをどちら側から打ったか",
+              "cue_id": "CUE-SHOT-ANGLE",
+              "value": "key",
+              "feedback": "左側から打った。外れると、右側（反対側）に落ちやすい。"
+            },
+            {
+              "id": "s2",
+              "text": "自分のDFの位置",
+              "value": "useful",
+              "feedback": "大事。DFより先にいい場所へ入るために見る。"
+            },
+            {
+              "id": "s3",
+              "text": "点差",
+              "cue_id": "CUE-SCORE",
+              "value": "not_now",
+              "feedback": "大事な情報。でも、入る場所を決めるものではない。"
+            },
+            {
+              "id": "s4",
+              "text": "ベンチの先生",
+              "value": "irrelevant",
+              "feedback": "プレー中は、コートの中を見る。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "あなた（4番）はどこへ入る？",
+          "options": [
+            {
+              "id": "A",
+              "text": "反対側（右側）のゴール下へ入る",
+              "fit": "priority",
+              "feedback": "横から打ったシュートが外れると、反対側に落ちやすい。そこへ先に入る。"
+            },
+            {
+              "id": "B",
+              "text": "シュートを打った側（左側）のゴール下へ走る",
+              "fit": "conditional",
+              "condition": "シュートがゴールの正面から打たれた時や、短く外れそうな時は有効",
+              "feedback": "左側から打ったので、外れると右側に落ちやすい。"
+            },
+            {
+              "id": "C",
+              "text": "その場でシュートを見ている",
+              "fit": "low",
+              "feedback": "見ているだけでは、リバウンドに間に合わない。"
+            },
+            {
+              "id": "D",
+              "text": "守りに戻る",
+              "fit": "situational",
+              "condition": "チームの約束で、あなたが守りに戻る役の時は有効",
+              "feedback": "戻る役でなければ、リバウンドに入るチャンス。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "横から打ったシュートは、反対側に落ちやすい",
+              "quality": "key",
+              "cue_id": "CUE-SHOT-ANGLE",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "自分は反対側にいるので、DFより先に入れる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "リバウンドは、シュートを打った側に集まればよい",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "シュートが入ると思ったから",
+              "quality": "irrelevant",
+              "supports": [
+                "C"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "横から打ったシュートには、反対側のゴール下へ入る。",
+        "explanation": "シュートを打った人以外は、シュートの角度を見てリバウンドに入る場所を決める。横から打ったシュートは、外れると反対側に落ちることが多い（いつもではない）。だれが守りに戻り、だれがリバウンドに入るかは、チームの約束で決める。",
+        "if_defense_changes": [
+          {
+            "change": "シュートがゴールの正面から打たれた",
+            "then": "ゴールの正面のあたりへ入る"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "横からのシュートは反対側に落ちやすい（目安）",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "OF-INB-01",
+      "set_id": null,
+      "category": "OFFENSE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "ANIMATION",
+      "cues": [
+        "CUE-DEF-EYES"
+      ],
+      "related_drills": [],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "note": "2026-10-21 カリキュラムを広げて追加した問題。"
+      },
+      "id": "OF-INB-01-A",
+      "scenario_id": "SCN-BASELINE-INBOUND",
+      "variant": {
+        "label": "A",
+        "what_changed": "3番のDFがボールを見て、3番が裏へ走った"
+      },
+      "title": "スローイン。誰に入れる？",
+      "situation": "あなた（1番）は、攻めるゴールの下のエンドラインから、スローインをする。2番は近くでDFにぴったりつかれている。3番はフリースローラインのあたりにいる。",
+      "court": {
+        "court": "half",
+        "you": "O1",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 62,
+              "y": 1
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 34,
+              "y": 20
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 60,
+              "y": 40
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 40,
+              "y": 13
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 58,
+              "y": 32
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "3番のDFが、ボールを持つあなたの方を見た。その瞬間、3番がゴールの方へ走った。",
+            "actions": [
+              {
+                "type": "cut",
+                "player": "O3",
+                "to": {
+                  "x": 54,
+                  "y": 16
+                }
+              }
+            ]
+          },
+          {
+            "text": "ゴールへ走った3番へパス。3番がシュート。",
+            "actions": [
+              {
+                "type": "pass",
+                "from": "O1",
+                "to": "O3"
+              },
+              {
+                "type": "shoot",
+                "player": "O3"
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。何が起きた？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "3番のDFがボールを見て、3番がゴールへ走った",
+              "cue_id": "CUE-DEF-EYES",
+              "value": "key",
+              "feedback": "3番のDFは目を離した。3番が空いている。"
+            },
+            {
+              "id": "s2",
+              "text": "2番のDFが2番から離れた",
+              "value": "irrelevant",
+              "feedback": "よく見よう。2番のDFはぴったりついている。"
+            },
+            {
+              "id": "s3",
+              "text": "3番が外へ離れた",
+              "value": "irrelevant",
+              "feedback": "3番はゴールの方へ走っている。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "誰に入れる？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ゴールへ走った3番へパス",
+              "fit": "priority",
+              "feedback": "3番のDFが目を離した。ゴールの近くで受ければ、すぐ打てる。"
+            },
+            {
+              "id": "B",
+              "text": "近くの2番へパス",
+              "fit": "low",
+              "feedback": "2番のDFがぴったりついている。取られやすい。"
+            },
+            {
+              "id": "C",
+              "text": "誰かが空くまで待つ",
+              "fit": "low",
+              "feedback": "スローインには時間の決まりがあり、待ちすぎると相手ボールになる。今は3番が空いている。"
+            },
+            {
+              "id": "D",
+              "text": "遠くの味方へ大きなパス",
+              "fit": "situational",
+              "condition": "近くの味方がみな守られていて、遠くの味方が空いている時は有効",
+              "feedback": "今はゴールの近くの3番が空いている。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "3番のDFがボールを見て、3番が空いた",
+              "quality": "key",
+              "cue_id": "CUE-DEF-EYES",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ゴールの近くで受ければ、すぐ打てる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "スローインは、一番近い味方に入れる",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "3番と仲がいいから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "スローインでは、DFがボールを見て目を離した味方の動きを使う。空いていなければ、遠くの安全な味方へ。",
+        "explanation": "スローインの時、DFはボールを見やすい。DFがボールを見た瞬間に味方が動けば、空く。入れる人は、味方の動きとDFの目線を見て決める。迷って時間がたつと、相手ボールになる（スローインの時間の決まりは、先生と確認しよう）。どんな動きをするかは、チームの約束で決める。",
+        "if_defense_changes": [
+          {
+            "change": "どの味方もDFにぴったりつかれている",
+            "then": "遠くの安全な味方へ入れる"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "スローインはDFが目を離した味方へ",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "decide.options",
+          "claim": "スローインの動き方はチームの約束",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ]
     }
   ]
 }
