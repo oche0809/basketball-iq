@@ -43,8 +43,8 @@ function solve(question: Question) {
 }
 
 describe('回答の流れ（見る → 判断 → なぜ →（次の判断）→ 解説）', () => {
-  it('28問すべてが最初の段階から解説まで進める', () => {
-    expect(c.questions).toHaveLength(28)
+  it('35問すべてが最初の段階から解説まで進める', () => {
+    expect(c.questions).toHaveLength(35)
     for (const question of c.questions) {
       const a = solve(question)
       expect(isFinished(question, a), question.id).toBe(true)
@@ -212,9 +212,9 @@ describe('コートの状態（データの動きだけから計算）', () => {
     expect(courtStateAt(question.court!, 4).ballHolder).toBeNull()
     expect(courtStateAt(question.court!, 4).ballAt).toEqual(RIM)
   })
-  it('動きのない問題（10問）は、どの段階でも開始時と同じ', () => {
+  it('動きのない問題（12問）は、どの段階でも開始時と同じ', () => {
     const still = c.questions.filter((x) => x.court!.steps.length === 0)
-    expect(still.map((x) => x.id).sort()).toEqual(['DF-OFB-02-A', 'DF-OFB-03-A', 'GI-CLK-02-A', 'GI-CLK-02-B', 'GI-FOU-02-A', 'GI-FOU-02-B', 'GI-SCR-01-A', 'GI-SCR-02-A', 'OF-PAS-01-A', 'OF-SHT-01-A'])
+    expect(still.map((x) => x.id).sort()).toEqual(['DF-BAL-01-A', 'DF-OFB-02-A', 'DF-OFB-03-A', 'GI-CLK-02-A', 'GI-CLK-02-B', 'GI-FOU-02-A', 'GI-FOU-02-B', 'GI-SCR-01-A', 'GI-SCR-02-A', 'OF-1V1-02-A', 'OF-PAS-01-A', 'OF-SHT-01-A'])
     for (const question of still) expect(getCourtState(question, 'end')!.positions).toEqual(getCourtState(question, 'start')!.positions)
   })
 })

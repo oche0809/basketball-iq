@@ -15,10 +15,10 @@ describe('v2 教材データ（data/）', () => {
     expect(validateContent(fresh())).toEqual([])
   })
 
-  it('件数が設計どおり（28問・10セット・76項目・35手がかり・20ルール・17出典・68練習）', () => {
+  it('件数が設計どおり（35問・11セット・76項目・35手がかり・20ルール・17出典・68練習）', () => {
     const c = buildContent(fresh())
-    expect(c.questions).toHaveLength(28)
-    expect(c.questionSets).toHaveLength(10)
+    expect(c.questions).toHaveLength(35)
+    expect(c.questionSets).toHaveLength(11)
     expect(c.curriculum).toHaveLength(76)
     expect(c.retired).toHaveLength(29)
     expect(c.cues).toHaveLength(35)
@@ -94,7 +94,7 @@ describe('読み込み（loadContent）', () => {
   it('GitHub Pages のパス（/basketball-iq/data/…）から6ファイルを読み込む', async () => {
     const urls: string[] = []
     const c = await loadContent('/basketball-iq/', async (u) => (urls.push(u), fileFetcher(u)))
-    expect(c.questions).toHaveLength(28)
+    expect(c.questions).toHaveLength(35)
     expect(urls.sort()).toEqual([
       '/basketball-iq/data/cues.json',
       '/basketball-iq/data/curriculum.json',
