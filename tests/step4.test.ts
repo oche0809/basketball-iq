@@ -15,10 +15,10 @@ describe('今日の問題セット（日付で決まる）', () => {
     const b = pickForDay(c.questionSets, new Date(2026, 9, 2, 23, 59))
     expect(a?.id).toBe(b?.id)
   })
-  it('日付が1日進むと別のセットになり、11日で11セットすべてが出る', () => {
-    const ids = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((d) => pickForDay(c.questionSets, new Date(2026, 9, 2 + d))?.id)
+  it('日付が1日進むと別のセットになり、セットの数と同じ日数で、すべてのセットが出る', () => {
+    const ids = Array.from({ length: c.questionSets.length }, (_, i) => i).map((d) => pickForDay(c.questionSets, new Date(2026, 9, 2 + d))?.id)
     for (let i = 1; i < ids.length; i++) expect(ids[i]).not.toBe(ids[i - 1])
-    expect(new Set(ids).size).toBe(11)
+    expect(new Set(ids).size).toBe(c.questionSets.length)
     expect(new Set(ids)).toEqual(new Set(c.questionSets.map((s) => s.id)))
   })
   it('月や年をまたいでも日数が1ずつ進む', () => {
@@ -32,8 +32,8 @@ describe('今日の問題セット（日付で決まる）', () => {
 
 describe('コート図（データの座標だけを描く）', () => {
   const withCourt = c.questions.filter((q) => q.court)
-  it('全79問にコート図のデータがある', () => {
-    expect(withCourt).toHaveLength(79)
+  it('全110問にコート図のデータがある', () => {
+    expect(withCourt).toHaveLength(110)
   })
   it('描く選手はデータの選手と完全に同じ（人数・ID・位置）。追加も省略もしない', () => {
     for (const q of withCourt) {

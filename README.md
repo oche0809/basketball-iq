@@ -46,8 +46,8 @@ React・Vite・TypeScript・Tailwind CSS。ハッシュルーティング（`#/p
 | `docs/03_curriculum.md` | カリキュラム v2（105 項目をレビューし 76 項目。全項目に見る問い・判断の問い） |
 | `docs/04_mvp_roadmap.md` | MVP の最終仕様・ロードマップ・実装計画・実装開始条件 |
 | `docs/CHANGELOG.md` | v1 → v2 の変更点 |
-| `data/curriculum.json` | カリキュラム（76 項目・問題セット計画 17・外した項目 29） |
-| `data/sample_questions.json` | サンプル教材 79 問・問題セット 11（見る→判断→なぜ→相手の反応） |
+| `data/curriculum.json` | カリキュラム（76 項目・問題セット計画 37・外した項目 29） |
+| `data/sample_questions.json` | サンプル教材 110 問・問題セット 35（見る→判断→なぜ→相手の反応） |
 | `data/cues.json` | 手がかり（何を見るか）35 件 |
 | `data/rules.json` | JBA ルール（条文番号つき・制約だけ）20 件 |
 | `data/sources.json` | 出典の登録簿 17 件（確認できた内容／未確認の点） |

@@ -19,6 +19,7 @@ export const DIFFICULTY_LABELS: Record<Difficulty, string> = {
 export const SET_KIND_LABELS: Record<string, string> = {
   DEFENSE_VARIATION: '攻撃は同じ。DFの動きだけが違う',
   CONTEXT_VARIATION: 'コートは同じ。時計・点差・ファウル数だけが違う',
+  OFFENSE_ACTION_VARIATION: '同じ場面。相手の動きだけが違う',
   BALL_VARIATION: 'ボールの位置だけが違う',
   OFFENSE_VARIATION: '相手の特徴だけが違う',
   MIRROR: '同じ場面を攻撃側・守備側から見る',

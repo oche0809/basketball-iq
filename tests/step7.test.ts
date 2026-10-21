@@ -47,10 +47,10 @@ function solve(question: Question): QuestionAnswer {
 }
 
 describe('COACH の教材一覧と絞り込み', () => {
-  it('条件なし：セット11・問題79問がすべて出る（名前はデータのまま）', () => {
+  it('条件なし：セット35・問題110問がすべて出る（名前はデータのまま）', () => {
     expect(filterSets(c, EMPTY_FILTER).map((s) => s.title)).toEqual(c.questionSets.map((s) => s.title))
     expect(filterQuestions(c, EMPTY_FILTER).map((x) => x.title)).toEqual(c.questions.map((x) => x.title))
-    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(79)
+    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(110)
   })
   it('カテゴリー・難易度・学年それぞれで、条件を満たす問題だけになる', () => {
     expect(filterQuestions(c, { ...EMPTY_FILTER, cat: 'OFFENSE' }).every((x) => x.category === 'OFFENSE')).toBe(true)
@@ -68,9 +68,9 @@ describe('COACH の教材一覧と絞り込み', () => {
   })
   it('セット：条件をすべて満たす問題が1問以上入っているセットだけが出る', () => {
     const f: MapFilter = { ...EMPTY_FILTER, cat: 'TRANSITION' }
-    expect(filterSets(c, f).map((s) => s.id)).toEqual(['SET-TRANSITION-D'])
-    const g: MapFilter = { ...EMPTY_FILTER, cat: 'ADVANTAGE', grade: 3 } // 2対1は1・2年のみ。3年は3対2だけ
-    expect(filterSets(c, g).map((s) => s.id)).toEqual(['SET-3V2'])
+    expect(filterSets(c, f).map((s) => s.id)).toEqual(['SET-TRANSITION-D', 'SET-OUTLET-READ', 'SET-BREAK-READ'])
+    const g: MapFilter = { ...EMPTY_FILTER, cat: 'ADVANTAGE', grade: 3 } // 2対1は1・2年のみ。3年は3対2の2セット
+    expect(filterSets(c, g).map((s) => s.id)).toEqual(['SET-3V2', 'SET-3V2-WING'])
   })
   it('キーワードは MAP と同じ正規化（全角・半角を区別しない）。セット名でも探せる', () => {
     expect(filterQuestions(c, { ...EMPTY_FILTER, q: '２対１' }).map((x) => x.id)).toEqual(filterQuestions(c, { ...EMPTY_FILTER, q: '2対1' }).map((x) => x.id))

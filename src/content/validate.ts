@@ -200,10 +200,17 @@ export function validateContent(raw: RawContent): string[] {
       if (new Set(items.map((q) => JSON.stringify(q.court?.players))).size !== 1) e('コートが同じではない')
       if (new Set(items.map((q) => JSON.stringify(q.court?.hud))).size !== items.length) e('時計・点差・ファウル数が変わっていない')
     }
-    if (new Set(items.map((q) => JSON.stringify(decisionOf(q).map((o) => o.text).sort()))).size !== 1)
-      e('判断の選択肢の文が問題ごとに違う（同じ選択肢で優先が変わる形にする）')
-    if (new Set(items.map((q) => decisionOf(q).find((o) => o.fit === 'priority')?.text)).size < 2)
-      e('全問で最優先の選択肢が同じ（暗記で解けてしまう）')
+    if (set.kind === 'PROGRESSION') {
+      // 場面の続き：最初の配置は同じで、問題を出す瞬間が1問ごとに先へ進む。判断の選択肢は場面ごとに変わってよい
+      if (set.order !== 'fixed') e('場面の続きのセットは、出題順を固定（fixed）にする')
+      const moments = items.map((q) => Math.max(0, ...q.stages.map((s) => s.show_until_step ?? 0)))
+      if (moments.some((m, i) => i > 0 && m <= moments[i - 1])) e('場面の続きになっていない（問題を出す瞬間が、前の問題より先へ進んでいない）')
+    } else {
+      if (new Set(items.map((q) => JSON.stringify(decisionOf(q).map((o) => o.text).sort()))).size !== 1)
+        e('判断の選択肢の文が問題ごとに違う（同じ選択肢で優先が変わる形にする）')
+      if (new Set(items.map((q) => decisionOf(q).find((o) => o.fit === 'priority')?.text)).size < 2)
+        e('全問で最優先の選択肢が同じ（暗記で解けてしまう）')
+    }
     if (!set.closing.options.some((o) => o.correct && o.cue_id && cueIds.has(o.cue_id))) e('振り返りの問いに手がかりがない')
   }
 

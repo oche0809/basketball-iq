@@ -15,10 +15,10 @@ describe('v2 教材データ（data/）', () => {
     expect(validateContent(fresh())).toEqual([])
   })
 
-  it('件数が設計どおり（79問・11セット・76項目・35手がかり・20ルール・17出典・68練習）', () => {
+  it('件数が設計どおり（110問・35セット・76項目・35手がかり・20ルール・17出典・68練習）', () => {
     const c = buildContent(fresh())
-    expect(c.questions).toHaveLength(79)
-    expect(c.questionSets).toHaveLength(11)
+    expect(c.questions).toHaveLength(110)
+    expect(c.questionSets).toHaveLength(35)
     expect(c.curriculum).toHaveLength(76)
     expect(c.retired).toHaveLength(29)
     expect(c.cues).toHaveLength(35)
@@ -66,6 +66,8 @@ describe('壊したデータを検出する', () => {
     ['座標がコートの外', (r) => { q(r, 'AD-3V2-01-A').court!.players[0].start.y = 120 }, /座標が範囲外/],
     ['条件付きなのに条件がない', (r) => { delete stage<DecisionStage>(r, 'OF-1V1-03-A', 'decide').options[0].condition }, /有効になる条件がない/],
     ['実在しないルールID', (r) => { q(r, 'GI-CLK-02-A').rule_notes[0].rule_id = 'RULE-XXX' }, /ルール枠のルールがない/],
+    ['場面の続きのセットの出題順がランダム', (r) => { r.questions.question_sets.find((s) => s.id === 'SET-HELP')!.order = 'shuffle' }, /出題順を固定/],
+    ['場面の続きのセットで、問題を出す瞬間が前に戻る', (r) => { const s = r.questions.question_sets.find((x) => x.id === 'SET-HELP')!; s.items = [...s.items].reverse() }, /場面の続きになっていない/],
     ['個人ファウルが5（退場している）', (r) => { q(r, 'GI-FOU-02-B').court!.hud!.fouls!.you = 5 }, /個人ファウルは0〜4/],
     ['v1 の形式（schema_version 1）', (r) => { (r.questions as { schema_version: number }).schema_version = 1 }, /schema_version/],
   ]
@@ -94,7 +96,7 @@ describe('読み込み（loadContent）', () => {
   it('GitHub Pages のパス（/basketball-iq/data/…）から6ファイルを読み込む', async () => {
     const urls: string[] = []
     const c = await loadContent('/basketball-iq/', async (u) => (urls.push(u), fileFetcher(u)))
-    expect(c.questions).toHaveLength(79)
+    expect(c.questions).toHaveLength(110)
     expect(urls.sort()).toEqual([
       '/basketball-iq/data/cues.json',
       '/basketball-iq/data/curriculum.json',

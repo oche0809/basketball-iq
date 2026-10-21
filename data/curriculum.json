@@ -5366,6 +5366,187 @@
         "GI-SCR-02",
         "GI-SCR-03"
       ]
+    },
+    {
+      "id": "SET-PASS-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "パス：どちらのDFが離れている？",
+      "learning_point": "DFが遠い味方が変われば、パス先も変わる",
+      "curriculum_items": [
+        "OF-PAS-01"
+      ]
+    },
+    {
+      "id": "SET-DEAD-DRIBBLE",
+      "kind": "OFFENSE_ACTION_VARIATION",
+      "title": "ボールマンの守り：ドリブルが止まった／続いている",
+      "learning_point": "ドリブルが止まったかどうかで、守る距離が変わる",
+      "curriculum_items": [
+        "DF-BAL-02"
+      ]
+    },
+    {
+      "id": "SET-OUTLET-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "リバウンドの後：前が空いている？",
+      "learning_point": "前の味方に相手がついているかで、最初のパスが変わる",
+      "curriculum_items": [
+        "TR-DOF-01"
+      ]
+    },
+    {
+      "id": "SET-SHOT-SELECT",
+      "kind": "DEFENSE_VARIATION",
+      "title": "シュート：良いシュートの条件はそろっている？",
+      "learning_point": "DFの距離と手で、同じ場所でも打つか打たないかが変わる",
+      "curriculum_items": [
+        "OF-SHT-01"
+      ]
+    },
+    {
+      "id": "SET-STANCE-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "1対1：DFの前足はどっち？",
+      "learning_point": "DFの前足が変われば、抜く方向も変わる",
+      "curriculum_items": [
+        "OF-1V1-02"
+      ]
+    },
+    {
+      "id": "SET-CROWD-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ドライブの後：囲まれた？ 空いている？",
+      "learning_point": "ゴールの前にDFがいるかで、打つか出すかが変わる",
+      "curriculum_items": [
+        "OF-DRV-04"
+      ]
+    },
+    {
+      "id": "SET-BREAK-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "速攻：人数の有利は残っている？",
+      "learning_point": "人数の有利が残っているかで、攻め切るか作り直すかが変わる",
+      "curriculum_items": [
+        "TR-DOF-04"
+      ]
+    },
+    {
+      "id": "SET-HELP-TIMING",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ヘルプ：味方は抜かれた？ 止めている？",
+      "learning_point": "味方が抜かれたかどうかで、ヘルプに出るか残るかが変わる",
+      "curriculum_items": [
+        "DF-HLP-01"
+      ]
+    },
+    {
+      "id": "SET-RESET-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ドライブ：ふさがれた？ 逆が空いた？",
+      "learning_point": "DFの止め方で、攻め直すか切り返すかが変わる",
+      "curriculum_items": [
+        "OF-1V1-05"
+      ]
+    },
+    {
+      "id": "SET-PASSCUT-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "パスの後：DFはどこを見ている？",
+      "learning_point": "パスの後のDFの見方で、カットか入れ替わりかが変わる",
+      "curriculum_items": [
+        "OF-OFB-03"
+      ]
+    },
+    {
+      "id": "SET-JAB-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ジャブ：DFは下がった？ 動かない？",
+      "learning_point": "ジャブへの反応で、打つか抜くかが変わる",
+      "curriculum_items": [
+        "OF-1V1-04"
+      ]
+    },
+    {
+      "id": "SET-SKIP-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "パス：逆サイドか、コーナーか",
+      "learning_point": "どのDFが寄ったかで、パス先が変わる",
+      "curriculum_items": [
+        "OF-PAS-05"
+      ]
+    },
+    {
+      "id": "SET-3V2-WING",
+      "kind": "DEFENSE_VARIATION",
+      "title": "3対2のウイング：下のDFは出てきた？",
+      "learning_point": "下のDFが出てきたかで、打つか逆サイドへ出すかが変わる",
+      "curriculum_items": [
+        "AD-3V2-02"
+      ]
+    },
+    {
+      "id": "SET-MISMATCH-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "スクリーンの後：ミスマッチはできた？",
+      "learning_point": "交換したかどうかで、攻めどころが変わる",
+      "curriculum_items": [
+        "AD-MIS-01"
+      ]
+    },
+    {
+      "id": "SET-SCREENER-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "スクリーナー：自分のDFはどこ？",
+      "learning_point": "自分のDFの位置で、ゴールへ向かうか外へ広がるかが変わる",
+      "curriculum_items": [
+        "OF-SCR-02"
+      ]
+    },
+    {
+      "id": "SET-SCREEN-D-READ",
+      "kind": "OFFENSE_VARIATION",
+      "title": "スクリーンの守り：相手はシューター？ カッター？",
+      "learning_point": "相手の特徴で、スクリーンの通り方が変わる",
+      "curriculum_items": [
+        "DF-SCR-02"
+      ]
+    },
+    {
+      "id": "SET-PNR-D-READ",
+      "kind": "OFFENSE_VARIATION",
+      "title": "ボールスクリーンの守り：相手はシューター？",
+      "learning_point": "相手の特徴で、ボールスクリーンの通り方が変わる",
+      "curriculum_items": [
+        "DF-PNR-02"
+      ]
+    },
+    {
+      "id": "SET-FORCE-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ボールマンの守り：約束はどっちへ行かせる？",
+      "learning_point": "チームの約束（行かせる方向）で、立つ位置が変わる",
+      "curriculum_items": [
+        "DF-BAL-03"
+      ]
+    },
+    {
+      "id": "SET-KICKOUT-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "キックアウト：DFは遅れた？ 間に合った？",
+      "learning_point": "DFが間に合ったかで、打つかもう1本つなぐかが変わる",
+      "curriculum_items": [
+        "AD-REC-02",
+        "OF-PAS-04"
+      ]
+    },
+    {
+      "id": "SET-ADVANTAGE-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "この場面に、ずれはある？",
+      "learning_point": "DFが間に合ったか（距離と勢い）で、ずれがあるかが決まる",
+      "curriculum_items": [
+        "AD-REC-01"
+      ]
     }
   ],
   "retired": [
