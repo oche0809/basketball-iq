@@ -9810,6 +9810,1730 @@
         "reviewed_by": null,
         "reviewed_at": null
       }
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "OF-SPC-01",
+      "set_id": null,
+      "category": "OFFENSE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "STATIC",
+      "related_drills": [
+        "lib-189"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "OF-SPC-01-A",
+      "scenario_id": "SCN-SPACING-TOO-CLOSE",
+      "variant": {
+        "label": "A",
+        "what_changed": "ボールを持つ1番のすぐ横に寄っている"
+      },
+      "title": "味方に近すぎる。どこへ動く？",
+      "cues": [
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "situation": "トップの1番がボールを持っている。あなた（3番）は、ボールをもらおうとして1番のすぐ横（2m くらい）まで寄ってしまった。",
+      "court": {
+        "court": "half",
+        "you": "O3",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 38,
+              "y": 60
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 52
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 79,
+              "y": 37
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 40,
+              "y": 52
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "動く場所を決める前に、何を確かめる？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "ボールを持つ味方との距離",
+              "cue_id": "CUE-TEAMMATE-SPACING",
+              "value": "key",
+              "feedback": "2m しか離れていない。近すぎると、1人のDFで2人を守られてしまう。"
+            },
+            {
+              "id": "s2",
+              "text": "自分のDFの位置",
+              "value": "useful",
+              "feedback": "大事。でも先に、味方との距離が近すぎないかを確かめる。"
+            },
+            {
+              "id": "s3",
+              "text": "点差",
+              "cue_id": "CUE-SCORE",
+              "value": "not_now",
+              "feedback": "大事な情報。でも、立つ場所を決めるものではない。"
+            },
+            {
+              "id": "s4",
+              "text": "ベンチの先生",
+              "value": "irrelevant",
+              "feedback": "プレー中は、コートの中を見る。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "spot": true,
+          "show_until_step": 0,
+          "prompt": "あなた（3番）はどこへ動く？ 図の A・B・C から選ぼう。",
+          "options": [
+            {
+              "id": "A",
+              "text": "左ウイング（1番から4〜5m 離れる）",
+              "spot": {
+                "x": 16,
+                "y": 42
+              },
+              "fit": "priority",
+              "feedback": "1番から離れれば、DFは2人を同時に守れない。1番がドライブする道も空く。"
+            },
+            {
+              "id": "B",
+              "text": "今の場所（1番のすぐ横）",
+              "spot": {
+                "x": 38,
+                "y": 60
+              },
+              "fit": "low",
+              "feedback": "DFが2人とも近くにいて、1番も自分も守られやすい。1番のドライブの道もふさいでいる。"
+            },
+            {
+              "id": "C",
+              "text": "右の2番の近く",
+              "spot": {
+                "x": 72,
+                "y": 52
+              },
+              "fit": "low",
+              "feedback": "今度は2番と近すぎる。空いている左側を使えていない。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "味方と近すぎると、1人のDFで2人を守られる",
+              "quality": "key",
+              "cue_id": "CUE-TEAMMATE-SPACING",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "離れると、1番がドライブする道も空く",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "ボールに近づけば、パスをもらいやすい",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "左側が好きだから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "味方と近すぎたら離れて、空いている場所へ動く（目安は4〜5m）。",
+        "explanation": "ボールをもらいたくて近づくと、DFも一緒に近づいてくる。離れて立つと、DFは2人を同時に守れず、ボールマンがドライブする道も空く。4〜5m は目安で、コートの広さや相手によって変わる。",
+        "if_defense_changes": [
+          {
+            "change": "1番がドリブルで左へ動いてきた",
+            "then": "同じ側に寄らず、空いている場所へ離れる"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "味方と4〜5m 離れる（目安）",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "OF-OFB-01",
+      "set_id": null,
+      "category": "OFFENSE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "ANIMATION",
+      "related_drills": [
+        "lib-185"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "OF-OFB-01-A",
+      "scenario_id": "SCN-WING-DEF-EYES",
+      "variant": {
+        "label": "A",
+        "what_changed": "DFがボールの方を向いた"
+      },
+      "title": "あなたのDFがボールを見た。どうする？",
+      "cues": [
+        "CUE-DEF-EYES"
+      ],
+      "situation": "あなた（2番）は右ウイングにいる。ボールはトップの1番が持っている。",
+      "court": {
+        "court": "half",
+        "you": "O2",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 52
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 80,
+              "y": 44
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "1番が少しドリブルした。あなたのDFは、ボールの方を向いた（あなたを見ていない）。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O1",
+                "to": {
+                  "x": 56,
+                  "y": 58
+                }
+              },
+              {
+                "type": "move",
+                "player": "D2",
+                "to": {
+                  "x": 76,
+                  "y": 46
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたはゴールへカット。1番からパス。",
+            "actions": [
+              {
+                "type": "cut",
+                "player": "O2",
+                "to": {
+                  "x": 60,
+                  "y": 16
+                }
+              },
+              {
+                "type": "pass",
+                "from": "O1",
+                "to": "O2"
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。あなたのDFは、何を見ている？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "ボールの方を見ている（あなたを見ていない）",
+              "cue_id": "CUE-DEF-EYES",
+              "value": "key",
+              "feedback": "DFがあなたから目を離した。今がチャンス。"
+            },
+            {
+              "id": "s2",
+              "text": "あなたをじっと見ている",
+              "value": "irrelevant",
+              "feedback": "よく見よう。DFはボールの方を向いている。"
+            },
+            {
+              "id": "s3",
+              "text": "ベンチの方を見ている",
+              "value": "irrelevant",
+              "feedback": "DFはボールの方を向いている。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "どうする？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ゴールへカットする",
+              "fit": "priority",
+              "feedback": "DFが見ていないうちに走れば、ゴールの前で受けられる。"
+            },
+            {
+              "id": "B",
+              "text": "その場で立って待つ",
+              "fit": "low",
+              "feedback": "DFが目を離したチャンスを使えない。"
+            },
+            {
+              "id": "C",
+              "text": "ボールの方へ近づいて、手をもらいに行く",
+              "fit": "conditional",
+              "condition": "DFがあなたを見ていて、ボールマンが困っている時は有効",
+              "feedback": "近づくとDFも一緒についてきて、ゴールの前は空かない。"
+            },
+            {
+              "id": "D",
+              "text": "コーナーへ下がる",
+              "fit": "situational",
+              "condition": "味方がこちらへドライブしてきて、道を空ける時は有効",
+              "feedback": "今は1番はドライブしていない。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "DFがボールを見て、あなたを見ていない",
+              "quality": "key",
+              "cue_id": "CUE-DEF-EYES",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ゴールの前が空いている",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "ボールを持っていない時は、待つのが仕事",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "走るのが好きだから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "自分のDFがボールを見たら、ゴールへカットする。こちらを見ていれば、位置を保つ。",
+        "explanation": "ボールを持っていない時も、自分のDFの顔の向きを見ている。DFがボールを見た瞬間は、あなたへの注意が切れている。その瞬間に動くと、ゴールの前で受けられる。",
+        "if_defense_changes": [
+          {
+            "change": "DFがあなたをずっと見ている",
+            "then": "位置を保つ。DFの顔の向きが変わる瞬間を待つ"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "DFがボールを見たらカット",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "DF-CUT-01",
+      "set_id": null,
+      "category": "DEFENSE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "ANIMATION",
+      "related_drills": [
+        "lib-063",
+        "lib-191"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "M2M-OFFBALL-VISION",
+          "text": "【ルール】オフボールのDFは、常にマークマンが見えるか感じられる位置を取る。ボールが動いたら、それに合わせて移動する（JBAマンツーマン基準規則 3-2-1 ほか）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "DF-CUT-01-A",
+      "scenario_id": "SCN-DEF-CUTTER",
+      "variant": {
+        "label": "A",
+        "what_changed": "3番がゴールの方へ走り出した"
+      },
+      "title": "マークがゴールへ走り出した。どう守る？",
+      "cues": [
+        "CUE-CUTTER"
+      ],
+      "situation": "あなた（X3）は左ウイングの3番を守っている。ボールはトップの1番が持っている。",
+      "court": {
+        "court": "half",
+        "you": "D3",
+        "ball": "O1",
+        "show_middle_line": true,
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 52
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 23,
+              "y": 42
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "3番が、ゴールの方へ走り出した（カット）。",
+            "actions": [
+              {
+                "type": "cut",
+                "player": "O3",
+                "to": {
+                  "x": 34,
+                  "y": 28
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたはボール側に体を入れ、3番の前をふさぐ。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "D3",
+                "to": {
+                  "x": 36,
+                  "y": 33
+                }
+              },
+              {
+                "type": "move",
+                "player": "O3",
+                "to": {
+                  "x": 36,
+                  "y": 24
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。3番は何をした？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "ゴールの方へ走り出した",
+              "cue_id": "CUE-CUTTER",
+              "value": "key",
+              "feedback": "カットした。ボールをもらおうとしている。"
+            },
+            {
+              "id": "s2",
+              "text": "外へ離れた",
+              "value": "irrelevant",
+              "feedback": "よく見よう。3番はゴールの方へ走っている。"
+            },
+            {
+              "id": "s3",
+              "text": "ボールを受け取った",
+              "value": "irrelevant",
+              "feedback": "ボールはまだ1番が持っている。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "どう守る？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ボール側に体を入れて、進路をふさぐ",
+              "fit": "priority",
+              "feedback": "1番と3番の間に入れば、パスを受けにくくできる。"
+            },
+            {
+              "id": "B",
+              "text": "3番の後ろから追いかける",
+              "fit": "low",
+              "feedback": "後ろから追うと、3番は前で楽にパスを受けられる。"
+            },
+            {
+              "id": "C",
+              "text": "その場に残って、3番を見送る",
+              "fit": "low",
+              "feedback": "3番がゴールの前で空いてしまう。"
+            },
+            {
+              "id": "D",
+              "text": "1番のボールを取りに行く",
+              "fit": "situational",
+              "condition": "味方が抜かれて、ヘルプが必要な時は有効",
+              "feedback": "今は1番の味方DFが守っている。3番が空く。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "3番がゴールの方へ走り出した（カット）",
+              "quality": "key",
+              "cue_id": "CUE-CUTTER",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ボール側にいれば、パスを受けにくくできる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "カットは後ろから追えば間に合う",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "ボールを取りたいから",
+              "quality": "irrelevant",
+              "supports": [
+                "D"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "カットやフラッシュには、ボール側に体を入れて進路をふさぐ。",
+        "explanation": "相手がゴールやボールの方へ走り出したら、後ろから追うのではなく、ボールと相手の間に体を入れる。ボールと相手の両方が見える位置で守ると、次の動きにも対応できる。",
+        "if_defense_changes": [
+          {
+            "change": "3番がハイポスト（フリースローラインのあたり）へ飛び込んだ",
+            "then": "同じように、ボール側に体を入れる"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "カットにはボール側に体を入れる",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "rule_note",
+          "claim": "オフボールのDFはマークマンが見えるか感じられる位置を取る",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-OFFBALL-VISION",
+          "source_id": "SRC-JBA-M2M-REG",
+          "locator": "3-2-1",
+          "status": "verified_text"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "DF-HLP-01",
+      "set_id": null,
+      "category": "DEFENSE",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2
+      ],
+      "presentation": "ANIMATION",
+      "related_drills": [
+        "lib-076"
+      ],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "M2M-HELP",
+          "text": "【ルール】リングへ向かう相手に味方が振り切られた（振り切られそうな）場合、ヘルプしてよい（JBAマンツーマン基準規則 4-2-1 ほか）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "DF-HLP-01-A",
+      "scenario_id": "SCN-HELP-TIMING",
+      "variant": {
+        "label": "A",
+        "what_changed": "味方の1番のDFが抜かれた"
+      },
+      "title": "味方のDFが抜かれた。どうする？",
+      "cues": [
+        "CUE-BEATEN-TEAMMATE"
+      ],
+      "situation": "あなた（X3）は左ウイングの3番を守っている。トップの1番がドライブしてきた。",
+      "court": {
+        "court": "half",
+        "you": "D3",
+        "ball": "O1",
+        "show_middle_line": true,
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O3",
+            "label": "3",
+            "team": "offense",
+            "start": {
+              "x": 16,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 52
+            }
+          },
+          {
+            "id": "D3",
+            "label": "3",
+            "team": "defense",
+            "start": {
+              "x": 30,
+              "y": 34
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "1番がゴールへドライブ。1番のDFは抜かれて、後ろになった。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O1",
+                "to": {
+                  "x": 48,
+                  "y": 36
+                }
+              },
+              {
+                "type": "move",
+                "player": "D1",
+                "to": {
+                  "x": 54,
+                  "y": 44
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたはゴールの前へ出て、ドライブを止める（ヘルプ）。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "D3",
+                "to": {
+                  "x": 44,
+                  "y": 26
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。味方の1番のDFは？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "抜かれて、1番の後ろになった",
+              "cue_id": "CUE-BEATEN-TEAMMATE",
+              "value": "key",
+              "feedback": "1番の前には、もう誰もいない。"
+            },
+            {
+              "id": "s2",
+              "text": "1番の前で、ドライブを止めている",
+              "value": "irrelevant",
+              "feedback": "よく見よう。1番のDFは後ろにいる。"
+            },
+            {
+              "id": "s3",
+              "text": "3番を守りに行った",
+              "value": "irrelevant",
+              "feedback": "1番のDFは、1番を追いかけている。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "show_until_step": 1,
+          "prompt": "どうする？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ゴールの前へ出て、ドライブを止める（ヘルプ）",
+              "fit": "priority",
+              "feedback": "ゴールの前で止めれば、簡単なシュートを防げる。3番へのパスには、戻って対応する。"
+            },
+            {
+              "id": "B",
+              "text": "自分のマーク（3番）の近くに残る",
+              "fit": "low",
+              "feedback": "1番がゴールの前まで行って、簡単に打たれてしまう。"
+            },
+            {
+              "id": "C",
+              "text": "1番のDFが追いつくのを待って、見ている",
+              "fit": "low",
+              "feedback": "抜かれた後に追いつくのは難しい。待つと間に合わない。"
+            },
+            {
+              "id": "D",
+              "text": "3番へのパスコースに入る",
+              "fit": "conditional",
+              "condition": "1番のDFが追いついて、ドライブを止められそうな時は有効",
+              "feedback": "今は1番の前に誰もいない。先にゴールを守る。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "味方のDFが抜かれて、1番がゴールへ向かっている",
+              "quality": "key",
+              "cue_id": "CUE-BEATEN-TEAMMATE",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ゴールの前で止めれば、簡単なシュートを防げる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "マンツーマンでは、自分のマークから離れてはいけない",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "1番に負けたくないから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "味方が抜かれた（抜かれそうな）時はヘルプに出る。止めていれば、自分の位置を保つ。",
+        "explanation": "味方がドライブで抜かれたら、ゴールの前へ出て止める。マンツーマンでも、こういうヘルプはルールで認められている。ただし、早く出すぎると自分のマークが空く。出るタイミングと、誰が出るかは、コーチングとチームの約束で決める。",
+        "if_defense_changes": [
+          {
+            "change": "1番のDFが、1番の前でドライブを止めている",
+            "then": "自分の位置を保つ（ヘルプに出ない）"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "味方が抜かれたらヘルプ（タイミング）",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        },
+        {
+          "part": "rule_note",
+          "claim": "リングへ向かうマークマンに味方が振り切られた場合、ヘルプしてよい",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "M2M-HELP",
+          "source_id": "SRC-JBA-M2M-REG",
+          "locator": "4-2-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decide.options.A",
+          "claim": "誰がヘルプに出るかはチームの約束で変わる",
+          "basis": "TEAM_RULE",
+          "source_id": "SRC-TEAM",
+          "status": "needs_team_rule"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "OF-1V1-05",
+      "set_id": null,
+      "category": "OFFENSE",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2,
+        3
+      ],
+      "presentation": "ANIMATION",
+      "related_drills": [
+        "lib-178"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "OF-1V1-05-A",
+      "scenario_id": "SCN-DRIVE-STOPPED",
+      "variant": {
+        "label": "A",
+        "what_changed": "DFに進路をふさがれた"
+      },
+      "title": "ドライブを止められた。どうする？",
+      "cues": [
+        "CUE-DEF-STANCE",
+        "CUE-TEAMMATE-SPACING"
+      ],
+      "situation": "あなた（2番）は右ウイングからベースライン側へドライブした。トップには1番がいる。",
+      "court": {
+        "court": "half",
+        "you": "O2",
+        "ball": "O2",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 50
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 79,
+              "y": 36
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "ドライブしたが、DFが先に回り込んで進路をふさいだ。1番が近づいて手を上げている。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O2",
+                "to": {
+                  "x": 82,
+                  "y": 28
+                }
+              },
+              {
+                "type": "move",
+                "player": "D2",
+                "to": {
+                  "x": 78,
+                  "y": 23
+                }
+              },
+              {
+                "type": "move",
+                "player": "O1",
+                "to": {
+                  "x": 66,
+                  "y": 52
+                }
+              }
+            ]
+          },
+          {
+            "text": "ドリブルを止めずに、1番へ戻すパス。もう一度攻め直す。",
+            "actions": [
+              {
+                "type": "pass",
+                "from": "O2",
+                "to": "O1"
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_HAPPENED",
+          "show_until_step": 1,
+          "prompt": "止まった画面。今、何が起きている？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "DFに進路をふさがれた",
+              "cue_id": "CUE-DEF-STANCE",
+              "value": "key",
+              "feedback": "DFが先に回り込んでいる。このままでは抜けない。"
+            },
+            {
+              "id": "s2",
+              "text": "DFを抜いて、ゴールまで誰もいない",
+              "value": "irrelevant",
+              "feedback": "よく見よう。DFが前をふさいでいる。"
+            },
+            {
+              "id": "s3",
+              "text": "ヘルプが来て、ゴール下の味方が空いた",
+              "value": "irrelevant",
+              "feedback": "ほかのDFは寄ってきていない。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 1,
+          "prompt": "どれにも価値がある場面があります。この状況で、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ドリブルを止めずに、戻すパスで作り直す",
+              "fit": "priority",
+              "feedback": "近くの1番にパスすれば、もう一度攻められる。ボールも失わない。"
+            },
+            {
+              "id": "B",
+              "text": "無理にそのまま突っ込む",
+              "fit": "low",
+              "feedback": "ぶつかってファウル（チャージング）になったり、ボールを取られたりしやすい。"
+            },
+            {
+              "id": "C",
+              "text": "下がって距離を作り、シュート",
+              "fit": "situational",
+              "condition": "DFが追ってこず、得意な距離なら有効",
+              "feedback": "DFがすぐ近くにいる。ブロックされやすい。"
+            },
+            {
+              "id": "D",
+              "text": "逆方向へ切り返してドライブ",
+              "fit": "conditional",
+              "condition": "DFが体重を前にかけすぎていて、逆側が空いている時は有効",
+              "feedback": "DFは止まって構えている。切り返しにもついてこられる。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "進路をふさがれて、このままでは抜けない",
+              "quality": "key",
+              "cue_id": "CUE-DEF-STANCE",
+              "supports": [
+                "A",
+                "D"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "近くの1番にパスすれば、もう一度攻められる",
+              "quality": "supporting",
+              "cue_id": "CUE-TEAMMATE-SPACING",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "ドライブしたら、最後まで行く",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "パスを戻すと、負けた気がするから",
+              "quality": "irrelevant",
+              "supports": [
+                "B"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "抜けない時は無理をせず、戻すパスで作り直す（リセット）。",
+        "explanation": "止められた時に無理に突っ込むと、ファウルやボールを失うことになりやすい。ドリブルを止めて固まると、DFに詰められる。ドリブルを続けながら近くの味方へ戻せば、もう一度攻められる。",
+        "if_defense_changes": [
+          {
+            "change": "DFが体重を前にかけすぎて、逆側が空いた",
+            "then": "逆方向へ切り返してドライブ"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "抜けない時は戻すパスで作り直す",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "GI-FOU-03",
+      "set_id": null,
+      "category": "GAME_IQ",
+      "difficulty": "INTERMEDIATE",
+      "grade": [
+        2,
+        3
+      ],
+      "presentation": "STATIC",
+      "related_drills": [],
+      "related_tactics": [],
+      "rule_notes": [
+        {
+          "rule_id": "RULE-TEAM-FOULS",
+          "text": "【ルール】クォーターごとにチームファウルが4個記録された後は、ショットの動作中でない相手へのファウルでもフリースロー2本になる（競技規則 41-1-1、41-2-1）。"
+        }
+      ],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "GI-FOU-03-A",
+      "scenario_id": "SCN-OPP-TEAM-FOULS",
+      "variant": {
+        "label": "A",
+        "what_changed": "相手のチームファウルが4つ"
+      },
+      "title": "相手のチームファウルが4つ。どう攻める？",
+      "cues": [
+        "CUE-FOULS"
+      ],
+      "situation": "第3クォーター残り5分、同点。相手のチームファウルは、このクォーターですでに4つ。あなた（2番）は右ウイングでボールを持っている。DFはふつうの距離で構えている。",
+      "court": {
+        "court": "half",
+        "you": "O2",
+        "ball": "O2",
+        "hud": {
+          "quarter": 3,
+          "game_clock": "5:00",
+          "score": {
+            "us": 30,
+            "them": 30
+          },
+          "fouls": {
+            "team_us": 1,
+            "team_them": 4
+          }
+        },
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 50,
+              "y": 60
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 84,
+              "y": 40
+            }
+          },
+          {
+            "id": "D1",
+            "label": "1",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 52
+            }
+          },
+          {
+            "id": "D2",
+            "label": "2",
+            "team": "defense",
+            "start": {
+              "x": 79,
+              "y": 37
+            }
+          }
+        ],
+        "steps": []
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 0,
+          "prompt": "攻め方を決める前に、画面の上で何を確かめる？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "相手のチームファウルの数",
+              "cue_id": "CUE-FOULS",
+              "value": "key",
+              "feedback": "もう4つ。次のファウルからは、ショットの動作中でなくてもフリースロー2本になる。"
+            },
+            {
+              "id": "s2",
+              "text": "自分のDFとの距離",
+              "value": "useful",
+              "feedback": "攻め方を選ぶのに必要。でも、ファウル数で攻める価値が変わることを先に知る。"
+            },
+            {
+              "id": "s3",
+              "text": "ショットクロック",
+              "cue_id": "CUE-SHOT-CLOCK",
+              "value": "not_now",
+              "feedback": "時間がない時は大事。今は攻撃が始まったところ。"
+            },
+            {
+              "id": "s4",
+              "text": "自分のチームのチームファウルの数",
+              "value": "not_now",
+              "feedback": "守る時に大事。攻める今は、相手のファウル数を見る。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "PRIORITY",
+          "show_until_step": 0,
+          "prompt": "どれにも価値がある場面があります。この状況で、何を優先する？",
+          "options": [
+            {
+              "id": "A",
+              "text": "ゴールへドライブして攻める",
+              "fit": "priority",
+              "feedback": "相手はファウルすると、フリースロー2本になる。ゴールへ攻める価値が上がっている。"
+            },
+            {
+              "id": "B",
+              "text": "外から3ポイントを打つ",
+              "fit": "conditional",
+              "condition": "フリーで、得意な距離なら有効",
+              "feedback": "DFが構えている。ファウルをもらう機会も少ない。"
+            },
+            {
+              "id": "C",
+              "text": "パスを回して、もっと良い形を探す",
+              "fit": "situational",
+              "condition": "ゴールへの道がふさがれている時は有効",
+              "feedback": "今はゴールへの道がある。"
+            },
+            {
+              "id": "D",
+              "text": "時間を使って、ゆっくり攻める",
+              "fit": "low",
+              "feedback": "同点の第3クォーター。急がない理由はないが、相手のファウルを使う機会が減る。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそれを優先した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "相手はもう4ファウル。次のファウルでフリースロー2本",
+              "quality": "key",
+              "cue_id": "CUE-FOULS",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ゴールへ攻めると、ファウルされやすい",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "ファウルの数は、攻め方に関係ない",
+              "quality": "misconception",
+              "supports": [
+                "B",
+                "C"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "3ポイントの方がかっこいいから",
+              "quality": "irrelevant",
+              "supports": [
+                "B"
+              ]
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "相手のチームファウルが多い時は、ゴールへ攻める価値が上がる。",
+        "explanation": "チームファウルが4つ記録された後は、ショットの動作中でないファウルでもフリースロー2本になる（ルール）。ゴールへ攻めると、相手はファウルしやすい。ただし、わざと倒れてファウルをもらおうとするのはやめよう。",
+        "if_defense_changes": [
+          {
+            "change": "相手のチームファウルが1つ",
+            "then": "ファウル数にとらわれず、いちばん良い攻め方を選ぶ"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "rule_note",
+          "claim": "チームファウル4個の後は、ショット動作中でないファウルでもフリースロー2本",
+          "basis": "OFFICIAL_RULE",
+          "rule_id": "RULE-TEAM-FOULS",
+          "source_id": "SRC-JBA-RULES-2025",
+          "locator": "41-1-1、41-2-1",
+          "status": "verified_text"
+        },
+        {
+          "part": "decision_rule",
+          "claim": "相手のチームファウルが多い時はゴールへ攻める",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
+    },
+    {
+      "schema_version": 2,
+      "curriculum_id": "AD-2V1-02",
+      "set_id": null,
+      "category": "ADVANTAGE",
+      "difficulty": "BEGINNER",
+      "grade": [
+        1,
+        2
+      ],
+      "presentation": "ANIMATION",
+      "related_drills": [
+        "lib-083"
+      ],
+      "related_tactics": [],
+      "rule_notes": [],
+      "visibility": "public",
+      "created_at": "2026-10-21",
+      "updated_at": "2026-10-21",
+      "verification": {
+        "status": "draft",
+        "reviewed_by": null,
+        "reviewed_at": null
+      },
+      "id": "AD-2V1-02-A",
+      "scenario_id": "SCN-2V1-OFFBALL",
+      "variant": {
+        "label": "A",
+        "what_changed": "味方がドリブルで真ん中を運んでいる"
+      },
+      "title": "2対1。ボールを持っていない時、どこを走る？",
+      "cues": [
+        "CUE-TEAMMATE-SPACING",
+        "CUE-DEF-COMMIT"
+      ],
+      "situation": "速攻で2対1。1番がドリブルで真ん中を運んでいる。あなた（2番）はボールを持っていない。ゴールの前にはDFが1人。",
+      "court": {
+        "court": "half",
+        "you": "O2",
+        "ball": "O1",
+        "players": [
+          {
+            "id": "O1",
+            "label": "1",
+            "team": "offense",
+            "start": {
+              "x": 48,
+              "y": 82
+            }
+          },
+          {
+            "id": "O2",
+            "label": "2",
+            "team": "offense",
+            "start": {
+              "x": 70,
+              "y": 84
+            }
+          },
+          {
+            "id": "D1",
+            "label": "X",
+            "team": "defense",
+            "start": {
+              "x": 50,
+              "y": 28
+            }
+          }
+        ],
+        "steps": [
+          {
+            "text": "1番がドリブルでゴールへ向かう。DFはゴールの前で待っている。",
+            "actions": [
+              {
+                "type": "dribble",
+                "player": "O1",
+                "to": {
+                  "x": 48,
+                  "y": 58
+                }
+              },
+              {
+                "type": "move",
+                "player": "O2",
+                "to": {
+                  "x": 66,
+                  "y": 60
+                }
+              }
+            ]
+          },
+          {
+            "text": "あなたは1番から離れて、ゴールの横へ走る。",
+            "actions": [
+              {
+                "type": "move",
+                "player": "O2",
+                "to": {
+                  "x": 82,
+                  "y": 20
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "stages": [
+        {
+          "id": "see",
+          "kind": "RECOGNITION",
+          "mode": "WHAT_TO_LOOK",
+          "show_until_step": 1,
+          "prompt": "走る場所を決める前に、何を確かめる？",
+          "options": [
+            {
+              "id": "s1",
+              "text": "味方との距離と、DFとの距離",
+              "cue_id": "CUE-TEAMMATE-SPACING",
+              "value": "key",
+              "feedback": "味方と近いと、DF1人で2人を守られてしまう。"
+            },
+            {
+              "id": "s2",
+              "text": "DFがボールマンに向かって来たか",
+              "cue_id": "CUE-DEF-COMMIT",
+              "value": "useful",
+              "feedback": "パスを受けるタイミングを決めるのに大事。まずは離れて、DFを迷わせる位置を取る。"
+            },
+            {
+              "id": "s3",
+              "text": "点差",
+              "cue_id": "CUE-SCORE",
+              "value": "not_now",
+              "feedback": "大事な情報。でも、今走る場所を決めるものではない。"
+            },
+            {
+              "id": "s4",
+              "text": "ベンチの先生",
+              "value": "irrelevant",
+              "feedback": "プレー中は、コートの中を見る。"
+            }
+          ]
+        },
+        {
+          "id": "decide",
+          "kind": "DECISION",
+          "mode": "CHOICE",
+          "spot": true,
+          "show_until_step": 1,
+          "prompt": "あなた（2番）はどこへ走る？ 図の A・B・C から選ぼう。",
+          "options": [
+            {
+              "id": "A",
+              "text": "ゴールの横（1番から離れ、ゴールに近い）",
+              "spot": {
+                "x": 82,
+                "y": 20
+              },
+              "fit": "priority",
+              "feedback": "DFは、1番と2番のどちらを守るか迷う。パスを受ければ、すぐゴールの近くで打てる。"
+            },
+            {
+              "id": "B",
+              "text": "1番のすぐ横",
+              "spot": {
+                "x": 58,
+                "y": 52
+              },
+              "fit": "low",
+              "feedback": "近すぎて、DF1人で2人を守られてしまう。"
+            },
+            {
+              "id": "C",
+              "text": "1番の後ろ",
+              "spot": {
+                "x": 48,
+                "y": 72
+              },
+              "fit": "low",
+              "feedback": "パスを受けてもゴールから遠い。2対1の有利を使えない。"
+            }
+          ]
+        },
+        {
+          "id": "why",
+          "kind": "REASON",
+          "max_select": 2,
+          "free_text": true,
+          "prompt": "なぜそう判断した？（2つまで）",
+          "options": [
+            {
+              "id": "r1",
+              "text": "離れていれば、DFは1人で2人を守れない",
+              "quality": "key",
+              "cue_id": "CUE-TEAMMATE-SPACING",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r2",
+              "text": "ゴールに近ければ、受けてすぐ打てる",
+              "quality": "supporting",
+              "supports": [
+                "A"
+              ]
+            },
+            {
+              "id": "r3",
+              "text": "味方の近くにいれば、パスをもらいやすい",
+              "quality": "misconception",
+              "supports": [
+                "B"
+              ]
+            },
+            {
+              "id": "r4",
+              "text": "前を走るのが好きだから",
+              "quality": "irrelevant",
+              "supports": []
+            }
+          ]
+        }
+      ],
+      "debrief": {
+        "decision_rule": "2対1でボールを持っていない時は、味方から離れ、ゴールに近い位置を走る。",
+        "explanation": "2人が離れていると、DF1人では両方を守れない。DFがボールマンに来たらパスを受けて打つ。来なければ、ボールマンがそのまま打つ。近くを走ると、DFは1人で2人を見られてしまう。",
+        "if_defense_changes": [
+          {
+            "change": "DFがあなたの方へ寄ってきた",
+            "then": "1番がそのままゴールへ行けるように、離れたまま走る"
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "part": "decision_rule",
+          "claim": "2対1では離れて走る",
+          "basis": "COACHING_PRACTICE",
+          "source_id": "SRC-CP-GENERAL",
+          "status": "needs_coach_review"
+        }
+      ]
     }
   ]
 }

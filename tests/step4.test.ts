@@ -32,8 +32,8 @@ describe('今日の問題セット（日付で決まる）', () => {
 
 describe('コート図（データの座標だけを描く）', () => {
   const withCourt = c.questions.filter((q) => q.court)
-  it('全35問にコート図のデータがある', () => {
-    expect(withCourt).toHaveLength(35)
+  it('全42問にコート図のデータがある', () => {
+    expect(withCourt).toHaveLength(42)
   })
   it('描く選手はデータの選手と完全に同じ（人数・ID・位置）。追加も省略もしない', () => {
     for (const q of withCourt) {

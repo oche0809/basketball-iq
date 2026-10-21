@@ -47,10 +47,10 @@ function solve(question: Question): QuestionAnswer {
 }
 
 describe('COACH の教材一覧と絞り込み', () => {
-  it('条件なし：セット11・問題35問がすべて出る（名前はデータのまま）', () => {
+  it('条件なし：セット11・問題42問がすべて出る（名前はデータのまま）', () => {
     expect(filterSets(c, EMPTY_FILTER).map((s) => s.title)).toEqual(c.questionSets.map((s) => s.title))
     expect(filterQuestions(c, EMPTY_FILTER).map((x) => x.title)).toEqual(c.questions.map((x) => x.title))
-    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(35)
+    expect(filterQuestions(c, EMPTY_FILTER)).toHaveLength(42)
   })
   it('カテゴリー・難易度・学年それぞれで、条件を満たす問題だけになる', () => {
     expect(filterQuestions(c, { ...EMPTY_FILTER, cat: 'OFFENSE' }).every((x) => x.category === 'OFFENSE')).toBe(true)
