@@ -3,7 +3,7 @@ import { assignmentPath, assignmentUrl, parseAssignment } from '../src/coach/ass
 import { cleanTeamParam, decodeTeamRules, encodeTeamRules, pickTeamRules } from '../src/coach/teamRuleParam.ts'
 import { STORAGE_KEY } from '../src/storage/attemptStore.ts'
 import { REVIEW_STORAGE_KEY } from '../src/storage/reviewStore.ts'
-import { TEAM_RULE_MAX_LENGTH, TEAM_RULE_SCHEMA_VERSION } from '../src/storage/teamRule.ts'
+import { TEAM_PROFILE_NAME_MAX_LENGTH, TEAM_RULE_MAX_LENGTH, TEAM_RULE_SCHEMA_VERSION, mergeTeamRules } from '../src/storage/teamRule.ts'
 import { TEAM_RULE_BACKUP_KEY_PREFIX, TEAM_RULE_STORAGE_KEY, createTeamRuleStore } from '../src/storage/teamRuleStore.ts'
 import { parseHash } from '../src/utils/router.ts'
 
@@ -38,10 +38,10 @@ describe('チームの約束の保存（TeamRuleStore）', () => {
   it('保存して読み込み直しても残る。空の文で保存するとその問題の約束が消える', () => {
     const mem = new MemoryStorage()
     const store = createTeamRuleStore(mem)
-    expect(store.load()).toEqual({ status: 'ok', rules: {} })
+    expect(store.load()).toEqual({ status: 'ok', rules: {}, profiles: [], byProfile: { '': {} } })
     expect(store.save('GI-FOU-02-B', `  ${RULE}  `, T)).toEqual({ ok: true })
     expect(store.save('GI-SCR-01-A', '24秒はしっかり使う', T)).toEqual({ ok: true })
-    expect(createTeamRuleStore(mem).load()).toEqual({ status: 'ok', rules: { 'GI-FOU-02-B': RULE, 'GI-SCR-01-A': '24秒はしっかり使う' } })
+    expect(createTeamRuleStore(mem).load()).toMatchObject({ status: 'ok', rules: { 'GI-FOU-02-B': RULE, 'GI-SCR-01-A': '24秒はしっかり使う' }, profiles: [] })
     const saved = JSON.parse(mem.getItem(TEAM_RULE_STORAGE_KEY)!)
     expect(saved.schemaVersion).toBe(TEAM_RULE_SCHEMA_VERSION)
     expect(saved.rules[0]).toEqual({ questionId: 'GI-FOU-02-B', text: RULE, updatedAt: T.toISOString() })
@@ -82,7 +82,7 @@ describe('チームの約束の保存（TeamRuleStore）', () => {
     const full = new MemoryStorage()
     full.failWrites = true
     expect(createTeamRuleStore(full).save('GI-FOU-02-B', RULE, T)).toEqual({ ok: false, reason: 'quota-or-error' })
-    expect(createTeamRuleStore(null).load()).toEqual({ status: 'unavailable', rules: {} })
+    expect(createTeamRuleStore(null).load()).toEqual({ status: 'unavailable', rules: {}, profiles: [], byProfile: { '': {} } })
   })
   it('形の合わない記録（文が空・IDなし・日付が不正）は使わない', () => {
     const mem = new MemoryStorage()
@@ -99,6 +99,66 @@ describe('チームの約束の保存（TeamRuleStore）', () => {
       }),
     )
     expect(createTeamRuleStore(mem).load().rules).toEqual({ C: '使える' })
+  })
+})
+
+describe('相手ごとの約束（TeamRuleStore の profiles）', () => {
+  it('相手を足して、その相手の約束を書ける。いつもの約束とは別に残る', () => {
+    const mem = new MemoryStorage()
+    const store = createTeamRuleStore(mem)
+    store.save('GI-FOU-02-B', RULE, T)
+    const added = store.addProfile('  背の高いチーム  ', T)
+    expect(added.ok).toBe(true)
+    const id = added.ok ? added.id : ''
+    expect(store.save('GI-FOU-02-B', 'ブロックに跳ばず、ボックスアウト', T, id)).toEqual({ ok: true })
+    const l = createTeamRuleStore(mem).load()
+    expect(l.profiles).toEqual([{ id, name: '背の高いチーム', createdAt: T.toISOString() }])
+    expect(l.rules).toEqual({ 'GI-FOU-02-B': RULE })
+    expect(l.byProfile[id]).toEqual({ 'GI-FOU-02-B': 'ブロックに跳ばず、ボックスアウト' })
+    // 相手の約束を消しても、いつもの約束は残る
+    store.save('GI-FOU-02-B', '', T, id)
+    expect(store.load().byProfile[id]).toEqual({})
+    expect(store.load().rules).toEqual({ 'GI-FOU-02-B': RULE })
+  })
+  it('相手ごとの約束がない問題は、いつもの約束を使う', () => {
+    const byProfile = { '': { A: 'いつも', B: 'いつもB' }, p1: { B: '相手B' } }
+    expect(mergeTeamRules(byProfile, 'p1')).toEqual({ A: 'いつも', B: '相手B' })
+    expect(mergeTeamRules(byProfile, '')).toEqual({ A: 'いつも', B: 'いつもB' })
+  })
+  it('相手を消すと、その相手の約束だけが消える。名前が空なら足さない。長い名前は上限で切る', () => {
+    const mem = new MemoryStorage()
+    const store = createTeamRuleStore(mem)
+    expect(store.addProfile('   ', T)).toEqual({ ok: false, reason: 'empty-name' })
+    const a = store.addProfile('速攻が多いチーム', T)
+    const b = store.addProfile('あ'.repeat(TEAM_PROFILE_NAME_MAX_LENGTH + 10), T)
+    if (!a.ok || !b.ok) throw new Error('add failed')
+    expect(a.id).not.toBe(b.id) // 同じ時刻でも ID は重ならない
+    store.save('GI-FOU-02-B', RULE, T)
+    store.save('GI-FOU-02-B', '走って戻る', T, a.id)
+    store.save('GI-FOU-02-B', '外を守る', T, b.id)
+    expect(store.deleteProfile(a.id)).toEqual({ ok: true })
+    const l = store.load()
+    expect(l.profiles.map((x) => x.id)).toEqual([b.id])
+    expect(l.profiles[0].name).toHaveLength(TEAM_PROFILE_NAME_MAX_LENGTH)
+    expect(l.byProfile[a.id]).toBeUndefined()
+    expect(l.byProfile[b.id]).toEqual({ 'GI-FOU-02-B': '外を守る' })
+    expect(l.rules).toEqual({ 'GI-FOU-02-B': RULE })
+    expect(JSON.parse(mem.getItem(TEAM_RULE_STORAGE_KEY)!).rules.some((r: { profile?: string }) => r.profile === a.id)).toBe(false)
+  })
+  it('今までの記録（相手なし）はそのまま「いつもの約束」として読める。ない相手の約束は保存しない・使わない', () => {
+    const mem = new MemoryStorage()
+    mem.setItem(TEAM_RULE_STORAGE_KEY, JSON.stringify({ schemaVersion: 1, rules: [{ questionId: 'GI-FOU-02-B', text: RULE, updatedAt: T.toISOString() }, { questionId: 'GI-FOU-02-A', text: '消えた相手', updatedAt: T.toISOString(), profile: 'p-gone' }] }))
+    const store = createTeamRuleStore(mem)
+    expect(store.load()).toMatchObject({ status: 'ok', rules: { 'GI-FOU-02-B': RULE }, profiles: [] })
+    expect(store.load().byProfile['p-gone']).toBeUndefined()
+    expect(store.save('GI-FOU-02-B', 'x', T, 'p-nothing').ok).toBe(false)
+  })
+  it('すべて削除で、相手ごとの約束も消える', () => {
+    const mem = new MemoryStorage()
+    const store = createTeamRuleStore(mem)
+    store.addProfile('背の高いチーム', T)
+    store.deleteAll()
+    expect(store.load().profiles).toEqual([])
   })
 })
 

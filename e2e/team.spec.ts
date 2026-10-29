@@ -85,4 +85,41 @@ test.describe('チームの約束（先生が書き、課題URLで生徒に届�
     await solveToExplanation(page, question('GI-FOU-02-A').stages.length, 0)
     await expect(page.getByText('チームの約束はまだ登録されていません。')).toBeVisible()
   })
+
+  test('相手ごとの約束：相手を足して約束を書き、COACH で選ぶとその約束が URL に入る（相手の名前は入らない）。消すといつもの約束に戻る', async ({ page }) => {
+    const PROFILE_RULE = '背の高い相手には、ブロックに跳ばずボックスアウト。'
+    const teamOf = (url: string) => JSON.parse(Buffer.from(new URL(url.replace('#/', '')).searchParams.get('team')!, 'base64url').toString('utf8'))
+    await saveRule(page, 'GI-FOU-02-B', RULE)
+    await page.getByText('相手ごとの約束を足す・消す').click()
+    await page.getByRole('textbox', { name: /^相手の特徴/ }).fill('背の高いチーム')
+    await page.getByRole('button', { name: '相手を足す' }).click()
+    await expect(page.getByRole('status').filter({ hasText: '「背の高いチーム」を足しました。' })).toBeVisible()
+    await expect(page.getByRole('combobox', { name: 'どの約束を書く？' })).toHaveValue(/^p-/)
+    await expect(page.getByText('この相手の約束がない時は、いつもの約束を使います。')).toBeVisible()
+    await expect(teamBox(page)).toContainText(RULE) // まだ相手の約束がないので、いつもの約束
+    await page.getByRole('textbox', { name: /^チームの約束（/ }).fill(PROFILE_RULE)
+    await page.getByRole('button', { name: '約束を保存' }).click()
+    await expect(teamBox(page)).toContainText(PROFILE_RULE)
+
+    await page.goto('./#/coach')
+    await page.getByRole('list', { name: 'セットの一覧' }).getByRole('button', { name: /自分のファウル数だけが違う/ }).click()
+    await page.getByRole('combobox', { name: '入れる約束' }).selectOption({ label: '相手ごと：背の高いチーム' })
+    await page.getByRole('button', { name: '課題URLを作成' }).click()
+    const url = await urlBox(page).inputValue()
+    expect(teamOf(url)).toEqual({ v: 1, r: { 'GI-FOU-02-B': PROFILE_RULE } })
+    expect(JSON.stringify(teamOf(url))).not.toContain('背の高いチーム')
+    await page.getByRole('combobox', { name: '入れる約束' }).selectOption({ label: 'いつもの約束' })
+    await page.getByRole('button', { name: '課題URLを作成' }).click()
+    expect(teamOf(await urlBox(page).inputValue())).toEqual({ v: 1, r: { 'GI-FOU-02-B': RULE } })
+
+    // 相手を消すと、その相手の約束も消え、いつもの約束に戻る
+    await page.goto('./#/coach/review/question/GI-FOU-02-B')
+    await page.getByRole('combobox', { name: 'どの約束を書く？' }).selectOption({ label: '相手ごと：背の高いチーム' })
+    await page.getByText('相手ごとの約束を足す・消す').click()
+    await page.getByRole('button', { name: /「背の高いチーム」を消す/ }).click()
+    await page.getByRole('button', { name: '本当に消す' }).click()
+    await expect(page.getByRole('combobox', { name: 'どの約束を書く？' })).toHaveValue('')
+    await expect(page.getByRole('option', { name: '相手ごと：背の高いチーム' })).toHaveCount(0)
+    await expect(teamBox(page)).toContainText(RULE)
+  })
 })

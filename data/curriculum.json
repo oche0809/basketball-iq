@@ -114,7 +114,7 @@
         "level": "中",
         "mitigation": "ドライブ方向違いのセット"
       },
-      "question_set": "SET-DRIVE-SUPPORT",
+      "question_set": null,
       "related_drills": [
         "lib-062",
         "lib-156"
@@ -177,7 +177,7 @@
         "level": "中",
         "mitigation": "DFが寄る／寄らないのペア"
       },
-      "question_set": "SET-DRIVE-SUPPORT",
+      "question_set": "SET-CORNER-HELP",
       "related_drills": [
         "lib-194"
       ],
@@ -239,7 +239,7 @@
         "level": "低",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-REPLACE",
       "related_drills": [
         "lib-181"
       ],
@@ -799,7 +799,7 @@
         "level": "中",
         "mitigation": "ポストDFが出ない版とペア"
       },
-      "question_set": null,
+      "question_set": "SET-BASELINE-DRIVE",
       "related_drills": [
         "lib-142"
       ],
@@ -860,7 +860,7 @@
         "level": "低",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-PAINT-READ",
       "related_drills": [
         "lib-241"
       ],
@@ -1103,7 +1103,7 @@
         "level": "中",
         "mitigation": "DF位置3種類のセット"
       },
-      "question_set": null,
+      "question_set": "SET-POST-ENTRY",
       "related_drills": [
         "lib-065",
         "lib-190"
@@ -1352,7 +1352,7 @@
         "level": "低",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-AFTER-CUT",
       "related_drills": [
         "lib-196"
       ],
@@ -1416,7 +1416,7 @@
         "level": "低",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-HELP-BALLHANDLER",
       "related_drills": [
         "lib-187",
         "lib-191"
@@ -3421,7 +3421,7 @@
         "level": "中",
         "mitigation": "3年"
       },
-      "question_set": null,
+      "question_set": "SET-ROLL-TAG",
       "related_drills": [
         "lib-197"
       ],
@@ -3759,7 +3759,7 @@
         "level": "中",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-4V3-DEFENSE",
       "related_drills": [
         "lib-228"
       ],
@@ -3882,7 +3882,7 @@
         "level": "低",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-FASTBREAK-LANES",
       "related_drills": [
         "lib-087",
         "lib-086",
@@ -4376,7 +4376,7 @@
         "level": "中",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-4V3-TRAILER",
       "related_drills": [
         "lib-228"
       ],
@@ -4498,7 +4498,7 @@
         "level": "中",
         "mitigation": "大小のペア"
       },
-      "question_set": null,
+      "question_set": "SET-MISMATCH-SPACE",
       "related_drills": [
         "lib-188"
       ],
@@ -4737,7 +4737,7 @@
         "level": "中",
         "mitigation": null
       },
-      "question_set": null,
+      "question_set": "SET-LAST-POSSESSION",
       "related_drills": [],
       "related_tactics": [],
       "review": {
@@ -5198,7 +5198,7 @@
           "source_id": "SRC-CP-GENERAL"
         }
       ],
-      "question_set": null,
+      "question_set": "SET-BOX-OUT",
       "related_tactics": [],
       "review": {
         "verdict": "維持",
@@ -5260,7 +5260,7 @@
           "source_id": "SRC-CP-GENERAL"
         }
       ],
-      "question_set": null,
+      "question_set": "SET-OFF-REB",
       "related_tactics": [],
       "review": {
         "verdict": "維持",
@@ -5322,7 +5322,7 @@
           "source_id": "SRC-CP-GENERAL"
         }
       ],
-      "question_set": null,
+      "question_set": "SET-INBOUND",
       "related_tactics": [],
       "review": {
         "verdict": "維持",
@@ -5387,16 +5387,6 @@
       "learning_point": "寄ったDFが違えば、空く味方も違う",
       "curriculum_items": [
         "OF-DRV-03"
-      ]
-    },
-    {
-      "id": "SET-DRIVE-SUPPORT",
-      "kind": "DEFENSE_VARIATION",
-      "title": "味方のドライブ：自分のDFが寄る／寄らない",
-      "learning_point": "自分のDFの動きで、残るか動くかが変わる",
-      "curriculum_items": [
-        "OF-SPC-02",
-        "OF-SPC-03"
       ]
     },
     {
@@ -5730,6 +5720,195 @@
       "learning_point": "DFが間に合ったか（距離と勢い）で、ずれがあるかが決まる",
       "curriculum_items": [
         "AD-REC-01"
+      ]
+    },
+    {
+      "id": "SET-BOX-OUT",
+      "kind": "OFFENSE_ACTION_VARIATION",
+      "title": "リバウンドを守る",
+      "learning_point": "マークがゴールへ来るなら体を当てる。離れるならボールへ",
+      "curriculum_items": [
+        "DF-REB-01"
+      ]
+    },
+    {
+      "id": "SET-OFF-REB",
+      "kind": "BALL_VARIATION",
+      "title": "オフェンスリバウンド",
+      "learning_point": "シュートの角度で、入る場所が変わる",
+      "curriculum_items": [
+        "OF-REB-01"
+      ]
+    },
+    {
+      "id": "SET-INBOUND",
+      "kind": "DEFENSE_VARIATION",
+      "title": "スローイン",
+      "learning_point": "ボールを見て遅れたDFの相手へ入れる",
+      "curriculum_items": [
+        "OF-INB-01"
+      ]
+    },
+    {
+      "id": "SET-WING-DENY",
+      "kind": "DEFENSE_VARIATION",
+      "title": "パスがもらえない",
+      "learning_point": "裏が空いていればバックカット。ヘルプがいれば外へ離れる",
+      "curriculum_items": [
+        "OF-OFB-02"
+      ]
+    },
+    {
+      "id": "SET-CORNER-HELP",
+      "kind": "TEAMMATE_VARIATION",
+      "title": "コーナーで待つ？ 動く？",
+      "learning_point": "味方のドライブの向きで、コーナーに残るか上がるかが変わる",
+      "curriculum_items": [
+        "OF-SPC-03"
+      ]
+    },
+    {
+      "id": "SET-HELP-BALLHANDLER",
+      "kind": "DEFENSE_VARIATION",
+      "title": "味方のドリブルが止まった",
+      "learning_point": "空いている場所で、困った味方を助ける",
+      "curriculum_items": [
+        "OF-OFB-06"
+      ]
+    },
+    {
+      "id": "SET-AFTER-CUT",
+      "kind": "TEAMMATE_VARIATION",
+      "title": "カットしたのに、パスが来なかった",
+      "learning_point": "空いている外のスポットは、味方の動きで変わる",
+      "curriculum_items": [
+        "OF-OFB-04"
+      ]
+    },
+    {
+      "id": "SET-REPLACE",
+      "kind": "TEAMMATE_VARIATION",
+      "title": "パスが回った。どこへ動く？",
+      "learning_point": "スポットが空いた時だけ埋める",
+      "curriculum_items": [
+        "OF-SPC-05"
+      ]
+    },
+    {
+      "id": "SET-PAINT-READ",
+      "kind": "DEFENSE_VARIATION",
+      "title": "トップでボールを持った",
+      "learning_point": "ペイントの中のDFの数で、入るか外から打つかが変わる",
+      "curriculum_items": [
+        "OF-DRV-06"
+      ]
+    },
+    {
+      "id": "SET-POST-ENTRY",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ポストへのパス",
+      "learning_point": "ポストのDFの位置で、パスを入れる場所が変わる",
+      "curriculum_items": [
+        "OF-PAS-06"
+      ]
+    },
+    {
+      "id": "SET-CLOSEOUT-PLAYER",
+      "kind": "OFFENSE_VARIATION",
+      "title": "外へパスが出た。どう近づく？",
+      "learning_point": "相手の得意なことで、クローズアウトの止まり方が変わる",
+      "curriculum_items": [
+        "DF-CLO-01"
+      ]
+    },
+    {
+      "id": "SET-HELP-THE-HELPER",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ベースラインへのドライブ",
+      "learning_point": "誰かが空いた時だけ、ヘルプのヘルプに行く",
+      "curriculum_items": [
+        "DF-ROT-01"
+      ]
+    },
+    {
+      "id": "SET-JUMP-TO-BALL",
+      "kind": "BALL_VARIATION",
+      "title": "ボールが動いた。守る位置は？",
+      "learning_point": "ボールの位置で、守る位置を取り直す",
+      "curriculum_items": [
+        "DF-OFB-04"
+      ]
+    },
+    {
+      "id": "SET-ROLL-TAG",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ピック＆ロール。逆サイドのDFは？",
+      "learning_point": "ロールが空いた時だけ、止めに出る",
+      "curriculum_items": [
+        "DF-PNR-07"
+      ]
+    },
+    {
+      "id": "SET-FASTBREAK-LANES",
+      "kind": "TEAMMATE_VARIATION",
+      "title": "速攻、どのレーンを走る？",
+      "learning_point": "味方が走ったレーンで、空くレーンが変わる",
+      "curriculum_items": [
+        "TR-DOF-03"
+      ]
+    },
+    {
+      "id": "SET-TRANSITION-MATCHUP",
+      "kind": "DEFENSE_VARIATION",
+      "title": "戻ったら、自分のマークが遠い",
+      "learning_point": "ゴールの近くで空いている相手から守る",
+      "curriculum_items": [
+        "TR-ODF-04"
+      ]
+    },
+    {
+      "id": "SET-4V3-DEFENSE",
+      "kind": "DEFENSE_VARIATION",
+      "title": "4対3を守る",
+      "learning_point": "ゴールの近くが守れているかで、自分の役割が変わる",
+      "curriculum_items": [
+        "TR-ODF-08"
+      ]
+    },
+    {
+      "id": "SET-4V3-TRAILER",
+      "kind": "DEFENSE_VARIATION",
+      "title": "4対3。後ろから走ってきた",
+      "learning_point": "DFが集まっている場所で、走り込むか外で受けるかが変わる",
+      "curriculum_items": [
+        "AD-4V3-01"
+      ]
+    },
+    {
+      "id": "SET-MISMATCH-SPACE",
+      "kind": "DEFENSE_VARIATION",
+      "title": "味方のミスマッチ",
+      "learning_point": "ミスマッチの選手にボールが入るかで、周りの動きが変わる",
+      "curriculum_items": [
+        "AD-MIS-02"
+      ]
+    },
+    {
+      "id": "SET-LAST-POSSESSION",
+      "kind": "CONTEXT_VARIATION",
+      "title": "クォーターの終わり。いつ打つ？",
+      "learning_point": "残り時間とショットクロックを比べて、打つ時を決める",
+      "curriculum_items": [
+        "GI-CLK-04"
+      ]
+    },
+    {
+      "id": "SET-BASELINE-DRIVE",
+      "kind": "DEFENSE_VARIATION",
+      "title": "ベースラインへドライブした",
+      "learning_point": "ポストDFの動きで、パスか自分で打つかが変わる",
+      "curriculum_items": [
+        "OF-DRV-05"
       ]
     }
   ],

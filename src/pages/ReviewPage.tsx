@@ -26,7 +26,7 @@ import {
 } from '../review/reviewModel.ts'
 import { REVIEW_STATUSES, REVIEW_STATUS_LABELS, type ReviewRecord, type ReviewStatus } from '../storage/review.ts'
 import { type ReviewLoadResult, reviewStore } from '../storage/reviewStore.ts'
-import { TEAM_RULE_MAX_LENGTH, normalizeTeamRuleText } from '../storage/teamRule.ts'
+import { DEFAULT_PROFILE, TEAM_PROFILE_NAME_MAX_LENGTH, TEAM_RULE_MAX_LENGTH, mergeTeamRules, normalizeProfileName, normalizeTeamRuleText } from '../storage/teamRule.ts'
 import { type TeamRuleLoadResult, teamRuleStore } from '../storage/teamRuleStore.ts'
 import type { Category, CurriculumItem, DecisionOption, Difficulty, Question } from '../types/content.ts'
 import { CATEGORY_ORDER, DIFFICULTY_LABELS, gradeLabel } from '../utils/labels.ts'
@@ -302,7 +302,10 @@ function ReviewDetail({
 }) {
   const c = useContent()
   const [teamRules, setTeamRules] = useState<TeamRuleLoadResult>(() => teamRuleStore().load())
-  const item = kind === 'question' ? c.byId.question.get(id) : c.byId.curriculum.get(id)
+  // どの約束を書くか（いつもの約束／相手ごとの約束）。消えた相手なら、いつもの約束に戻す
+  const [pickedProfile, setProfile] = useState(DEFAULT_PROFILE)
+  const profile = teamRules.profiles.some((p) => p.id === pickedProfile) ? pickedProfile : DEFAULT_PROFILE
+  const item =kind === 'question' ? c.byId.question.get(id) : c.byId.curriculum.get(id)
   const backHref = `#/coach/review${query}`
   if (!item) return <NotFound id={`${kind}/${id}`} backHref={backHref} />
   const records = loaded.records
@@ -350,11 +353,11 @@ function ReviewDetail({
       </nav>
 
       {kind === 'question' && (
-        <TeamRulePanel key={id} q={item as Question} loaded={teamRules} onSaved={() => setTeamRules(teamRuleStore().load())} />
+        <TeamRulePanel key={id} q={item as Question} loaded={teamRules} profile={profile} onProfile={setProfile} onSaved={() => setTeamRules(teamRuleStore().load())} />
       )}
 
       {kind === 'question' ? (
-        <QuestionReview q={item as Question} reviewHref={reviewHref} teamRule={teamRules.rules[id]} />
+        <QuestionReview q={item as Question} reviewHref={reviewHref} teamRule={mergeTeamRules(teamRules.byProfile, profile)[id]} />
       ) : (
         <CurriculumReview item={item as CurriculumItem} reviewHref={reviewHref} />
       )}
@@ -442,15 +445,23 @@ function ReviewPanel({
 }
 
 // チームの約束：問題ごとに先生が書く。このブラウザに保存し、課題URLに入れると生徒の解説に出る
-function TeamRulePanel({ q, loaded, onSaved }: { q: Question; loaded: TeamRuleLoadResult; onSaved: () => void }) {
-  const saved = loaded.rules[q.id] ?? ''
+function TeamRulePanel({ q, loaded, profile, onProfile, onSaved }: { q: Question; loaded: TeamRuleLoadResult; profile: string; onProfile: (id: string) => void; onSaved: () => void }) {
+  const saved = loaded.byProfile[profile]?.[q.id] ?? ''
+  const usual = loaded.rules[q.id] ?? ''
   const [text, setText] = useState(saved)
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null)
+  // 書く約束を切り替えたら、入力欄をその約束の文に戻す
+  const [shownFor, setShownFor] = useState(profile)
+  if (shownFor !== profile) {
+    setShownFor(profile)
+    setText(saved)
+    setMessage(null)
+  }
   const dirty = normalizeTeamRuleText(text) !== saved
   // 教材データで「チームによって変わる」とされている点（TEAM_RULE の根拠）
   const points = q.evidence.filter((e) => e.basis === 'TEAM_RULE').map((e) => e.claim)
   const save = (next: string, okText: string) => {
-    const r = teamRuleStore().save(q.id, next)
+    const r = teamRuleStore().save(q.id, next, undefined, profile)
     if (r.ok) {
       setText(normalizeTeamRuleText(next))
       setMessage({ ok: true, text: okText })
@@ -484,6 +495,12 @@ function TeamRulePanel({ q, loaded, onSaved }: { q: Question; loaded: TeamRuleLo
       {loaded.status === 'unreadable' && (
         <p className="rounded-lg bg-[#fef3c7] px-3 py-2 text-sm font-bold text-[#92400e]">保存されていたチームの約束を読み込めませんでした。新しく保存すると、読めなかった記録は別に残したうえで書き直します。</p>
       )}
+      <ProfilePicker loaded={loaded} profile={profile} onProfile={onProfile} onChanged={onSaved} />
+      {profile !== DEFAULT_PROFILE && !saved && (
+        <p className="rounded-lg bg-[var(--hover)] px-3 py-2 text-sm">
+          この相手の約束がない時は、いつもの約束を使います。{usual ? `（いつもの約束：${usual}）` : '（この問題には、いつもの約束もありません）'}
+        </p>
+      )}
       <label className="flex flex-col gap-1">
         <span className="text-sm font-bold">
           チームの約束（{normalizeTeamRuleText(text).length} / {TEAM_RULE_MAX_LENGTH}字）
@@ -515,6 +532,96 @@ function TeamRulePanel({ q, loaded, onSaved }: { q: Question; loaded: TeamRuleLo
         </p>
       )}
     </section>
+  )
+}
+
+// どの約束を書くかを選ぶ。相手ごとの約束を足す・消す（名前は相手の特徴。このブラウザだけに保存し、URLには入れない）
+function ProfilePicker({ loaded, profile, onProfile, onChanged }: { loaded: TeamRuleLoadResult; profile: string; onProfile: (id: string) => void; onChanged: () => void }) {
+  const [name, setName] = useState('')
+  const [confirming, setConfirming] = useState(false)
+  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null)
+  const current = loaded.profiles.find((p) => p.id === profile)
+  const fail = (reason: string) =>
+    setMessage({ ok: false, text: reason === 'newer-version' ? '新しい形式の記録があるため、変更しませんでした。' : 'この端末では保存できませんでした。ブラウザの設定や空き容量を確かめてください。' })
+  const add = () => {
+    const r = teamRuleStore().addProfile(name)
+    if (!r.ok) return fail(r.reason)
+    setName('')
+    setMessage({ ok: true, text: `「${normalizeProfileName(name)}」を足しました。この相手の約束を書けます。` })
+    onChanged()
+    onProfile(r.id)
+  }
+  const remove = () => {
+    if (!current) return
+    const r = teamRuleStore().deleteProfile(current.id)
+    setConfirming(false)
+    if (!r.ok) return fail(r.reason)
+    setMessage({ ok: true, text: `「${current.name}」と、その約束を消しました。` })
+    onChanged()
+    onProfile(DEFAULT_PROFILE)
+  }
+  return (
+    <div className="flex flex-col gap-2 rounded-xl border border-[var(--line)] p-3">
+      <label className="flex flex-col gap-1">
+        <span className="text-sm font-bold">どの約束を書く？</span>
+        <select
+          value={profile}
+          onChange={(e) => {
+            setConfirming(false)
+            onProfile(e.target.value)
+          }}
+          className="min-h-12 rounded-xl border border-[var(--line)] bg-[var(--bg)] px-3 text-base"
+        >
+          <option value={DEFAULT_PROFILE}>いつもの約束</option>
+          {loaded.profiles.map((p) => (
+            <option key={p.id} value={p.id}>
+              相手ごと：{p.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <details>
+        <summary className="min-h-11 cursor-pointer py-2 text-sm font-bold">相手ごとの約束を足す・消す</summary>
+        <div className="flex flex-col gap-2">
+          <label className="flex flex-col gap-1">
+            <span className="text-sm font-bold">
+              相手の特徴（{normalizeProfileName(name).length} / {TEAM_PROFILE_NAME_MAX_LENGTH}字）
+            </span>
+            <input
+              value={name}
+              maxLength={TEAM_PROFILE_NAME_MAX_LENGTH}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="例：背の高いチーム、速攻が多いチーム"
+              className="min-h-12 rounded-xl border border-[var(--line)] bg-[var(--bg)] px-3 text-base"
+            />
+          </label>
+          <p className="text-sm text-[var(--muted)]">学校名・人の名前は入れないでください。この名前はこのブラウザだけに保存し、課題URLには入れません。</p>
+          <button type="button" disabled={!normalizeProfileName(name)} onClick={add} className="btn-secondary px-2 disabled:opacity-40">
+            相手を足す
+          </button>
+          {current &&
+            (confirming ? (
+              <div className="grid grid-cols-2 gap-2">
+                <button type="button" onClick={remove} className="btn-primary px-2">
+                  本当に消す
+                </button>
+                <button type="button" onClick={() => setConfirming(false)} className="btn-secondary px-2">
+                  やめる
+                </button>
+              </div>
+            ) : (
+              <button type="button" onClick={() => setConfirming(true)} className="btn-secondary px-2">
+                「{current.name}」を消す（この相手の約束もすべて消えます）
+              </button>
+            ))}
+        </div>
+      </details>
+      {message && (
+        <p role="status" className={`rounded-lg px-3 py-2 text-sm font-bold ${message.ok ? 'bg-[#f0fdf4] text-[#166534]' : 'bg-[#fef3c7] text-[#92400e]'}`}>
+          {message.text}
+        </p>
+      )}
+    </div>
   )
 }
 

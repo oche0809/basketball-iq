@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { type AssignmentTarget, assignmentPath, assignmentUrl, copyText } from '../coach/assignment.ts'
 import { filterQuestions, filterSets } from '../coach/coachFilter.ts'
 import { encodeTeamRules, pickTeamRules } from '../coach/teamRuleParam.ts'
+import { DEFAULT_PROFILE, mergeTeamRules } from '../storage/teamRule.ts'
 import { teamRuleStore } from '../storage/teamRuleStore.ts'
 import { ChipGroup } from '../components/ChipGroup.tsx'
 import { PageTitle } from '../components/PageTitle.tsx'
@@ -20,8 +21,11 @@ export function CoachPage() {
   const [selected, setSelected] = useState<AssignmentTarget | null>(null)
   const [url, setUrl] = useState<string | null>(null)
   const [copy, setCopy] = useState<'idle' | 'ok' | 'failed'>('idle')
-  const [teamRules] = useState(() => teamRuleStore().load().rules) // このブラウザに保存したチームの約束
+  const [teamLoaded] = useState(() => teamRuleStore().load()) // このブラウザに保存したチームの約束
   const [withTeam, setWithTeam] = useState(true)
+  // どの約束を入れるか（相手ごとの約束がない問題は、いつもの約束を使う）
+  const [profile, setProfile] = useState(DEFAULT_PROFILE)
+  const teamRules = useMemo(() => mergeTeamRules(teamLoaded.byProfile, profile), [teamLoaded, profile])
   const update = (patch: Partial<MapFilter>) => setF((prev) => ({ ...prev, ...patch }))
   const sets = useMemo(() => filterSets(c, f), [c, f])
   const questions = useMemo(() => filterQuestions(c, f), [c, f])
@@ -55,7 +59,7 @@ export function CoachPage() {
         <span aria-hidden="true">›</span>
       </a>
       <p className="mb-3 rounded-xl bg-[var(--hover)] px-3 py-2 text-sm">
-        URLには教材のIDと、選んだ場合はチームの約束だけが入ります（名前などの個人情報は入りません）。生徒の回答は先生には送られず、それぞれの端末の中だけに記録されます。チームの約束は、教材レビューの問題のページで書けます。
+        URLには教材のIDと、選んだ場合はチームの約束だけが入ります（名前などの個人情報は入りません）。生徒の回答は先生には送られず、それぞれの端末の中だけに記録されます。チームの約束（いつもの約束・相手ごとの約束）は、教材レビューの問題のページで書けます。相手ごとの約束の名前はURLに入りません。
       </p>
 
       <div className="card flex flex-col gap-3" role="search">
@@ -167,6 +171,27 @@ export function CoachPage() {
               'セットか問題を1つ選んでください。'
             )}
           </p>
+          {selected && teamLoaded.profiles.length > 0 && (
+            <label className="flex items-center gap-2 text-sm font-bold">
+              <span className="shrink-0">入れる約束</span>
+              <select
+                value={profile}
+                onChange={(e) => {
+                  setProfile(e.target.value)
+                  setUrl(null)
+                  setCopy('idle')
+                }}
+                className="min-h-11 min-w-0 flex-1 rounded-xl border border-[var(--line)] bg-[var(--bg)] px-2 text-base"
+              >
+                <option value={DEFAULT_PROFILE}>いつもの約束</option>
+                {teamLoaded.profiles.map((p) => (
+                  <option key={p.id} value={p.id}>
+                    相手ごと：{p.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
           {teamCount > 0 && (
             <label className="flex min-h-11 items-center gap-2 text-sm font-bold">
               <input
